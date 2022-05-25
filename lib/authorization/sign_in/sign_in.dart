@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:podcast_app/authorization/components/input_info_text_field.dart';
 
 class SignInPage extends StatelessWidget {
   const SignInPage({Key? key}) : super(key: key);
@@ -12,11 +13,12 @@ class SignInPage extends StatelessWidget {
       body: SafeArea(
         child: Column(
           children: [
+            SizedBox(height: 35),
             Container(
-              padding: const EdgeInsets.only(
-                  left: 50, right: 50, top: 50, bottom: 35),
+              padding: const EdgeInsets.only(left: 50, right: 50),
               child: Image.asset('assets/images/logo.png', fit: BoxFit.cover),
             ),
+            SizedBox(height: 30),
             Text(
               "Welcome Back!",
               style: TextStyle(
@@ -31,34 +33,17 @@ class SignInPage extends StatelessWidget {
                 color: Color(0xFF7B7B8B),
               ),
             ),
-            Container(
-              width: devWidth - 40,
-              decoration: BoxDecoration(color: Color(0xFF1D192C)),
-              child: Row(
-                children: [
-                  Padding(
-                    padding:
-                        const EdgeInsets.symmetric(horizontal: 15, vertical: 8),
-                    child: Icon(
-                      Icons.email_outlined,
-                      color: Color(0xFF7477A0),
-                    ),
-                  ),
-                  Container(
-                    width: devWidth - 100,
-                    child: TextField(
-                      keyboardType: TextInputType.emailAddress,
-                      decoration: InputDecoration(
-                        hintText: "Email Address",
-                        hintStyle: TextStyle(
-                          color: Color(0xFF7477A0),
-                        ),
-                      ),
-                      textInputAction: TextInputAction.next,
-                    ),
-                  ),
-                ],
-              ),
+            SizedBox(height: 20),
+            InputInfoTextField(
+              text: "Email Address",
+              icon: Icons.email_outlined,
+              inType: TextInputType.text,
+            ),
+            SizedBox(height: 20),
+            InputInfoTextField(
+              text: "Password",
+              icon: Icons.lock_outline,
+              inType: TextInputType.emailAddress,
             ),
           ],
         ),
