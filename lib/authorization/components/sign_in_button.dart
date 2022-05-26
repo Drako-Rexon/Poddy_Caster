@@ -19,10 +19,11 @@ class SignInButtoncustom extends StatelessWidget {
     return ElevatedButton(
       onPressed: () {},
       style: ButtonStyle(
-          padding: MaterialStateProperty.all(
-            const EdgeInsets.symmetric(vertical: 14),
-          ),
-          backgroundColor: MaterialStateProperty.all(backColor)),
+        padding: MaterialStateProperty.all(
+          const EdgeInsets.symmetric(vertical: 14),
+        ),
+        backgroundColor: MaterialStateProperty.all(backColor),
+      ),
       child: Container(
         width: devWidth - 50,
         child: Row(
