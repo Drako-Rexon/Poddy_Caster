@@ -39,9 +39,11 @@ class _InputInfoTextFieldState extends State<InputInfoTextField> {
       ),
       width: devWidth - 50,
       child: TextField(
+        style: TextStyle(color: Color(0xFF7477A0)),
         obscureText: visiblePass,
         keyboardType: widget.inType,
         decoration: InputDecoration(
+          fillColor: Colors.white,
           border: InputBorder.none,
           prefixIcon: Icon(
             widget.icon,
