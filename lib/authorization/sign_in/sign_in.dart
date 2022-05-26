@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:podcast_app/Terms_of_service/terms_of_service.dart';
 import 'package:podcast_app/authorization/components/input_info_text_field.dart';
 import 'package:podcast_app/authorization/components/sign_in_button.dart';
 
@@ -152,6 +154,7 @@ class _SignInPageState extends State<SignInPage> {
                     Text(
                       "Don't have account?",
                       style: TextStyle(
+                        fontFamily: 'CircularStd-Book',
                         color: Color(0xFF7477A0),
                       ),
                     ),
@@ -163,34 +166,44 @@ class _SignInPageState extends State<SignInPage> {
                       child: Text(
                         "Sign Up",
                         style: TextStyle(
+                          fontFamily: 'CircularStd',
                           color: Color(0xFFFB6580),
                         ),
                       ),
                     ),
                   ],
                 ),
-                Column(
+                SizedBox(height: 30),
+                Text(
+                  "By signing up you indicate that you have read and",
+                  style: TextStyle(
+                    fontSize: 8,
+                    fontFamily: 'CircularStd-Book',
+                    color: Color(0xFF7477A0),
+                  ),
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Container(
-                      child: Text(
-                          "By signing up you indicate that you have read and"),
+                    Text(
+                      "agreed to the Patch",
+                      style: TextStyle(
+                        fontSize: 8,
+                        fontFamily: 'CircularStd-Book',
+                        color: Color(0xFF7477A0),
+                      ),
                     ),
-                    Container(
-                      child: Row(
-                        children: [
-                          Text("agreed to the Patch"),
-                          // TextButton(
-                          //   style: ButtonStyle(
-                          //     minimumSize: MaterialStateProperty.all(
-                          //         Size.zero), // Set this
-                          //     padding:
-                          //         MaterialStateProperty.all(EdgeInsets.zero),
-                          //   ),
-                          //   onPressed: () {},
-                          
-                          //   child: Text("Terms of Service"),
-                          // ),
-                        ],
+                    InkWell(
+                      onTap: () {
+                        Get.to(TermsOfService());
+                      },
+                      child: Text(
+                        "Terms of Service",
+                        style: TextStyle(
+                          fontSize: 8,
+                          fontFamily: 'CircularStd',
+                          color: Color(0xFFFB6580),
+                        ),
                       ),
                     ),
                   ],
