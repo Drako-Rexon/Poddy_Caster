@@ -3,9 +3,10 @@ import 'package:get/get.dart';
 import 'package:podcast_app/Terms_of_service/terms_of_service.dart';
 import 'package:podcast_app/authorization/components/input_info_text_field.dart';
 import 'package:podcast_app/authorization/components/sign_in_button.dart';
+import 'package:podcast_app/components/normal_text.dart';
 
 class SignInPage extends StatefulWidget {
-  const SignInPage({Key? key}) : super(key: key);
+  SignInPage({Key? key}) : super(key: key);
 
   @override
   State<SignInPage> createState() => _SignInPageState();
@@ -13,12 +14,21 @@ class SignInPage extends StatefulWidget {
 
 class _SignInPageState extends State<SignInPage> {
   bool value = false;
+  bool isVisible = false;
+  final textController = TextEditingController();
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    textController.addListener(() => setState(() {}));
+  }
+
   @override
   Widget build(BuildContext context) {
     double devWidth = MediaQuery.of(context).size.width;
     double devHeight = MediaQuery.of(context).size.height;
     return Scaffold(
-      // backgroundColor: RadialGradient(colors: []),
       body: SafeArea(
         child: Container(
           height: devHeight,
@@ -40,32 +50,93 @@ class _SignInPageState extends State<SignInPage> {
                       Image.asset('assets/images/logo.png', fit: BoxFit.cover),
                 ),
                 SizedBox(height: 30),
-                Text(
-                  "Welcome Back!",
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontFamily: 'CircularStd',
-                    fontSize: 24,
-                  ),
+                NormalText(
+                  text: "Welcome Back!",
+                  isBold: true,
+                  textColor: Colors.white,
+                  textSize: 24,
                 ),
-                Text(
-                  "Login to continue Radio App",
-                  style: TextStyle(
-                    color: Color(0xFF7B7B8B),
+                NormalText(text: "Login to continue Radio App"),
+                SizedBox(height: 20),
+                Container(
+                  decoration: BoxDecoration(
+                    color: Color(0xFF1D192C),
+                    borderRadius: BorderRadius.circular(6),
+                  ),
+                  width: devWidth - 50,
+                  child: TextField(
+                    style: TextStyle(color: Color(0xFF7477A0)),
+                    keyboardType: TextInputType.emailAddress,
+                    decoration: InputDecoration(
+                      border: InputBorder.none,
+                      prefixIcon: Icon(
+                        Icons.mail_outline,
+                        color: Color(0xFF7477A0),
+                        size: 18,
+                      ),
+                      suffixIcon: textController.text.isNotEmpty
+                          ? Container(width: 0)
+                          : IconButton(
+                              icon: Icon(Icons.close),
+                              onPressed: () {
+                                setState(() {
+                                  textController.clear();
+                                });
+                              },
+                            ),
+                      hintText: "Email Address",
+                      hintStyle: TextStyle(
+                        fontFamily: 'CircularStd-Book',
+                        color: Color(0xFF7477A0),
+                        fontSize: 12,
+                      ),
+                    ),
+                    textInputAction: TextInputAction.next,
                   ),
                 ),
                 SizedBox(height: 20),
-                InputInfoTextField(
-                  text: "Email Address",
-                  icon: Icons.email_outlined,
-                  inType: TextInputType.text,
+                Container(
+                  decoration: BoxDecoration(
+                    color: Color(0xFF1D192C),
+                    borderRadius: BorderRadius.circular(6),
+                  ),
+                  width: devWidth - 50,
+                  child: TextField(
+                    obscureText: !isVisible,
+                    style: TextStyle(color: Color(0xFF7477A0)),
+                    keyboardType: TextInputType.emailAddress,
+                    decoration: InputDecoration(
+                      border: InputBorder.none,
+                      prefixIcon: Icon(
+                        Icons.lock_outline,
+                        color: Color(0xFF7477A0),
+                        size: 18,
+                      ),
+                      suffixIcon: IconButton(
+                        icon: Icon(isVisible
+                            ? Icons.visibility_off
+                            : Icons.remove_red_eye),
+                        onPressed: () {
+                          setState(() {
+                            isVisible = !isVisible;
+                          });
+                        },
+                      ),
+                      hintText: "Password",
+                      hintStyle: TextStyle(
+                        fontFamily: 'CircularStd-Book',
+                        color: Color(0xFF7477A0),
+                        fontSize: 12,
+                      ),
+                    ),
+                    textInputAction: TextInputAction.next,
+                  ),
                 ),
-                SizedBox(height: 20),
-                InputInfoTextField(
-                  text: "Password",
-                  icon: Icons.lock_outline,
-                  obsText: true,
-                ),
+                // InputInfoTextField(
+                //   text: "Password",
+                //   icon: Icons.lock_outline,
+                //   obsText: true,
+                // ),
                 Container(
                   padding: const EdgeInsets.only(left: 12, right: 27),
                   child: Row(
@@ -84,21 +155,14 @@ class _SignInPageState extends State<SignInPage> {
                               });
                             },
                           ),
-                          Text(
-                            "Remeber me",
-                            style: TextStyle(
-                              color: Color(0xFF7B7B8B),
-                            ),
-                          ),
+                          NormalText(text: "Remeber me"),
                         ],
                       ),
                       FlatButton(
                         onPressed: () {},
-                        child: Text(
-                          "Forget password?",
-                          style: TextStyle(
-                            color: Color(0xFF7B7B8B),
-                          ),
+                        child: NormalText(
+                          text: "Forget password?",
+                          isBold: true,
                         ),
                       ),
                     ],
@@ -117,24 +181,16 @@ class _SignInPageState extends State<SignInPage> {
                   child: TextButton(
                     style: ButtonStyle(),
                     onPressed: () {},
-                    child: Text(
-                      "Log In",
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontFamily: 'CircularStd',
-                        fontSize: 18,
-                      ),
+                    child: NormalText(
+                      text: "Log In",
+                      textColor: Colors.white,
+                      textSize: 18,
+                      isBold: true,
                     ),
                   ),
                 ),
                 SizedBox(height: 20),
-                Text(
-                  "OR",
-                  style: TextStyle(
-                    color: Color(0xFF7477A0),
-                    fontFamily: 'CircularStd-Book',
-                  ),
-                ),
+                NormalText(text: "OR"),
                 SizedBox(height: 20),
                 SignInButtoncustom(
                   text: "Continue with Google",
@@ -151,59 +207,48 @@ class _SignInPageState extends State<SignInPage> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Text(
-                      "Don't have account?",
-                      style: TextStyle(
-                        fontFamily: 'CircularStd-Book',
-                        color: Color(0xFF7477A0),
-                      ),
-                    ),
+                    NormalText(text: "Don't have account?"),
                     TextButton(
                       style: ButtonStyle(
                         padding: MaterialStateProperty.all(EdgeInsets.all(0)),
                       ),
                       onPressed: () {},
-                      child: Text(
-                        "Sign Up",
-                        style: TextStyle(
-                          fontFamily: 'CircularStd',
-                          color: Color(0xFFFB6580),
-                        ),
+                      child: NormalText(
+                        text: "Sign Up",
+                        textColor: Color(0xFFFB6580),
+                        isBold: true,
                       ),
                     ),
                   ],
                 ),
                 SizedBox(height: 30),
-                Text(
-                  "By signing up you indicate that you have read and",
-                  style: TextStyle(
-                    fontSize: 8,
-                    fontFamily: 'CircularStd-Book',
-                    color: Color(0xFF7477A0),
-                  ),
+                // Text(
+                //   "By signing up you indicate that you have read and",
+                //   style: TextStyle(
+                //     fontSize: 8,
+                //     fontFamily: 'CircularStd-Book',
+                //     color: Color(0xFF7477A0),
+                //   ),
+                // ),
+                NormalText(
+                  text: "By signing up you indicate that you have read and",
+                  textSize: 8,
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Text(
-                      "agreed to the Patch",
-                      style: TextStyle(
-                        fontSize: 8,
-                        fontFamily: 'CircularStd-Book',
-                        color: Color(0xFF7477A0),
-                      ),
+                    NormalText(
+                      text: "agreed to the Patch",
+                      textSize: 8,
                     ),
                     InkWell(
                       onTap: () {
                         Get.to(TermsOfService());
                       },
-                      child: Text(
-                        "Terms of Service",
-                        style: TextStyle(
-                          fontSize: 8,
-                          fontFamily: 'CircularStd',
-                          color: Color(0xFFFB6580),
-                        ),
+                      child: NormalText(
+                        text: "Terms of Service",
+                        textSize: 8,
+                        textColor: Color(0xFFFB6580),
                       ),
                     ),
                   ],
