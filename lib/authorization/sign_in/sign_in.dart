@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:podcast_app/Terms_of_service/terms_of_service.dart';
-import 'package:podcast_app/authorization/components/input_info_text_field.dart';
+import 'package:podcast_app/authorization/components/gradient_button.dart';
 import 'package:podcast_app/authorization/components/sign_in_button.dart';
 import 'package:podcast_app/components/normal_text.dart';
 
@@ -132,11 +132,7 @@ class _SignInPageState extends State<SignInPage> {
                     textInputAction: TextInputAction.next,
                   ),
                 ),
-                // InputInfoTextField(
-                //   text: "Password",
-                //   icon: Icons.lock_outline,
-                //   obsText: true,
-                // ),
+
                 Container(
                   padding: const EdgeInsets.only(left: 12, right: 27),
                   child: Row(
@@ -168,27 +164,7 @@ class _SignInPageState extends State<SignInPage> {
                     ],
                   ),
                 ),
-                Container(
-                  width: devWidth - 50,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.all(Radius.circular(6)),
-                    gradient: LinearGradient(
-                      begin: Alignment.topLeft,
-                      end: Alignment.bottomRight,
-                      colors: [Color(0xFFFB6580), Color(0xFFF11775)],
-                    ),
-                  ),
-                  child: TextButton(
-                    style: ButtonStyle(),
-                    onPressed: () {},
-                    child: NormalText(
-                      text: "Log In",
-                      textColor: Colors.white,
-                      textSize: 18,
-                      isBold: true,
-                    ),
-                  ),
-                ),
+                GradientButton(devWidth: devWidth, text: "Log In"),
                 SizedBox(height: 20),
                 NormalText(text: "OR"),
                 SizedBox(height: 20),
