@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:podcast_app/components/data_for_dynamic.dart';
 
 class SignInButtoncustom extends StatelessWidget {
   const SignInButtoncustom(
@@ -20,19 +21,19 @@ class SignInButtoncustom extends StatelessWidget {
       onPressed: () {},
       style: ButtonStyle(
         padding: MaterialStateProperty.all(
-          const EdgeInsets.symmetric(vertical: 14),
+          EdgeInsets.symmetric(vertical: SizeForDynamic.height15),
         ),
         backgroundColor: MaterialStateProperty.all(backColor),
       ),
       child: Container(
-        width: devWidth - 50,
+        width: devWidth - SizeForDynamic.width50,
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Image(
               image: AssetImage(iconLocation),
-              width: 40,
-              height: 20,
+              width: SizeForDynamic.width40,
+              height: SizeForDynamic.height20,
             ),
             Text(
               text,

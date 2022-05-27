@@ -3,7 +3,7 @@ import 'package:get/get.dart';
 import 'package:podcast_app/authorization/sign_in/sign_in.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatefulWidget {
@@ -24,7 +24,7 @@ class _MyAppState extends State<MyApp> {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: SignInPage(),
+      home: const SignInPage(),
     );
   }
 }

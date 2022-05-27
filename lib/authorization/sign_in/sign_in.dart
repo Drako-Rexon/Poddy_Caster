@@ -3,10 +3,11 @@ import 'package:get/get.dart';
 import 'package:podcast_app/Terms_of_service/terms_of_service.dart';
 import 'package:podcast_app/authorization/components/gradient_button.dart';
 import 'package:podcast_app/authorization/components/sign_in_button.dart';
+import 'package:podcast_app/components/data_for_dynamic.dart';
 import 'package:podcast_app/components/normal_text.dart';
 
 class SignInPage extends StatefulWidget {
-  SignInPage({Key? key}) : super(key: key);
+  const SignInPage({Key? key}) : super(key: key);
 
   @override
   State<SignInPage> createState() => _SignInPageState();
@@ -43,27 +44,29 @@ class _SignInPageState extends State<SignInPage> {
             child: Column(
               mainAxisSize: MainAxisSize.max,
               children: [
-                SizedBox(height: 35),
+                SizedBox(height: SizeForDynamic.height35),
                 Container(
-                  padding: const EdgeInsets.only(left: 50, right: 50),
+                  padding: EdgeInsets.only(
+                      left: SizeForDynamic.width50,
+                      right: SizeForDynamic.width50),
                   child:
                       Image.asset('assets/images/logo.png', fit: BoxFit.cover),
                 ),
-                SizedBox(height: 30),
+                SizedBox(height: SizeForDynamic.height30),
                 NormalText(
                   text: "Welcome Back!",
                   isBold: true,
                   textColor: Colors.white,
-                  textSize: 24,
+                  textSize: SizeForDynamic.textSize24,
                 ),
                 NormalText(text: "Login to continue Radio App"),
-                SizedBox(height: 20),
+                SizedBox(height: SizeForDynamic.height20),
                 Container(
                   decoration: BoxDecoration(
                     color: Color(0xFF1D192C),
                     borderRadius: BorderRadius.circular(6),
                   ),
-                  width: devWidth - 50,
+                  width: devWidth - SizeForDynamic.width50,
                   child: TextField(
                     style: TextStyle(color: Color(0xFF7477A0)),
                     keyboardType: TextInputType.emailAddress,
@@ -72,7 +75,7 @@ class _SignInPageState extends State<SignInPage> {
                       prefixIcon: Icon(
                         Icons.mail_outline,
                         color: Color(0xFF7477A0),
-                        size: 18,
+                        size: SizeForDynamic.textSize18,
                       ),
                       suffixIcon: textController.text.isNotEmpty
                           ? Container(width: 0)
@@ -88,19 +91,19 @@ class _SignInPageState extends State<SignInPage> {
                       hintStyle: TextStyle(
                         fontFamily: 'CircularStd-Book',
                         color: Color(0xFF7477A0),
-                        fontSize: 12,
+                        fontSize: SizeForDynamic.textSize12,
                       ),
                     ),
                     textInputAction: TextInputAction.next,
                   ),
                 ),
-                SizedBox(height: 20),
+                SizedBox(height: SizeForDynamic.height20),
                 Container(
                   decoration: BoxDecoration(
                     color: Color(0xFF1D192C),
                     borderRadius: BorderRadius.circular(6),
                   ),
-                  width: devWidth - 50,
+                  width: devWidth - SizeForDynamic.width50,
                   child: TextField(
                     obscureText: !isVisible,
                     style: TextStyle(color: Color(0xFF7477A0)),
@@ -110,7 +113,7 @@ class _SignInPageState extends State<SignInPage> {
                       prefixIcon: Icon(
                         Icons.lock_outline,
                         color: Color(0xFF7477A0),
-                        size: 18,
+                        size: SizeForDynamic.textSize18,
                       ),
                       suffixIcon: IconButton(
                         icon: Icon(isVisible
@@ -126,15 +129,16 @@ class _SignInPageState extends State<SignInPage> {
                       hintStyle: TextStyle(
                         fontFamily: 'CircularStd-Book',
                         color: Color(0xFF7477A0),
-                        fontSize: 12,
+                        fontSize: SizeForDynamic.textSize12,
                       ),
                     ),
                     textInputAction: TextInputAction.next,
                   ),
                 ),
-
                 Container(
-                  padding: const EdgeInsets.only(left: 12, right: 27),
+                  padding: EdgeInsets.only(
+                      left: SizeForDynamic.width10 + 2,
+                      right: SizeForDynamic.width25 + 2),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
@@ -165,21 +169,21 @@ class _SignInPageState extends State<SignInPage> {
                   ),
                 ),
                 GradientButton(devWidth: devWidth, text: "Log In"),
-                SizedBox(height: 20),
+                SizedBox(height: SizeForDynamic.height20),
                 NormalText(text: "OR"),
-                SizedBox(height: 20),
+                SizedBox(height: SizeForDynamic.height20),
                 SignInButtoncustom(
                   text: "Continue with Google",
                   iconLocation: "assets/images/google-png.png",
                 ),
-                SizedBox(height: 20),
+                SizedBox(height: SizeForDynamic.height20),
                 SignInButtoncustom(
                   text: "Continue with Facebook",
                   iconLocation: "assets/images/fb.jpg",
                   backColor: Color(0xFF3d599f),
                   textColor: Colors.white,
                 ),
-                SizedBox(height: 10),
+                SizedBox(height: SizeForDynamic.height10),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
@@ -197,25 +201,17 @@ class _SignInPageState extends State<SignInPage> {
                     ),
                   ],
                 ),
-                SizedBox(height: 30),
-                // Text(
-                //   "By signing up you indicate that you have read and",
-                //   style: TextStyle(
-                //     fontSize: 8,
-                //     fontFamily: 'CircularStd-Book',
-                //     color: Color(0xFF7477A0),
-                //   ),
-                // ),
+                SizedBox(height: SizeForDynamic.height50),
                 NormalText(
                   text: "By signing up you indicate that you have read and",
-                  textSize: 8,
+                  textSize: SizeForDynamic.textSize8,
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     NormalText(
                       text: "agreed to the Patch",
-                      textSize: 8,
+                      textSize: SizeForDynamic.textSize8,
                     ),
                     InkWell(
                       onTap: () {
@@ -223,7 +219,7 @@ class _SignInPageState extends State<SignInPage> {
                       },
                       child: NormalText(
                         text: "Terms of Service",
-                        textSize: 8,
+                        textSize: SizeForDynamic.textSize8,
                         textColor: Color(0xFFFB6580),
                       ),
                     ),
