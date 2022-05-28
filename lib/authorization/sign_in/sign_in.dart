@@ -75,7 +75,7 @@ class _SignInPageState extends State<SignInPage> {
                       prefixIcon: Icon(
                         Icons.mail_outline,
                         color: Color(0xFF7477A0),
-                        size: SizeForDynamic.textSize18,
+                        size: 18,
                       ),
                       suffixIcon: textController.text.isNotEmpty
                           ? Container(width: 0)
@@ -91,7 +91,7 @@ class _SignInPageState extends State<SignInPage> {
                       hintStyle: TextStyle(
                         fontFamily: 'CircularStd-Book',
                         color: Color(0xFF7477A0),
-                        fontSize: SizeForDynamic.textSize12,
+                        fontSize: 12,
                       ),
                     ),
                     textInputAction: TextInputAction.next,
@@ -113,7 +113,7 @@ class _SignInPageState extends State<SignInPage> {
                       prefixIcon: Icon(
                         Icons.lock_outline,
                         color: Color(0xFF7477A0),
-                        size: SizeForDynamic.textSize18,
+                        size: 18,
                       ),
                       suffixIcon: IconButton(
                         icon: Icon(isVisible
@@ -129,7 +129,7 @@ class _SignInPageState extends State<SignInPage> {
                       hintStyle: TextStyle(
                         fontFamily: 'CircularStd-Book',
                         color: Color(0xFF7477A0),
-                        fontSize: SizeForDynamic.textSize12,
+                        fontSize: 12,
                       ),
                     ),
                     textInputAction: TextInputAction.next,
@@ -192,7 +192,9 @@ class _SignInPageState extends State<SignInPage> {
                       style: ButtonStyle(
                         padding: MaterialStateProperty.all(EdgeInsets.all(0)),
                       ),
-                      onPressed: () {},
+                      onPressed: () {
+                        // Get.to(SignUpPage());
+                      },
                       child: NormalText(
                         text: "Sign Up",
                         textColor: Color(0xFFFB6580),

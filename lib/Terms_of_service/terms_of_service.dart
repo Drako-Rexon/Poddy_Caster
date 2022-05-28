@@ -6,8 +6,15 @@ class TermsOfService extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-        child: Center(
-      child: Text("Center"),
-    ));
+      child: Center(
+        child: Container(
+          decoration: BoxDecoration(color: Colors.red),
+          child: Text(
+            "Center",
+            style: TextStyle(color: Colors.yellow),
+          ),
+        ),
+      ),
+    );
   }
 }

@@ -26,8 +26,18 @@ class SizeForDynamic {
   static double width50 = screenWidth / 7.85;
 
   // ! Text Size
+  // static double textSizeTrick8 = 8 * (pow(1.01, screenHeight) / 49.1);
   static double textSize8 = screenHeight / 49.1;
   static double textSize12 = screenHeight / 32.73;
   static double textSize18 = screenHeight / 21.82;
   static double textSize24 = screenHeight / 16.36;
 }
+
+// class SizeForDynamic extends StatelessWidget {
+//   SizeForDynamic({Key? key}) : super(key: key);
+//   final double screenHeight = MediaQuery.of(context).size.height;
+//   @override
+//   Widget build(BuildContext context) {
+//     return Container();
+//   }
+// }
