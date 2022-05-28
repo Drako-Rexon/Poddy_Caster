@@ -5,16 +5,14 @@ import 'package:podcast_app/components/normal_text.dart';
 class GradientButton extends StatelessWidget {
   const GradientButton({
     Key? key,
-    required this.devWidth,
     required this.text,
   }) : super(key: key);
   final String text;
-  final double devWidth;
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: devWidth - SizeForDynamic.width50,
+      width: SizeForDynamic.screenWidth - SizeForDynamic.width50,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.all(Radius.circular(6)),
         gradient: LinearGradient(

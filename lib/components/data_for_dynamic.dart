@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class SizeForDynamic {
@@ -12,7 +13,9 @@ class SizeForDynamic {
   static double height25 = screenHeight / 31.25;
   static double height30 = screenHeight / 26.03;
   static double height35 = screenHeight / 22.32;
+  static double height40 = screenHeight / 19.53;
   static double height50 = screenHeight / 15.62;
+  static double height80 = screenHeight / 9.76;
 
   // ! This data is for dynamic width
   static double width5 = screenWidth / 78.54;
@@ -24,20 +27,32 @@ class SizeForDynamic {
   static double width35 = screenWidth / 11.22;
   static double width40 = screenWidth / 9.82;
   static double width50 = screenWidth / 7.85;
+  static double width70 = screenWidth / 5.61;
 
   // ! Text Size
   // static double textSizeTrick8 = 8 * (pow(1.01, screenHeight) / 49.1);
   static double textSize8 = screenHeight / 49.1;
-  static double textSize12 = screenHeight / 32.73;
+  static double textSize12 = screenHeight / 65.1;
   static double textSize18 = screenHeight / 21.82;
   static double textSize24 = screenHeight / 16.36;
 }
 
-// class SizeForDynamic extends StatelessWidget {
-//   SizeForDynamic({Key? key}) : super(key: key);
-//   final double screenHeight = MediaQuery.of(context).size.height;
-//   @override
-//   Widget build(BuildContext context) {
-//     return Container();
-//   }
-// }
+
+
+//! Thi is for colors
+
+class ColorsForApp {
+  static const Color cutomWhite = Colors.white;
+  static const Color cutomBlack = Colors.black;
+
+  static final Color cutomTextColor = Color(0xFF7477A0);
+  static final Color buttonGradientColor1 = Color(0xFFFB6580);
+  static final Color buttonGradientColor2 = Color(0xFFF11775);
+  static final Color backGradientColor1 = Color(0xFF2D2C3C);
+  static final Color backGradientColor2 = Color(0xFF191925);
+  static final Color backgroundAppColor = Color(0xFF2D2C3C);
+  static final Color forgroundAppColor = Color(0xFF181A26);
+  static final Color fbColor = Color(0xFF3d599f);
+  // static final Color appPinkColor = Color(0xFFFB6580);
+
+}

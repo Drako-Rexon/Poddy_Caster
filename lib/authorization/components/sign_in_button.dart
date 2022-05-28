@@ -1,5 +1,3 @@
-import 'dart:math';
-
 import 'package:flutter/material.dart';
 import 'package:podcast_app/components/data_for_dynamic.dart';
 

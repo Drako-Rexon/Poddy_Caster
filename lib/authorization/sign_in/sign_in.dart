@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:podcast_app/Terms_of_service/terms_of_service.dart';
 import 'package:podcast_app/authorization/components/gradient_button.dart';
 import 'package:podcast_app/authorization/components/sign_in_button.dart';
+import 'package:podcast_app/authorization/sign_up/sign_up_page.dart';
 import 'package:podcast_app/components/data_for_dynamic.dart';
 import 'package:podcast_app/components/normal_text.dart';
 
@@ -27,16 +28,19 @@ class _SignInPageState extends State<SignInPage> {
 
   @override
   Widget build(BuildContext context) {
-    double devWidth = MediaQuery.of(context).size.width;
-    double devHeight = MediaQuery.of(context).size.height;
+    // double devWidth = MediaQuery.of(context).size.width;
+    // double devHeight = MediaQuery.of(context).size.height;
     return Scaffold(
       body: SafeArea(
         child: Container(
-          height: devHeight,
+          height: SizeForDynamic.screenHeight,
           decoration: BoxDecoration(
             gradient: RadialGradient(
               radius: 5,
-              colors: [Color(0xFF2D2C3C), Color(0xFF191925)],
+              colors: [
+                ColorsForApp.backGradientColor1,
+                ColorsForApp.backGradientColor2
+              ],
             ),
           ),
           child: SingleChildScrollView(
@@ -44,7 +48,7 @@ class _SignInPageState extends State<SignInPage> {
             child: Column(
               mainAxisSize: MainAxisSize.max,
               children: [
-                SizedBox(height: SizeForDynamic.height35),
+                SizedBox(height: SizeForDynamic.height30),
                 Container(
                   padding: EdgeInsets.only(
                       left: SizeForDynamic.width50,
@@ -57,7 +61,7 @@ class _SignInPageState extends State<SignInPage> {
                   text: "Welcome Back!",
                   isBold: true,
                   textColor: Colors.white,
-                  textSize: SizeForDynamic.textSize24,
+                  textSize: SizeForDynamic.textSize12,
                 ),
                 NormalText(text: "Login to continue Radio App"),
                 SizedBox(height: SizeForDynamic.height20),
@@ -66,7 +70,7 @@ class _SignInPageState extends State<SignInPage> {
                     color: Color(0xFF1D192C),
                     borderRadius: BorderRadius.circular(6),
                   ),
-                  width: devWidth - SizeForDynamic.width50,
+                  width: SizeForDynamic.screenWidth - SizeForDynamic.width50,
                   child: TextField(
                     style: TextStyle(color: Color(0xFF7477A0)),
                     keyboardType: TextInputType.emailAddress,
@@ -103,7 +107,7 @@ class _SignInPageState extends State<SignInPage> {
                     color: Color(0xFF1D192C),
                     borderRadius: BorderRadius.circular(6),
                   ),
-                  width: devWidth - SizeForDynamic.width50,
+                  width: SizeForDynamic.screenWidth - SizeForDynamic.width50,
                   child: TextField(
                     obscureText: !isVisible,
                     style: TextStyle(color: Color(0xFF7477A0)),
@@ -168,7 +172,7 @@ class _SignInPageState extends State<SignInPage> {
                     ],
                   ),
                 ),
-                GradientButton(devWidth: devWidth, text: "Log In"),
+                GradientButton(text: "Log In"),
                 SizedBox(height: SizeForDynamic.height20),
                 NormalText(text: "OR"),
                 SizedBox(height: SizeForDynamic.height20),
@@ -180,40 +184,43 @@ class _SignInPageState extends State<SignInPage> {
                 SignInButtoncustom(
                   text: "Continue with Facebook",
                   iconLocation: "assets/images/fb.jpg",
-                  backColor: Color(0xFF3d599f),
-                  textColor: Colors.white,
+                  backColor: ColorsForApp.fbColor,
+                  textColor: ColorsForApp.cutomWhite,
                 ),
                 SizedBox(height: SizeForDynamic.height10),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    NormalText(text: "Don't have account?"),
+                    NormalText(
+                      text: "Don't have account?",
+                      textSize: SizeForDynamic.textSize12,
+                    ),
                     TextButton(
                       style: ButtonStyle(
                         padding: MaterialStateProperty.all(EdgeInsets.all(0)),
                       ),
                       onPressed: () {
-                        // Get.to(SignUpPage());
+                        Get.to(SignUpPage());
                       },
                       child: NormalText(
                         text: "Sign Up",
-                        textColor: Color(0xFFFB6580),
+                        textColor: ColorsForApp.buttonGradientColor1,
                         isBold: true,
                       ),
                     ),
                   ],
                 ),
-                SizedBox(height: SizeForDynamic.height50),
+                SizedBox(height: SizeForDynamic.height30),
                 NormalText(
                   text: "By signing up you indicate that you have read and",
-                  textSize: SizeForDynamic.textSize8,
+                  textSize: 9,
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     NormalText(
                       text: "agreed to the Patch",
-                      textSize: SizeForDynamic.textSize8,
+                      textSize: 9,
                     ),
                     InkWell(
                       onTap: () {
@@ -221,8 +228,8 @@ class _SignInPageState extends State<SignInPage> {
                       },
                       child: NormalText(
                         text: "Terms of Service",
-                        textSize: SizeForDynamic.textSize8,
-                        textColor: Color(0xFFFB6580),
+                        textSize: 9,
+                        textColor: ColorsForApp.buttonGradientColor1,
                       ),
                     ),
                   ],
