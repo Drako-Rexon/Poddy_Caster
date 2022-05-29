@@ -15,6 +15,8 @@ class SizeForDynamic {
   static double height35 = screenHeight / 22.32;
   static double height40 = screenHeight / 19.53;
   static double height50 = screenHeight / 15.62;
+  static double height60 = screenHeight / 13.02;
+  static double height70 = screenHeight / 11.16;
   static double height80 = screenHeight / 9.76;
 
   // ! This data is for dynamic width
@@ -34,7 +36,7 @@ class SizeForDynamic {
   static double textSize8 = screenHeight / 49.1;
   static double textSize12 = screenHeight / 65.1;
   static double textSize18 = screenHeight / 21.82;
-  static double textSize24 = screenHeight / 16.36;
+  static double textSize24 = screenHeight / 32.5;
 }
 
 
