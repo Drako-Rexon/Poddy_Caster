@@ -217,7 +217,7 @@ class _SignUpPageState extends State<SignUpPage> {
                     ),
                     TextButton(
                       style: ButtonStyle(
-                        padding: MaterialStateProperty.all(EdgeInsets.all(0)),
+                        padding: MaterialStateProperty.all(const EdgeInsets.all(0)),
                       ),
                       onPressed: () {
                         Get.to(SignInPage());

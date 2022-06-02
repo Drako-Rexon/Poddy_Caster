@@ -2,17 +2,19 @@ import 'package:flutter/material.dart';
 import 'package:podcast_app/components/data_for_dynamic.dart';
 
 class SignInButtoncustom extends StatelessWidget {
-  const SignInButtoncustom(
-      {Key? key,
-      this.backColor = Colors.white,
-      this.textColor = Colors.black,
-      required this.text,
-      required this.iconLocation})
-      : super(key: key);
+  SignInButtoncustom({
+    Key? key,
+    this.backColor = Colors.white,
+    this.textColor = Colors.black,
+    required this.text,
+    required this.iconLocation,
+    this.login,
+  }) : super(key: key);
   final Color backColor;
   final Color textColor;
   final String text;
   final String iconLocation;
+  Function? login;
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +22,9 @@ class SignInButtoncustom extends StatelessWidget {
     double screenHeight = MediaQuery.of(context).size.height;
 
     return ElevatedButton(
-      onPressed: () {},
+      onPressed: () {
+        login;
+      },
       style: ButtonStyle(
         padding: MaterialStateProperty.all(
           EdgeInsets.symmetric(vertical: SizeForDynamic.height15),

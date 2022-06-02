@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:podcast_app/authorization/sign_in/sign_in.dart';
+import 'package:podcast_app/redirecting_page/redirecting_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -20,11 +21,11 @@ class _MyAppState extends State<MyApp> {
     
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
+      title: 'Poddy Caster',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const SignInPage(),
+      home: const RedirectingPage(),
     );
   }
 }

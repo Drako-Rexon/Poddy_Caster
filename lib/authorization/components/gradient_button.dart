@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:podcast_app/components/data_for_dynamic.dart';
 import 'package:podcast_app/components/normal_text.dart';
+import 'package:podcast_app/redirecting_page/redirecting_page.dart';
 
 class GradientButton extends StatelessWidget {
   const GradientButton({
@@ -8,6 +10,7 @@ class GradientButton extends StatelessWidget {
     required this.text,
   }) : super(key: key);
   final String text;
+  // Function? func;
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +25,9 @@ class GradientButton extends StatelessWidget {
         ),
       ),
       child: TextButton(
-        onPressed: () {},
+        onPressed: () {
+          Get.to(RedirectingPage());
+        },
         child: NormalText(
           text: text,
           textColor: Colors.white,

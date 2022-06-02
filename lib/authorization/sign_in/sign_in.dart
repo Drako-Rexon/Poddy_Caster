@@ -187,6 +187,9 @@ class _SignInPageState extends State<SignInPage> {
                   SignInButtoncustom(
                     text: "Continue with Google",
                     iconLocation: "assets/images/google-png.png",
+                    login: () {
+                      Get.to(ForgetPassPage());
+                    },
                   ),
                   SizedBox(height: SizeForDynamic.height20),
                   SignInButtoncustom(
