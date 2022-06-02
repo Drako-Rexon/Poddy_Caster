@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:podcast_app/components/data_for_dynamic.dart';
+import 'package:podcast_app/redirecting_page/components/home_page.dart';
 
 class RedirectingPage extends StatefulWidget {
   const RedirectingPage({Key? key}) : super(key: key);
@@ -15,20 +16,36 @@ class _RedirectingPageState extends State<RedirectingPage> {
     Icons.radar_outlined,
     Icons.podcasts,
     Icons.calendar_month_outlined,
-    Icons.person_add_alt_1_outlined
+    Icons.person_add_alt_outlined
   ];
-  List navName = ["Home", "radio Stations", "Podcasts", "Events", "Profile"];
+  List navName = ["Home", "Radio Stations", "Podcasts", "Events", "Profile"];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.black,
+      backgroundColor: ColorsForApp.forgroundAppColor,
       body: IndexedStack(
-        index: index,
+        index: currentTab,
         children: [
+          HomePage(),
           Container(
             child: Center(
-              child: Text("Home"),
+              child: Text("radio"),
+            ),
+          ),
+          Container(
+            child: Center(
+              child: Text("[padcast]"),
+            ),
+          ),
+          Container(
+            child: Center(
+              child: Text("event"),
+            ),
+          ),
+          Container(
+            child: Center(
+              child: Text("profil"),
             ),
           ),
         ],
@@ -39,25 +56,59 @@ class _RedirectingPageState extends State<RedirectingPage> {
 
   Widget RedirectingNav() {
     return Container(
-      width: 100,
-      height: 200,
-      color: Colors.white,
+      padding: EdgeInsets.only(bottom: 8),
+      color: ColorsForApp.forgroundAppColor,
       child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: List.generate(navIcons.length, (index) {
           return Container(
-            padding: EdgeInsets.only(bottom: 60),
-            child: RaisedButton(
-              onPressed: () {
-                setState(() {});
-              },
-              child: Column(
-                children: [
-                  Icon(
-                    navIcons[index],
-                    color: Colors.red,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.end,
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Container(
+                  height: 5,
+                  width: 22,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.only(
+                      bottomRight: Radius.circular(8),
+                      bottomLeft: Radius.circular(8),
+                    ),
+                    color: index == currentTab
+                        ? ColorsForApp.buttonGradientColor1
+                        : ColorsForApp.forgroundAppColor,
                   ),
-                ],
-              ),
+                ),
+                SizedBox(height: 6),
+                TextButton(
+                  onPressed: () {
+                    setState(() {
+                      currentTab = index;
+                    });
+                  },
+                  child: Column(
+                    children: [
+                      Icon(
+                        navIcons[index],
+                        size: 30,
+                        color: index == currentTab
+                            ? ColorsForApp.buttonGradientColor1
+                            : ColorsForApp.customGrey,
+                      ),
+                      SizedBox(height: 6),
+                      Text(
+                        navName[index],
+                        style: TextStyle(
+                          fontSize: SizeForDynamic.textSize12,
+                          color: index == currentTab
+                              ? ColorsForApp.buttonGradientColor1
+                              : ColorsForApp.customGrey,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ],
             ),
           );
         }),
