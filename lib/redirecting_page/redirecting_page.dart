@@ -45,7 +45,7 @@ class _RedirectingPageState extends State<RedirectingPage> {
           ),
           Container(
             child: Center(
-              child: Text("profil"),
+              child: Text("profile"),
             ),
           ),
         ],

@@ -55,6 +55,8 @@ class ColorsForApp {
   static final Color forgroundAppColor = Color(0xFF181A26);
   static final Color fbColor = Color(0xFF3d599f);
   static final Color customGrey = Color(0xFF5C5E6F);
+  static final Color darkPurple = Color(0xFF0B0B15);
+
   // static final Color appPinkColor = Color(0xFFFB6580);
 
 }
