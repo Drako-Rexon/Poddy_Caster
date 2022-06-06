@@ -1,7 +1,9 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
+import 'package:podcast_app/Home/components/ellipses_text.dart';
+import 'package:podcast_app/Home/components/list_card_home.dart';
 import 'package:podcast_app/components/data_for_dynamic.dart';
+import 'package:podcast_app/Home/components/home_card_carousel.dart';
 import 'package:podcast_app/components/normal_text.dart';
 import 'package:podcast_app/components/sample_json.dart';
 
@@ -171,7 +173,7 @@ class HomePage extends StatelessWidget {
                         ),
                       ],
                       options: CarouselOptions(
-                        enableInfiniteScroll: false,
+                        enableInfiniteScroll: true,
                         scrollDirection: Axis.vertical,
                       ),
                     ),
@@ -189,6 +191,7 @@ class HomePage extends StatelessWidget {
                         NormalText(
                           text: "Popular Broadcast",
                           isBold: true,
+                          textSize: SizeForDynamic.textSize12,
                           textColor: ColorsForApp.cutomWhite,
                         ),
                       ],
@@ -199,79 +202,68 @@ class HomePage extends StatelessWidget {
                     child: Row(
                       children:
                           List.generate(homeCarouselSlider.length, (index) {
-                        return Container(
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Container(
-                                width: 150,
-                                height: 150,
-                                decoration: BoxDecoration(
-                                  image: DecorationImage(
-                                    image: AssetImage(
-                                        homeCarouselSlider[index]["img"]),
-                                  ),
-                                ),
-                              ),
-                              Padding(
-                                padding:
-                                    const EdgeInsets.symmetric(horizontal: 10),
-                                child: NormalText(
-                                  text: homeCarouselSlider[index]["mainTitle"],
-                                  isBold: true,
-                                  toUpper: true,
-                                  textColor: ColorsForApp.cutomWhite,
-                                  textSize: SizeForDynamic.textSize12,
-                                ),
-                              ),
-                              Padding(
-                                padding:
-                                    const EdgeInsets.symmetric(horizontal: 10),
-                                child: NormalText(
-                                  text: homeCarouselSlider[index]["subTitle"],
-                                  isBold: true,
-                                  toUpper: true,
-                                  // textColor: ColorsForApp.cutomWhite,
-                                  textSize: SizeForDynamic.textSize8,
-                                ),
-                              ),
-                            ],
-                          ),
+                        return CarouselCardHome(
+                          text1: homeCarouselSlider[index]["mainTitle"],
+                          text2: homeCarouselSlider[index]["subTitle"],
+                          img: homeCarouselSlider[index]["img"],
                         );
                       }),
                     ),
                   ),
                 ],
               ),
+              SizedBox(height: SizeForDynamic.height20),
               Container(
-                padding: const EdgeInsets.only(left: 20, top: 20, bottom: 20),
+                padding: const EdgeInsets.only(left: 20),
                 child: Row(
                   children: [
                     NormalText(
                       text: "Similar Broadcast",
                       isBold: true,
+                      textSize: SizeForDynamic.textSize12,
                       textColor: ColorsForApp.cutomWhite,
                     ),
                   ],
                 ),
               ),
-              Container(
-                child: Row(
-                  children: [
-                    Container(
-                      decoration: BoxDecoration(
-                        image: DecorationImage(
-                          image: AssetImage(homeCarouselSlider[0]["img"]),
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
+              SizedBox(height: SizeForDynamic.height20),
+              Column(
+                children: [
+                  ListCardBottomHome(
+                    img: 'assets/images/Image.png',
+                    mainText: "Expeditiously with tip \"T.I.\" Harris",
+                    subText: "Greenwood Online Banking For Us By Us",
+                  ),
+                  SizedBox(height: 20),
+                  ListCardBottomHome(
+                    img: 'assets/images/Image.png',
+                    mainText: "Expeditiously with tip \"T.I.\" Harris",
+                    subText: "Greenwood Online Banking For Us By Us",
+                  ),
+                  SizedBox(height: 20),
+                  ListCardBottomHome(
+                    img: 'assets/images/Image.png',
+                    mainText: "Expeditiously with tip \"T.I.\" Harris",
+                    subText: "Greenwood Online Banking For Us By Us",
+                  ),
+                  SizedBox(height: 20),
+                  ListCardBottomHome(
+                    img: 'assets/images/Image.png',
+                    mainText: "Expeditiously with tip \"T.I.\" Harris",
+                    subText: "Greenwood Online Banking For Us By Us",
+                  ),
+                  SizedBox(height: 20),
+                  ListCardBottomHome(
+                    img: 'assets/images/Image.png',
+                    mainText: "Expeditiously with tip \"T.I.\" Harris",
+                    subText: "Greenwood Online Banking For Us By Us",
+                  ),
+                  SizedBox(height: 20),
+                ],
               ),
             ],
           ),
-        )
+        ),
       ],
     );
   }

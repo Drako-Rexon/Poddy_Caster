@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+// screen height is basically 781.1
+// screen  is basically 392.72
 class SizeForDynamic {
   static double screenHeight = Get.context!.height;
   static double screenWidth = Get.context!.width;
@@ -34,7 +36,7 @@ class SizeForDynamic {
   // ! Text Size
   // static double textSizeTrick8 = 8 * (pow(1.01, screenHeight) / 49.1);
   static double textSize8 = screenHeight / 97.64;
-  static double textSize = screenHeight / 195.27;
+  static double textSize10 = screenHeight / 78.11;
   static double textSize12 = screenHeight / 65.1;
   static double textSize18 = screenHeight / 21.82;
   static double textSize24 = screenHeight / 32.5;

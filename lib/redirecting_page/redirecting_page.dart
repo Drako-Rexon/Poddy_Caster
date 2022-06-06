@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:podcast_app/components/data_for_dynamic.dart';
-import 'package:podcast_app/redirecting_page/components/home_page.dart';
+import 'package:podcast_app/components/normal_text.dart';
+import 'package:podcast_app/Home/home_page.dart';
 
 class RedirectingPage extends StatefulWidget {
   const RedirectingPage({Key? key}) : super(key: key);
@@ -30,22 +31,22 @@ class _RedirectingPageState extends State<RedirectingPage> {
           HomePage(),
           Container(
             child: Center(
-              child: Text("radio"),
+              child: NormalText(text: "radio"),
             ),
           ),
           Container(
             child: Center(
-              child: Text("[padcast]"),
+              child: NormalText(text: "Podcast"),
             ),
           ),
           Container(
             child: Center(
-              child: Text("event"),
+              child: NormalText(text: "event"),
             ),
           ),
           Container(
             child: Center(
-              child: Text("profile"),
+              child: NormalText(text: "profile"),
             ),
           ),
         ],
