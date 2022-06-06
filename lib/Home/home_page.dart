@@ -1,6 +1,5 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
-import 'package:podcast_app/Home/components/ellipses_text.dart';
 import 'package:podcast_app/Home/components/list_card_home.dart';
 import 'package:podcast_app/components/data_for_dynamic.dart';
 import 'package:podcast_app/Home/components/home_card_carousel.dart';
@@ -121,7 +120,7 @@ class HomePage extends StatelessWidget {
                             Text(
                               "Bulletproof",
                               style: TextStyle(
-                                fontSize: SizeForDynamic.textSize18,
+                                fontSize: SizeForDynamic.textSize36,
                                 color: ColorsForApp.cutomWhite,
                                 fontFamily: 'CircularStd',
                               ),
@@ -143,7 +142,7 @@ class HomePage extends StatelessWidget {
                             Text(
                               "Bulletproof2",
                               style: TextStyle(
-                                fontSize: SizeForDynamic.textSize18,
+                                fontSize: SizeForDynamic.textSize36,
                                 color: ColorsForApp.cutomWhite,
                                 fontFamily: 'CircularStd',
                               ),
@@ -164,7 +163,7 @@ class HomePage extends StatelessWidget {
                             Text(
                               "Bulletproof3",
                               style: TextStyle(
-                                fontSize: SizeForDynamic.textSize18,
+                                fontSize: SizeForDynamic.textSize36,
                                 color: ColorsForApp.cutomWhite,
                                 fontFamily: 'CircularStd',
                               ),
@@ -228,38 +227,18 @@ class HomePage extends StatelessWidget {
               ),
               SizedBox(height: SizeForDynamic.height20),
               Column(
-                children: [
-                  ListCardBottomHome(
-                    img: 'assets/images/Image.png',
-                    mainText: "Expeditiously with tip \"T.I.\" Harris",
-                    subText: "Greenwood Online Banking For Us By Us",
-                  ),
-                  SizedBox(height: 20),
-                  ListCardBottomHome(
-                    img: 'assets/images/Image.png',
-                    mainText: "Expeditiously with tip \"T.I.\" Harris",
-                    subText: "Greenwood Online Banking For Us By Us",
-                  ),
-                  SizedBox(height: 20),
-                  ListCardBottomHome(
-                    img: 'assets/images/Image.png',
-                    mainText: "Expeditiously with tip \"T.I.\" Harris",
-                    subText: "Greenwood Online Banking For Us By Us",
-                  ),
-                  SizedBox(height: 20),
-                  ListCardBottomHome(
-                    img: 'assets/images/Image.png',
-                    mainText: "Expeditiously with tip \"T.I.\" Harris",
-                    subText: "Greenwood Online Banking For Us By Us",
-                  ),
-                  SizedBox(height: 20),
-                  ListCardBottomHome(
-                    img: 'assets/images/Image.png',
-                    mainText: "Expeditiously with tip \"T.I.\" Harris",
-                    subText: "Greenwood Online Banking For Us By Us",
-                  ),
-                  SizedBox(height: 20),
-                ],
+                children: List.generate(HomeCardBottom.length, (index) {
+                  return Column(
+                    children: [
+                      ListCardBottomHome(
+                        img: HomeCardBottom[index]['img'],
+                        mainText: HomeCardBottom[index]['mainTitle'],
+                        subText: HomeCardBottom[index]['subTitle'],
+                      ),
+                      SizedBox(height: 20),
+                    ],
+                  );
+                }),
               ),
             ],
           ),

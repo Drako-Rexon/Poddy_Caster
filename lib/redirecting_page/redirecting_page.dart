@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:podcast_app/Radio_Station/radio_station.dart';
 import 'package:podcast_app/components/data_for_dynamic.dart';
 import 'package:podcast_app/components/normal_text.dart';
 import 'package:podcast_app/Home/home_page.dart';
+import 'package:podcast_app/components/sample_json.dart';
 
 class RedirectingPage extends StatefulWidget {
   const RedirectingPage({Key? key}) : super(key: key);
@@ -11,29 +13,17 @@ class RedirectingPage extends StatefulWidget {
 }
 
 class _RedirectingPageState extends State<RedirectingPage> {
-  int currentTab = 0, index = 0;
-  List navIcons = [
-    Icons.home,
-    Icons.radar_outlined,
-    Icons.podcasts,
-    Icons.calendar_month_outlined,
-    Icons.person_add_alt_outlined
-  ];
-  List navName = ["Home", "Radio Stations", "Podcasts", "Events", "Profile"];
+  int currentTab = 1, index = 0;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: ColorsForApp.forgroundAppColor,
+      backgroundColor: ColorsForApp.commonBackGround,
       body: IndexedStack(
         index: currentTab,
         children: [
           HomePage(),
-          Container(
-            child: Center(
-              child: NormalText(text: "radio"),
-            ),
-          ),
+          RadioStationPage(),
           Container(
             child: Center(
               child: NormalText(text: "Podcast"),

@@ -38,8 +38,9 @@ class SizeForDynamic {
   static double textSize8 = screenHeight / 97.64;
   static double textSize10 = screenHeight / 78.11;
   static double textSize12 = screenHeight / 65.1;
-  static double textSize18 = screenHeight / 21.82;
-  static double textSize24 = screenHeight / 32.5;
+  static double textSize18 = screenHeight / 43.4;
+  static double textSize24 = screenHeight / 32.55;
+  static double textSize36 = screenHeight / 21.7;
 }
 
 //! Thi is for colors
@@ -58,6 +59,7 @@ class ColorsForApp {
   static final Color fbColor = Color(0xFF3d599f);
   static final Color customGrey = Color(0xFF5C5E6F);
   static final Color darkPurple = Color(0xFF0B0B15);
+  static final Color commonBackGround = Color(0xFF13131A);
 
   // static final Color appPinkColor = Color(0xFFFB6580);
 

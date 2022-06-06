@@ -16,7 +16,7 @@ class ListCardBottomHome extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: SizeForDynamic.screenWidth - 40,
-      height: 100,
+      height: 80,
       padding: const EdgeInsets.all(10),
       decoration: BoxDecoration(
         color: ColorsForApp.darkPurple,
