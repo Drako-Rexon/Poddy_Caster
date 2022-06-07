@@ -196,7 +196,7 @@ class _SignInPageState extends State<SignInPage> {
                     text: "Continue with Facebook",
                     iconLocation: "assets/images/fb.jpg",
                     backColor: ColorsForApp.fbColor,
-                    textColor: ColorsForApp.cutomWhite,
+                    textColor: ColorsForApp.customWhite,
                   ),
                   SizedBox(height: SizeForDynamic.height10),
                   Row(

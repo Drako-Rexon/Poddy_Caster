@@ -171,7 +171,7 @@ class _SignUpPageState extends State<SignUpPage> {
                         Checkbox(
                           value: value,
                           activeColor: ColorsForApp.buttonGradientColor1,
-                          checkColor: ColorsForApp.cutomWhite,
+                          checkColor: ColorsForApp.customWhite,
                           shape: CircleBorder(),
                           onChanged: (value) {
                             setState(() {
@@ -203,7 +203,7 @@ class _SignUpPageState extends State<SignUpPage> {
                       text: "Continue with Facebook",
                       iconLocation: 'assets/images/fb.jpg',
                       backColor: ColorsForApp.fbColor,
-                      textColor: ColorsForApp.cutomWhite,
+                      textColor: ColorsForApp.customWhite,
                     ),
                     SizedBox(height: SizeForDynamic.height30),
                   ],

@@ -52,55 +52,53 @@ class _RedirectingPageState extends State<RedirectingPage> {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: List.generate(navIcons.length, (index) {
-          return Container(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.end,
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                Container(
-                  height: 5,
-                  width: 22,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.only(
-                      bottomRight: Radius.circular(8),
-                      bottomLeft: Radius.circular(8),
-                    ),
-                    color: index == currentTab
-                        ? ColorsForApp.buttonGradientColor1
-                        : ColorsForApp.forgroundAppColor,
+          return Column(
+            mainAxisAlignment: MainAxisAlignment.end,
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Container(
+                height: 5,
+                width: 22,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.only(
+                    bottomRight: Radius.circular(8),
+                    bottomLeft: Radius.circular(8),
                   ),
+                  color: index == currentTab
+                      ? ColorsForApp.buttonGradientColor1
+                      : ColorsForApp.forgroundAppColor,
                 ),
-                SizedBox(height: 6),
-                TextButton(
-                  onPressed: () {
-                    setState(() {
-                      currentTab = index;
-                    });
-                  },
-                  child: Column(
-                    children: [
-                      Icon(
-                        navIcons[index],
-                        size: 30,
+              ),
+              SizedBox(height: 6),
+              TextButton(
+                onPressed: () {
+                  setState(() {
+                    currentTab = index;
+                  });
+                },
+                child: Column(
+                  children: [
+                    Icon(
+                      navIcons[index],
+                      size: 24,
+                      color: index == currentTab
+                          ? ColorsForApp.buttonGradientColor1
+                          : ColorsForApp.customGrey,
+                    ),
+                    SizedBox(height: 6),
+                    Text(
+                      navName[index],
+                      style: TextStyle(
+                        fontSize: SizeForDynamic.textSize12,
                         color: index == currentTab
                             ? ColorsForApp.buttonGradientColor1
                             : ColorsForApp.customGrey,
                       ),
-                      SizedBox(height: 6),
-                      Text(
-                        navName[index],
-                        style: TextStyle(
-                          fontSize: SizeForDynamic.textSize12,
-                          color: index == currentTab
-                              ? ColorsForApp.buttonGradientColor1
-                              : ColorsForApp.customGrey,
-                        ),
-                      ),
-                    ],
-                  ),
+                    ),
+                  ],
                 ),
-              ],
-            ),
+              ),
+            ],
           );
         }),
       ),

@@ -56,7 +56,7 @@ class HomePage extends StatelessWidget {
                           shape: BoxShape.circle,
                           border: Border.all(
                             width: 1,
-                            color: ColorsForApp.cutomWhite,
+                            color: ColorsForApp.customWhite,
                           ),
                         ),
                       ),
@@ -69,7 +69,7 @@ class HomePage extends StatelessWidget {
                           shape: BoxShape.circle,
                           border: Border.all(
                             width: 2,
-                            color: ColorsForApp.cutomWhite,
+                            color: ColorsForApp.customWhite,
                           ),
                         ),
                       ),
@@ -78,11 +78,11 @@ class HomePage extends StatelessWidget {
                         width: 8,
                         margin: const EdgeInsets.all(5),
                         decoration: BoxDecoration(
-                          color: ColorsForApp.cutomWhite,
+                          color: ColorsForApp.customWhite,
                           shape: BoxShape.circle,
                           border: Border.all(
                             width: 2,
-                            color: ColorsForApp.cutomWhite,
+                            color: ColorsForApp.customWhite,
                           ),
                         ),
                       ),
@@ -94,7 +94,7 @@ class HomePage extends StatelessWidget {
                           shape: BoxShape.circle,
                           border: Border.all(
                             width: 2,
-                            color: ColorsForApp.cutomWhite,
+                            color: ColorsForApp.customWhite,
                           ),
                         ),
                       ),
@@ -121,7 +121,7 @@ class HomePage extends StatelessWidget {
                               "Bulletproof",
                               style: TextStyle(
                                 fontSize: SizeForDynamic.textSize36,
-                                color: ColorsForApp.cutomWhite,
+                                color: ColorsForApp.customWhite,
                                 fontFamily: 'CircularStd',
                               ),
                             ),
@@ -143,7 +143,7 @@ class HomePage extends StatelessWidget {
                               "Bulletproof2",
                               style: TextStyle(
                                 fontSize: SizeForDynamic.textSize36,
-                                color: ColorsForApp.cutomWhite,
+                                color: ColorsForApp.customWhite,
                                 fontFamily: 'CircularStd',
                               ),
                             ),
@@ -164,7 +164,7 @@ class HomePage extends StatelessWidget {
                               "Bulletproof3",
                               style: TextStyle(
                                 fontSize: SizeForDynamic.textSize36,
-                                color: ColorsForApp.cutomWhite,
+                                color: ColorsForApp.customWhite,
                                 fontFamily: 'CircularStd',
                               ),
                             ),
@@ -191,7 +191,7 @@ class HomePage extends StatelessWidget {
                           text: "Popular Broadcast",
                           isBold: true,
                           textSize: SizeForDynamic.textSize12,
-                          textColor: ColorsForApp.cutomWhite,
+                          textColor: ColorsForApp.customWhite,
                         ),
                       ],
                     ),
@@ -220,7 +220,7 @@ class HomePage extends StatelessWidget {
                       text: "Similar Broadcast",
                       isBold: true,
                       textSize: SizeForDynamic.textSize12,
-                      textColor: ColorsForApp.cutomWhite,
+                      textColor: ColorsForApp.customWhite,
                     ),
                   ],
                 ),

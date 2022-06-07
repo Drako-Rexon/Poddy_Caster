@@ -25,6 +25,33 @@ List homeCarouselSlider = [
     "subTitle": "Cold Case Files: Modus Operandi"
   },
 ];
+List radioPopularBroadCard = [
+  {
+    "img": "assets/images/Image.png",
+    "mainTitle": "The Jordan Harbing",
+    "subTitle": "Celeste Headlee"
+  },
+  {
+    "img": "assets/images/Image-1.png",
+    "mainTitle": "FROM NEGATIVE TO positive",
+    "subTitle": "The King of Miami"
+  },
+  {
+    "img": "assets/images/Image-2.png",
+    "mainTitle": "I SURVIVED",
+    "subTitle": "Cold Case Files: Modus Operandi"
+  },
+  {
+    "img": "assets/images/Image-5.png",
+    "mainTitle": "Expeditiously with tip \"T.I.\" Harris",
+    "subTitle": "Greenwood Online Banking For Us By Us"
+  },
+  {
+    "img": "assets/images/Image-4.png",
+    "mainTitle": "Superman's not coming with Erin Broc...",
+    "subTitle": "Lunchbreak with Yasmi..."
+  },
+];
 
 List HomeCardBottom = [
   {

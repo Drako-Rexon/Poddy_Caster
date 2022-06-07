@@ -38,6 +38,7 @@ class SizeForDynamic {
   static double textSize8 = screenHeight / 97.64;
   static double textSize10 = screenHeight / 78.11;
   static double textSize12 = screenHeight / 65.1;
+  static double textSize14 = screenHeight / 55.8;
   static double textSize18 = screenHeight / 43.4;
   static double textSize24 = screenHeight / 32.55;
   static double textSize36 = screenHeight / 21.7;
@@ -46,8 +47,8 @@ class SizeForDynamic {
 //! Thi is for colors
 
 class ColorsForApp {
-  static const Color cutomWhite = Colors.white;
-  static const Color cutomBlack = Colors.black;
+  static const Color customWhite = Colors.white;
+  static const Color customBlack = Colors.black;
 
   static final Color cutomTextColor = Color(0xFF7477A0);
   static final Color buttonGradientColor1 = Color(0xFFFB6580);

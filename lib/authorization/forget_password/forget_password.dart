@@ -39,7 +39,7 @@ class _ForgetPassPageState extends State<ForgetPassPage> {
                   SizedBox(height: SizeForDynamic.screenHeight * 0.25),
                   NormalText(
                     text: "Forget Password",
-                    textColor: ColorsForApp.cutomWhite,
+                    textColor: ColorsForApp.customWhite,
                     textSize: SizeForDynamic.textSize24,
                     isBold: true,
                   ),

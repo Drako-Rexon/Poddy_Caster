@@ -36,7 +36,7 @@ class CarouselCardHome extends StatelessWidget {
             child: EllipsisText(
               text: text1,
               toUpper: true,
-              textColor: ColorsForApp.cutomWhite,
+              textColor: ColorsForApp.customWhite,
               textSize: SizeForDynamic.textSize12,isBold: true,
             ),
           ),

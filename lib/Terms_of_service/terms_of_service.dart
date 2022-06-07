@@ -22,7 +22,7 @@ class TermsOfService extends StatelessWidget {
         title: NormalText(
           text: "Terms & Conditions",
           isBold: true,
-          textColor: ColorsForApp.cutomWhite,
+          textColor: ColorsForApp.customWhite,
           textSize: SizeForDynamic.textSize24,
         ),
         actions: [
