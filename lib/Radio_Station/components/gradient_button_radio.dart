@@ -19,7 +19,9 @@ class GradientButtonRadio extends StatelessWidget {
       width: SizeForDynamic.screenWidth - 300,
       height: SizeForDynamic.width35,
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.all(Radius.circular(6)),
+        borderRadius: BorderRadius.all(
+          Radius.circular(6),
+        ),
         gradient: LinearGradient(
           begin: Alignment.topLeft,
           end: Alignment.bottomRight,

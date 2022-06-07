@@ -55,7 +55,8 @@ class _RadioStationPageState extends State<RadioStationPage>
         elevation: 0,
         bottom: TabBar(
           isScrollable: true,
-          controller: _tabController,
+          controller:
+              _tabController, // * this controller is needed to declare in the init() and need to dispose too for control th eram consumption
           tabs: myTabs,
           labelColor: ColorsForApp.buttonGradientColor1,
           unselectedLabelColor: ColorsForApp.customGrey,
@@ -126,9 +127,10 @@ class _RadioStationPageState extends State<RadioStationPage>
             ),
             // ! tabview here below
             Container(
-              height: (radioPopularBroadCard.length + 1) * 80 +20,
+              height: (radioPopularBroadCard.length + 1) * 80 + 20,
               child: TabBarView(
-                controller: _tabController,
+                controller:
+                    _tabController, // * This is controller for the controlling the shifting of pages between the tabs
                 children: [
                   Column(
                     children:
@@ -146,8 +148,51 @@ class _RadioStationPageState extends State<RadioStationPage>
                       );
                     }),
                   ),
-                  Center(
-                    child: NormalText(text: "Hello1"),
+                  //! Popular Broadcast Ends here
+                  SingleChildScrollView(
+                    child: Column(
+                      children: List.generate(radioGenre.length, (index) {
+                        return Container(margin: EdgeInsets.symmetric(vertical: SizeForDynamic.height20),
+                          padding: EdgeInsets.symmetric(
+                            vertical: SizeForDynamic.height20,
+                            horizontal: SizeForDynamic.width25,
+                          ),
+                          width: SizeForDynamic.screenWidth - 40,
+                          decoration: BoxDecoration(
+                            color: ColorsForApp.darkPurple,
+                            borderRadius: BorderRadius.all(Radius.circular(6)),
+                          ),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              NormalText(
+                                text: radioGenre[index]['category'],
+                                textColor: ColorsForApp.customWhite,
+                                textSize: SizeForDynamic.textSize18,
+                              ),
+                              Container(
+                                child: TextButton(
+                                  style: ButtonStyle(
+                                      padding: MaterialStateProperty.all(
+                                          EdgeInsets.all(0)),
+                                      shape: MaterialStateProperty.all(
+                                          CircleBorder(side: BorderSide.none)),
+                                      backgroundColor:
+                                          MaterialStateProperty.all(
+                                              ColorsForApp.commonBackGround)),
+                                  onPressed: () {},
+                                  child: Icon(
+                                    Icons.arrow_forward_ios,
+                                    color: ColorsForApp.customWhite,
+                                    size: 8,
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                        );
+                      }),
+                    ),
                   ),
                 ],
               ),

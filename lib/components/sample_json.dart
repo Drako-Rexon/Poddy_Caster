@@ -70,3 +70,12 @@ List HomeCardBottom = [
     "img": "assets/images/Image-6.png"
   },
 ];
+List radioGenre = [
+  {"category": "All"},
+  {"category": "Adult Contermporary"},
+  {"category": "Adult Rock"},
+  {"category": "Christian"},
+  {"category": "Classic Hits"},
+  {"category": "Classic Rock"},
+  {"category": "Comedy"},
+];
