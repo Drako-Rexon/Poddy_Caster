@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:podcast_app/authorization/sign_in/sign_in.dart';
+import 'package:podcast_app/player_page/player.dart';
 import 'package:podcast_app/redirecting_page/redirecting_page.dart';
 
 void main() {
@@ -24,7 +25,7 @@ class _MyAppState extends State<MyApp> {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const RedirectingPage(),
+      home: const PlayerPage(),
     );
   }
 }

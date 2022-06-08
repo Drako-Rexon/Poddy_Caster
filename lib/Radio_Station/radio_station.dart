@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:podcast_app/Radio_Station/components/gradient_button_radio.dart';
 import 'package:podcast_app/Radio_Station/components/list_card_radio.dart';
 import 'package:podcast_app/components/data_for_dynamic.dart';
 import 'package:podcast_app/components/normal_text.dart';
 import 'package:podcast_app/components/sample_json.dart';
+import 'package:podcast_app/player_page/player.dart';
 
 class RadioStationPage extends StatefulWidget {
   const RadioStationPage({Key? key}) : super(key: key);
@@ -81,8 +83,10 @@ class _RadioStationPageState extends State<RadioStationPage>
         ),
       ),
       // ! The below content is for the list of cards in radio station
-      body: SingleChildScrollView(
+      body: SizedBox(
+        // height: SizeForDynamic.screenHeight - 120,
         child: Column(
+          // mainAxisSize: MainAxisSize.min,
           children: [
             SizedBox(height: SizeForDynamic.height20),
             Container(
@@ -126,25 +130,26 @@ class _RadioStationPageState extends State<RadioStationPage>
               ),
             ),
             // ! tabview here below
-            Container(
-              height: (radioPopularBroadCard.length + 1) * 80 + 20,
+            SizedBox(
+              height: SizeForDynamic.screenHeight - SizeForDynamic.height308,
               child: TabBarView(
                 controller:
                     _tabController, // * This is controller for the controlling the shifting of pages between the tabs
                 children: [
-                  Column(
-                    children:
-                        List.generate(radioPopularBroadCard.length, (index) {
-                      return Column(
-                        children: [
-                          SizedBox(height: SizeForDynamic.height10),
-                          ListCardRadio(
-                            img: radioPopularBroadCard[index]['img'],
-                            mainText: radioPopularBroadCard[index]['mainTitle'],
-                            subText: radioPopularBroadCard[index]['subTitle'],
-                          ),
-                          SizedBox(height: SizeForDynamic.height10),
-                        ],
+                  ListView.builder(
+                    itemCount: radioPopularBroadCard.length,
+                    itemBuilder: ((context, index) {
+                      return Container(
+                        padding: EdgeInsets.symmetric(
+                          vertical: SizeForDynamic.height10,
+                          horizontal: SizeForDynamic.width15,
+                        ),
+                        // width: SizeForDynamic.screenWidth - 40,
+                        child: ListCardRadio(
+                          img: radioPopularBroadCard[index]['img'],
+                          mainText: radioPopularBroadCard[index]['mainTitle'],
+                          subText: radioPopularBroadCard[index]['subTitle'],
+                        ),
                       );
                     }),
                   ),
@@ -152,9 +157,11 @@ class _RadioStationPageState extends State<RadioStationPage>
                   SingleChildScrollView(
                     child: Column(
                       children: List.generate(radioGenre.length, (index) {
-                        return Container(margin: EdgeInsets.symmetric(vertical: SizeForDynamic.height20),
+                        return Container(
+                          margin: EdgeInsets.symmetric(
+                              vertical: SizeForDynamic.height10),
                           padding: EdgeInsets.symmetric(
-                            vertical: SizeForDynamic.height20,
+                            vertical: SizeForDynamic.height15,
                             horizontal: SizeForDynamic.width25,
                           ),
                           width: SizeForDynamic.screenWidth - 40,
@@ -171,21 +178,16 @@ class _RadioStationPageState extends State<RadioStationPage>
                                 textSize: SizeForDynamic.textSize18,
                               ),
                               Container(
-                                child: TextButton(
-                                  style: ButtonStyle(
-                                      padding: MaterialStateProperty.all(
-                                          EdgeInsets.all(0)),
-                                      shape: MaterialStateProperty.all(
-                                          CircleBorder(side: BorderSide.none)),
-                                      backgroundColor:
-                                          MaterialStateProperty.all(
-                                              ColorsForApp.commonBackGround)),
-                                  onPressed: () {},
-                                  child: Icon(
-                                    Icons.arrow_forward_ios,
-                                    color: ColorsForApp.customWhite,
-                                    size: 8,
-                                  ),
+                                height: 20,
+                                width: 20,
+                                decoration: BoxDecoration(
+                                  shape: BoxShape.circle,
+                                  color: ColorsForApp.commonBackGround,
+                                ),
+                                child: Icon(
+                                  Icons.arrow_forward_ios,
+                                  color: ColorsForApp.customWhite,
+                                  size: 8,
                                 ),
                               ),
                             ],
@@ -203,3 +205,14 @@ class _RadioStationPageState extends State<RadioStationPage>
     );
   }
 }
+
+//  child: TextButton(
+//                                   style: ButtonStyle(
+//                                       padding: MaterialStateProperty.all(
+//                                           EdgeInsets.all(0)),
+//                                       shape: MaterialStateProperty.all(
+//                                           CircleBorder(side: BorderSide.none)),
+//                                       backgroundColor:
+//                                           MaterialStateProperty.all(
+//                                               ColorsForApp.commonBackGround)),
+//                                   onPressed: () {},

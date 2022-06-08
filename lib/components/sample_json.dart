@@ -51,6 +51,16 @@ List radioPopularBroadCard = [
     "mainTitle": "Superman's not coming with Erin Broc...",
     "subTitle": "Lunchbreak with Yasmi..."
   },
+  {
+    "img": "assets/images/Image-4.png",
+    "mainTitle": "Superman's not coming with Erin Broc...",
+    "subTitle": "Lunchbreak with Yasmi..."
+  },
+  {
+    "img": "assets/images/Image-4.png",
+    "mainTitle": "Superman's not coming with Erin Broc...",
+    "subTitle": "Lunchbreak with Yasmi..."
+  },
 ];
 
 List HomeCardBottom = [

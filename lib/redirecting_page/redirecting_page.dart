@@ -47,8 +47,15 @@ class _RedirectingPageState extends State<RedirectingPage> {
 
   Widget RedirectingNav() {
     return Container(
-      padding: EdgeInsets.only(bottom: 8),
-      color: ColorsForApp.forgroundAppColor,
+      width: SizeForDynamic.screenWidth,
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.only(
+          topLeft: Radius.circular(8),
+          topRight: Radius.circular(8),
+        ),
+        color: ColorsForApp.forgroundAppColor,
+      ),
+      padding: const EdgeInsets.only(bottom: 8),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: List.generate(navIcons.length, (index) {

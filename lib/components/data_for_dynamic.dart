@@ -20,6 +20,7 @@ class SizeForDynamic {
   static double height60 = screenHeight / 13.02;
   static double height70 = screenHeight / 11.16;
   static double height80 = screenHeight / 9.76;
+  static double height308 = screenHeight / 2.54;
 
   // ! This data is for dynamic width
   static double width5 = screenWidth / 78.54;
