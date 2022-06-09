@@ -29,8 +29,8 @@ class PlayerPage extends StatelessWidget {
                     gradient: RadialGradient(
                       // begin: Alignment.bottomCenter,
                       // end: Alignment.topCenter,
-focalRadius: 50,  
-                    colors: [
+                      focalRadius: 50,
+                      colors: [
                         Colors.white.withOpacity(0.3),
                         ColorsForApp.commonBackGround,
                       ],
