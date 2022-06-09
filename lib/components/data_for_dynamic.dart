@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 // screen height is basically 781.1
-// screen  is basically 392.72
+// screen width is basically 392.72
 class SizeForDynamic {
   static double screenHeight = Get.context!.height;
   static double screenWidth = Get.context!.width;
@@ -62,6 +62,9 @@ class ColorsForApp {
   static final Color customGrey = Color(0xFF5C5E6F);
   static final Color darkPurple = Color(0xFF0B0B15);
   static final Color commonBackGround = Color(0xFF13131A);
+  static final Color backImagRadial1 = Color(0xFF14174E);
+  static final Color backImagRadial2 = Color(0xFF141535);
+  static final Color backImagRadial3 = Color(0xFF14121C);
 
   // static final Color appPinkColor = Color(0xFFFB6580);
 
