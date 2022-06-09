@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:podcast_app/Radio_Station/components/gradient_button_radio.dart';
 import 'package:podcast_app/Radio_Station/components/list_card_radio.dart';
 import 'package:podcast_app/components/data_for_dynamic.dart';
 import 'package:podcast_app/components/normal_text.dart';
 import 'package:podcast_app/components/sample_json.dart';
-import 'package:podcast_app/player_page/player.dart';
 
 class RadioStationPage extends StatefulWidget {
   const RadioStationPage({Key? key}) : super(key: key);

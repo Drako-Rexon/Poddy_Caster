@@ -13,7 +13,7 @@ class RedirectingPage extends StatefulWidget {
 }
 
 class _RedirectingPageState extends State<RedirectingPage> {
-  int currentTab = 1, index = 0;
+  int currentTab = 0, index = 0;
 
   @override
   Widget build(BuildContext context) {

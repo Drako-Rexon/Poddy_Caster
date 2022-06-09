@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:podcast_app/Home/components/ellipses_text.dart';
 import 'package:podcast_app/components/data_for_dynamic.dart';
+import 'package:podcast_app/player_page/player.dart';
 
 class ListCardRadio extends StatelessWidget {
   const ListCardRadio({
@@ -66,7 +68,9 @@ class ListCardRadio extends StatelessWidget {
             ),
           ),
           IconButton(
-            onPressed: () {},
+            onPressed: () {
+              Get.to(PlayerPage());
+            },
             icon: Icon(
               Icons.more_horiz,
               color: ColorsForApp.customWhite,

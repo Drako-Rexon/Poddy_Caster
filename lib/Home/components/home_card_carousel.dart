@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:podcast_app/Home/components/ellipses_text.dart';
 import 'package:podcast_app/components/data_for_dynamic.dart';
-import 'package:podcast_app/components/normal_text.dart';
-import 'package:podcast_app/components/sample_json.dart';
 
 class CarouselCardHome extends StatelessWidget {
   const CarouselCardHome({
