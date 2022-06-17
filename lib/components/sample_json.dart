@@ -89,3 +89,9 @@ List radioGenre = [
   {"category": "Classic Rock"},
   {"category": "Comedy"},
 ];
+
+List homeTopSliderOne = [
+  {"text1": "Tabitha Nauser", "text2": "Bulletproof"},
+  {"text1": "Tabitha Nauser2", "text2": "Bulletproof2"},
+  {"text1": "Tabitha Nauser3", "text2": "Bulletproof3"},
+];

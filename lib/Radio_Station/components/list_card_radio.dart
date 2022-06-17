@@ -22,9 +22,7 @@ class ListCardRadio extends StatelessWidget {
       padding: const EdgeInsets.all(10),
       decoration: BoxDecoration(
         color: ColorsForApp.darkPurple,
-        borderRadius: BorderRadius.all(
-          Radius.circular(12),
-        ),
+        borderRadius: BorderRadius.all(Radius.circular(12)),
       ),
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.center,
