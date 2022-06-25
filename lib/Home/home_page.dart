@@ -19,7 +19,7 @@ class HomePage extends StatelessWidget {
         actions: [
           Icon(
             Icons.search,
-            size: 32,
+            size: 32
           ),
           SizedBox(width: SizeForDynamic.width10),
         ],

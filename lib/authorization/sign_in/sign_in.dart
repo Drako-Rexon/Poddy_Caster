@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:podcast_app/Terms_of_service/terms_of_service.dart';
@@ -7,6 +8,7 @@ import 'package:podcast_app/authorization/forget_password/forget_password.dart';
 import 'package:podcast_app/authorization/sign_up/sign_up_page.dart';
 import 'package:podcast_app/components/data_for_dynamic.dart';
 import 'package:podcast_app/components/normal_text.dart';
+import 'package:podcast_app/redirecting_page/redirecting_page.dart';
 
 class SignInPage extends StatefulWidget {
   const SignInPage({Key? key}) : super(key: key);
@@ -19,6 +21,8 @@ class _SignInPageState extends State<SignInPage> {
   bool value = false;
   bool isVisible = false;
   final textController = TextEditingController();
+  final emailController = TextEditingController();
+  final passController = TextEditingController();
 
   @override
   void initState() {
@@ -78,6 +82,7 @@ class _SignInPageState extends State<SignInPage> {
                     ),
                     width: SizeForDynamic.screenWidth - SizeForDynamic.width50,
                     child: TextField(
+                      controller: emailController,
                       style: TextStyle(color: Color(0xFF7477A0)),
                       keyboardType: TextInputType.emailAddress,
                       decoration: InputDecoration(
@@ -87,13 +92,13 @@ class _SignInPageState extends State<SignInPage> {
                           color: Color(0xFF7477A0),
                           size: 18,
                         ),
-                        suffixIcon: textController.text.isNotEmpty
+                        suffixIcon: emailController.text.isNotEmpty
                             ? Container(width: 0)
                             : IconButton(
                                 icon: Icon(Icons.close),
                                 onPressed: () {
                                   setState(() {
-                                    textController.clear();
+                                    emailController.clear();
                                   });
                                 },
                               ),
@@ -115,6 +120,7 @@ class _SignInPageState extends State<SignInPage> {
                     ),
                     width: SizeForDynamic.screenWidth - SizeForDynamic.width50,
                     child: TextField(
+                      controller: passController,
                       obscureText: !isVisible,
                       style: TextStyle(color: Color(0xFF7477A0)),
                       keyboardType: TextInputType.emailAddress,
@@ -180,7 +186,34 @@ class _SignInPageState extends State<SignInPage> {
                       ],
                     ),
                   ),
-                  GradientButton(text: "Log In"),
+                  // GradientButton(text: "Log In"),
+
+                  // ! login button update
+                  Container(
+                    width: SizeForDynamic.screenWidth - SizeForDynamic.width50,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.all(Radius.circular(6)),
+                      gradient: LinearGradient(
+                        begin: Alignment.topLeft,
+                        end: Alignment.bottomRight,
+                        colors: [Color(0xFFFB6580), Color(0xFFF11775)],
+                      ),
+                    ),
+                    child: TextButton(
+                      onPressed: signIn,
+                      // () {
+                      //   signIn();
+                      //   // Get.to(RedirectingPage());
+                      // },
+                      child: NormalText(
+                        text: "Log In",
+                        textColor: Colors.white,
+                        textSize: 18,
+                        isBold: true,
+                      ),
+                    ),
+                  ),
+                  // ! login button update
                   SizedBox(height: SizeForDynamic.height20),
                   NormalText(text: "OR"),
                   SizedBox(height: SizeForDynamic.height20),
@@ -255,6 +288,13 @@ class _SignInPageState extends State<SignInPage> {
           ),
         ),
       ),
+    );
+  }
+
+  Future signIn() async {
+    await FirebaseAuth.instance.signInWithEmailAndPassword(
+      email: emailController.text.trim(),
+      password: passController.text.trim(),
     );
   }
 }
