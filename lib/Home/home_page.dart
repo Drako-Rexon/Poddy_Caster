@@ -17,10 +17,7 @@ class HomePage extends StatelessWidget {
       appBar: AppBar(
         elevation: 0,
         actions: [
-          Icon(
-            Icons.search,
-            size: 32
-          ),
+          Icon(Icons.search, size: 32),
           SizedBox(width: SizeForDynamic.width10),
         ],
         backgroundColor: Colors.transparent,
@@ -42,10 +39,7 @@ class HomePage extends StatelessWidget {
               mainAxisSize: MainAxisSize.min,
               children: [
                 SizedBox(height: SizeForDynamic.height80),
-
-                // SizedBox(height: SizeForDynamic.height50),
                 Row(
-                  // mainAxisSize: MainAxisSize.min,
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
                     Column(
@@ -68,7 +62,6 @@ class HomePage extends StatelessWidget {
                           width: 8,
                           margin: const EdgeInsets.all(5),
                           decoration: BoxDecoration(
-                            // borderRadius: BorderRadius.all(Radius.circular(4)),
                             shape: BoxShape.circle,
                             border: Border.all(
                               width: 2,

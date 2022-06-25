@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:podcast_app/Profile/profile_page.dart';
 import 'package:podcast_app/Radio_Station/radio_station.dart';
 import 'package:podcast_app/components/data_for_dynamic.dart';
 import 'package:podcast_app/components/normal_text.dart';
@@ -34,11 +35,7 @@ class _RedirectingPageState extends State<RedirectingPage> {
               child: NormalText(text: "event"),
             ),
           ),
-          Container(
-            child: Center(
-              child: NormalText(text: "profile"),
-            ),
-          ),
+          UserProfilePage(),
         ],
       ),
       bottomNavigationBar: RedirectingNav(),
