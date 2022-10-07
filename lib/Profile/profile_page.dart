@@ -23,10 +23,10 @@ class UserProfilePage extends StatelessWidget {
               //   height: 40,
               //   decoration: BoxDecoration(color: Colors.purpleAccent),
               // ),
-              FlatButton(
+              TextButton(
                 onPressed: signOut,
                 child: Text("Sign out"),
-                color: ColorsForApp.backGradientColor1,
+                // color: ColorsForApp.backGradientColor1,
               )
             ],
           ),

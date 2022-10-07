@@ -56,7 +56,7 @@ class _RadioStationPageState extends State<RadioStationPage>
         bottom: TabBar(
           isScrollable: true,
           controller:
-              _tabController, // * this controller is needed to declare in the init() and need to dispose too for control th eram consumption
+              _tabController, // * this controller is needed to declare in the init() and need to dispose too for control the ram consumption
           tabs: myTabs,
           labelColor: ColorsForApp.buttonGradientColor1,
           unselectedLabelColor: ColorsForApp.customGrey,
@@ -82,9 +82,7 @@ class _RadioStationPageState extends State<RadioStationPage>
       ),
       // ! The below content is for the list of cards in radio station
       body: SizedBox(
-        // height: SizeForDynamic.screenHeight - 120,
         child: Column(
-          // mainAxisSize: MainAxisSize.min,
           children: [
             SizedBox(height: SizeForDynamic.height20),
             Container(
@@ -116,7 +114,7 @@ class _RadioStationPageState extends State<RadioStationPage>
                         textColor: ColorsForApp.customWhite,
                         isBold: true,
                         textSize: SizeForDynamic.textSize18,
-                      )
+                      ),
                     ],
                   ),
                   GradientButtonRadio(

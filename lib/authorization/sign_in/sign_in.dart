@@ -2,13 +2,11 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:podcast_app/Terms_of_service/terms_of_service.dart';
-import 'package:podcast_app/authorization/components/gradient_button.dart';
 import 'package:podcast_app/authorization/components/sign_in_button.dart';
 import 'package:podcast_app/authorization/forget_password/forget_password.dart';
 import 'package:podcast_app/authorization/sign_up/sign_up_page.dart';
 import 'package:podcast_app/components/data_for_dynamic.dart';
 import 'package:podcast_app/components/normal_text.dart';
-import 'package:podcast_app/redirecting_page/redirecting_page.dart';
 
 class SignInPage extends StatefulWidget {
   const SignInPage({Key? key}) : super(key: key);
@@ -174,7 +172,7 @@ class _SignInPageState extends State<SignInPage> {
                             NormalText(text: "Remeber me"),
                           ],
                         ),
-                        FlatButton(
+                        TextButton(
                           onPressed: () {
                             Get.to(ForgetPassPage());
                           },
