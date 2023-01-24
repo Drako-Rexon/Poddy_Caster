@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:podcast_app/components/data_for_dynamic.dart';
-import 'package:podcast_app/components/normal_text.dart';
-import 'package:podcast_app/components/sample_json.dart';
-import 'package:podcast_app/player_page/components/background_image_filter.dart';
+import 'package:podcast_app/_components/data_for_dynamic.dart';
+import 'package:podcast_app/_components/normal_text.dart';
+import 'package:podcast_app/_components/sample_json.dart';
+import 'package:podcast_app/_components/background_image_filter.dart';
 import 'package:podcast_app/redirecting_page/redirecting_page.dart';
 
 class PlayerPage extends StatelessWidget {

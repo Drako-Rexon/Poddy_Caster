@@ -2,11 +2,13 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:podcast_app/Terms_of_service/terms_of_service.dart';
-import 'package:podcast_app/authorization/components/sign_in_button.dart';
-import 'package:podcast_app/authorization/forget_password/forget_password.dart';
-import 'package:podcast_app/authorization/sign_up/sign_up_page.dart';
-import 'package:podcast_app/components/data_for_dynamic.dart';
-import 'package:podcast_app/components/normal_text.dart';
+import 'package:podcast_app/_components/colors.dart';
+import 'package:podcast_app/_components/gradient_button.dart';
+import 'package:podcast_app/authorization/forget_password.dart';
+import 'package:podcast_app/authorization/sign_up_page.dart';
+import 'package:podcast_app/_components/data_for_dynamic.dart';
+import 'package:podcast_app/_components/normal_text.dart';
+import 'package:podcast_app/redirecting_page/redirecting_page.dart';
 
 class SignInPage extends StatefulWidget {
   const SignInPage({Key? key}) : super(key: key);
@@ -21,12 +23,21 @@ class _SignInPageState extends State<SignInPage> {
   final textController = TextEditingController();
   final emailController = TextEditingController();
   final passController = TextEditingController();
+  bool isLoading = false;
 
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
     textController.addListener(() => setState(() {}));
+    // isLoading = false;
+  }
+
+  Future signIn() async {
+    await FirebaseAuth.instance.signInWithEmailAndPassword(
+      email: emailController.text.trim(),
+      password: passController.text.trim(),
+    );
   }
 
   @override
@@ -71,29 +82,31 @@ class _SignInPageState extends State<SignInPage> {
                     textSize: SizeForDynamic.textSize24,
                   ),
                   NormalText(text: "Login to continue Radio App"),
-                  // SizedBox(height: SizeForDynamic.height20),
                   SizedBox(height: SizeForDynamic.height20),
                   Container(
                     decoration: BoxDecoration(
-                      color: Color(0xFF1D192C),
+                      color: pDeepPrimary,
                       borderRadius: BorderRadius.circular(6),
                     ),
                     width: SizeForDynamic.screenWidth - SizeForDynamic.width50,
                     child: TextField(
                       controller: emailController,
-                      style: TextStyle(color: Color(0xFF7477A0)),
+                      style: TextStyle(color: pLightPrimary),
                       keyboardType: TextInputType.emailAddress,
                       decoration: InputDecoration(
                         border: InputBorder.none,
                         prefixIcon: Icon(
                           Icons.mail_outline,
-                          color: Color(0xFF7477A0),
+                          color: pPrimaryTextColor,
                           size: 18,
                         ),
                         suffixIcon: emailController.text.isNotEmpty
                             ? Container(width: 0)
                             : IconButton(
-                                icon: Icon(Icons.close),
+                                icon: Icon(
+                                  Icons.close,
+                                  color: pPrimaryTextColor,
+                                ),
                                 onPressed: () {
                                   setState(() {
                                     emailController.clear();
@@ -103,7 +116,7 @@ class _SignInPageState extends State<SignInPage> {
                         hintText: "Email Address",
                         hintStyle: TextStyle(
                           fontFamily: 'CircularStd-Book',
-                          color: Color(0xFF7477A0),
+                          color: pPrimaryTextColor,
                           fontSize: 12,
                         ),
                       ),
@@ -113,26 +126,29 @@ class _SignInPageState extends State<SignInPage> {
                   SizedBox(height: SizeForDynamic.height20),
                   Container(
                     decoration: BoxDecoration(
-                      color: Color(0xFF1D192C),
+                      color: pDeepPrimary,
                       borderRadius: BorderRadius.circular(6),
                     ),
                     width: SizeForDynamic.screenWidth - SizeForDynamic.width50,
                     child: TextField(
                       controller: passController,
                       obscureText: !isVisible,
-                      style: TextStyle(color: Color(0xFF7477A0)),
+                      style: TextStyle(color: pLightPrimary),
                       keyboardType: TextInputType.emailAddress,
                       decoration: InputDecoration(
                         border: InputBorder.none,
                         prefixIcon: Icon(
                           Icons.lock_outline,
-                          color: Color(0xFF7477A0),
+                          color: pPrimaryTextColor,
                           size: 18,
                         ),
                         suffixIcon: IconButton(
-                          icon: Icon(isVisible
-                              ? Icons.visibility_off
-                              : Icons.remove_red_eye),
+                          icon: Icon(
+                            isVisible
+                                ? Icons.visibility_off
+                                : Icons.remove_red_eye,
+                            color: pPrimaryTextColor,
+                          ),
                           onPressed: () {
                             setState(() {
                               isVisible = !isVisible;
@@ -142,7 +158,7 @@ class _SignInPageState extends State<SignInPage> {
                         hintText: "Password",
                         hintStyle: TextStyle(
                           fontFamily: 'CircularStd-Book',
-                          color: Color(0xFF7477A0),
+                          color: pPrimaryTextColor,
                           fontSize: 12,
                         ),
                       ),
@@ -159,9 +175,11 @@ class _SignInPageState extends State<SignInPage> {
                         Row(
                           children: [
                             Checkbox(
+                              overlayColor:
+                                  MaterialStateProperty.all(Colors.transparent),
                               value: value,
-                              activeColor: Color(0xFF1D192C),
-                              checkColor: Color(0xFF7B7B8B),
+                              activeColor: pDeepPrimary,
+                              checkColor: pLightPrimary,
                               shape: CircleBorder(),
                               onChanged: (value) {
                                 setState(() {
@@ -172,8 +190,8 @@ class _SignInPageState extends State<SignInPage> {
                             NormalText(text: "Remeber me"),
                           ],
                         ),
-                        TextButton(
-                          onPressed: () {
+                        InkWell(
+                          onTap: () {
                             Get.to(ForgetPassPage());
                           },
                           child: NormalText(
@@ -184,50 +202,31 @@ class _SignInPageState extends State<SignInPage> {
                       ],
                     ),
                   ),
-                  // GradientButton(text: "Log In"),
-
-                  // ! login button update
-                  Container(
-                    width: SizeForDynamic.screenWidth - SizeForDynamic.width50,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.all(Radius.circular(6)),
-                      gradient: LinearGradient(
-                        begin: Alignment.topLeft,
-                        end: Alignment.bottomRight,
-                        colors: [Color(0xFFFB6580), Color(0xFFF11775)],
-                      ),
-                    ),
-                    child: TextButton(
-                      onPressed: signIn,
-                      // () {
-                      //   signIn();
-                      //   // Get.to(RedirectingPage());
-                      // },
-                      child: NormalText(
-                        text: "Log In",
-                        textColor: Colors.white,
-                        textSize: 18,
-                        isBold: true,
-                      ),
-                    ),
+                  GradientButton(
+                    "Log In",
+                    () {
+                      Get.to(RedirectingPage());
+                    },
+                    isDisable: false,
+                    isLoading: isLoading,
                   ),
-                  // ! login button update
                   SizedBox(height: SizeForDynamic.height20),
                   NormalText(text: "OR"),
                   SizedBox(height: SizeForDynamic.height20),
-                  SignInButtoncustom(
-                    text: "Continue with Google",
-                    iconLocation: "assets/images/google-png.png",
-                    login: () {
-                      Get.to(ForgetPassPage());
-                    },
+                  SignInSocial(
+                    "Continue with Google",
+                    () {},
+                    "assets/images/google-png.png",
+                    backColor: pWhite,
+                    textColor: pBlack,
                   ),
                   SizedBox(height: SizeForDynamic.height20),
-                  SignInButtoncustom(
-                    text: "Continue with Facebook",
-                    iconLocation: "assets/images/fb.jpg",
-                    backColor: ColorsForApp.fbColor,
-                    textColor: ColorsForApp.customWhite,
+                  SignInSocial(
+                    'Continue with Facebook',
+                    () {},
+                    "assets/images/facebook.png",
+                    textColor: pWhite,
+                    backColor: Color(0xFF3d599f),
                   ),
                   SizedBox(height: SizeForDynamic.height10),
                   Row(
@@ -237,11 +236,8 @@ class _SignInPageState extends State<SignInPage> {
                         text: "Don't have account?",
                         textSize: SizeForDynamic.textSize12,
                       ),
-                      TextButton(
-                        style: ButtonStyle(
-                          padding: MaterialStateProperty.all(EdgeInsets.all(0)),
-                        ),
-                        onPressed: () {
+                      InkWell(
+                        onTap: () {
                           Get.to(SignUpPage());
                         },
                         child: NormalText(
@@ -252,7 +248,6 @@ class _SignInPageState extends State<SignInPage> {
                       ),
                     ],
                   ),
-                  // SizedBox(height: SizeForDynamic.height30),
                 ],
               ),
               Column(
@@ -286,13 +281,6 @@ class _SignInPageState extends State<SignInPage> {
           ),
         ),
       ),
-    );
-  }
-
-  Future signIn() async {
-    await FirebaseAuth.instance.signInWithEmailAndPassword(
-      email: emailController.text.trim(),
-      password: passController.text.trim(),
     );
   }
 }

@@ -1,17 +1,21 @@
 import 'package:flutter/material.dart';
-import 'package:podcast_app/components/data_for_dynamic.dart';
+import 'package:podcast_app/_components/colors.dart';
+import 'package:podcast_app/_components/data_for_dynamic.dart';
 
 class GradientButtonRadio extends StatelessWidget {
-  const GradientButtonRadio({
+  const GradientButtonRadio(
+    this.text,
+    this.func, {
     Key? key,
-    required this.text,
     this.txtSize = 18,
     this.textWeight = FontWeight.w400,
+    this.isLoading = false,
   }) : super(key: key);
   final String text;
   final double txtSize;
   final FontWeight textWeight;
-  // Function? func;
+  final Function? func;
+  final bool isLoading;
 
   @override
   Widget build(BuildContext context) {
@@ -25,19 +29,21 @@ class GradientButtonRadio extends StatelessWidget {
         gradient: LinearGradient(
           begin: Alignment.topLeft,
           end: Alignment.bottomRight,
-          colors: [Color(0xFFFB6580), Color(0xFFF11775)],
+          colors: gradientButton1,
         ),
       ),
       child: TextButton(
         onPressed: () {},
-        child: Text(
-          text,
-          style: TextStyle(
-            color: Colors.white,
-            fontWeight: textWeight,
-            fontSize: txtSize,
-          ),
-        ),
+        child: isLoading
+            ? CircularProgressIndicator(color: pWhite)
+            : Text(
+                text,
+                style: TextStyle(
+                  color: Colors.white,
+                  fontWeight: textWeight,
+                  fontSize: txtSize,
+                ),
+              ),
       ),
     );
   }

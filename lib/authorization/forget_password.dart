@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:podcast_app/authorization/components/gradient_button.dart';
-import 'package:podcast_app/authorization/sign_in/sign_in.dart';
-import 'package:podcast_app/components/data_for_dynamic.dart';
-import 'package:podcast_app/components/normal_text.dart';
+import 'package:podcast_app/_components/gradient_button.dart';
+import 'package:podcast_app/authorization/sign_in.dart';
+import 'package:podcast_app/_components/data_for_dynamic.dart';
+import 'package:podcast_app/_components/normal_text.dart';
 
 class ForgetPassPage extends StatefulWidget {
   const ForgetPassPage({Key? key}) : super(key: key);
@@ -87,7 +87,7 @@ class _ForgetPassPageState extends State<ForgetPassPage> {
                     ),
                   ),
                   SizedBox(height: SizeForDynamic.height20),
-                  GradientButton(text: "Send Password Reset"),
+                  GradientButton("Send Password Reset", () {}),
                 ],
               ),
               SizedBox(height: SizeForDynamic.height80),

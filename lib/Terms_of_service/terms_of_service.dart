@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:podcast_app/components/data_for_dynamic.dart';
-import 'package:podcast_app/components/normal_text.dart';
+import 'package:podcast_app/_components/colors.dart';
+import 'package:podcast_app/_components/data_for_dynamic.dart';
+import 'package:podcast_app/_components/normal_text.dart';
 
 class TermsOfService extends StatelessWidget {
   const TermsOfService({Key? key}) : super(key: key);
@@ -40,7 +41,7 @@ class TermsOfService extends StatelessWidget {
             top: SizeForDynamic.width10,
             bottom: SizeForDynamic.width30,
           ),
-          decoration: BoxDecoration(color: ColorsForApp.forgroundAppColor),
+          decoration: BoxDecoration(color: pSecondaryDeep),
           child: Container(
             padding: EdgeInsets.only(
               left: SizeForDynamic.width10,

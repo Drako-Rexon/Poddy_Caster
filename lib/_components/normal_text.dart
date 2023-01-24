@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:podcast_app/_components/colors.dart';
 
 class NormalText extends StatelessWidget {
   const NormalText({
@@ -6,7 +7,7 @@ class NormalText extends StatelessWidget {
     required this.text,
     this.textSize = 14,
     this.isBold = false,
-    this.textColor = const Color(0xFF7477A0),
+    this.textColor = pPrimaryTextColor,
     this.align = TextAlign.justify,
     this.toUpper = false,
   }) : super(key: key);
@@ -20,7 +21,7 @@ class NormalText extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Text(
-      toUpper?text.toUpperCase(): text,
+      toUpper ? text.toUpperCase() : text,
       textAlign: align,
       style: TextStyle(
         fontSize: textSize,

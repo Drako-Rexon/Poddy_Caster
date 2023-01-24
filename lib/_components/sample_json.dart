@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-List navName = ["Home", "Radio Stations", "Podcasts", "Events", "Profile"];
+
 List navIcons = [
   Icons.home,
   Icons.radar_outlined,

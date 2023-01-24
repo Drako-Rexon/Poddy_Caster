@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:podcast_app/Home/components/ellipses_text.dart';
-import 'package:podcast_app/components/data_for_dynamic.dart';
+import 'package:podcast_app/_components/ellipses_text.dart';
+import 'package:podcast_app/_components/data_for_dynamic.dart';
 import 'package:podcast_app/player_page/player.dart';
 
-class ListCardBottomHome extends StatelessWidget {
-  const ListCardBottomHome({
+class ListCardRadio extends StatelessWidget {
+  const ListCardRadio({
     Key? key,
     required this.img,
     required this.mainText,
@@ -22,9 +22,7 @@ class ListCardBottomHome extends StatelessWidget {
       padding: const EdgeInsets.all(10),
       decoration: BoxDecoration(
         color: ColorsForApp.darkPurple,
-        borderRadius: BorderRadius.all(
-          Radius.circular(12),
-        ),
+        borderRadius: BorderRadius.all(Radius.circular(12)),
       ),
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.center,
@@ -33,6 +31,10 @@ class ListCardBottomHome extends StatelessWidget {
           Container(
             width: 50,
             height: 50,
+            padding: EdgeInsets.symmetric(
+              horizontal: SizeForDynamic.height10,
+              vertical: SizeForDynamic.width10,
+            ),
             decoration: BoxDecoration(
               borderRadius: BorderRadius.all(
                 Radius.circular(10),
@@ -43,7 +45,7 @@ class ListCardBottomHome extends StatelessWidget {
             ),
           ),
           SizedBox(
-            width: SizeForDynamic.screenWidth - 200,
+            width: SizeForDynamic.screenWidth - 240,
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -69,6 +71,13 @@ class ListCardBottomHome extends StatelessWidget {
             },
             icon: Icon(
               Icons.more_horiz,
+              color: ColorsForApp.customWhite,
+            ),
+          ),
+          IconButton(
+            onPressed: () {},
+            icon: Icon(
+              Icons.favorite_rounded,
               color: ColorsForApp.customWhite,
             ),
           ),

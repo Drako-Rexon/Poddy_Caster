@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:podcast_app/Profile/profile_page.dart';
 import 'package:podcast_app/Radio_Station/radio_station.dart';
-import 'package:podcast_app/components/data_for_dynamic.dart';
-import 'package:podcast_app/components/normal_text.dart';
+import 'package:podcast_app/_components/data_for_dynamic.dart';
+import 'package:podcast_app/_components/normal_text.dart';
 import 'package:podcast_app/Home/home_page.dart';
-import 'package:podcast_app/components/sample_json.dart';
+import 'package:podcast_app/_components/sample_json.dart';
 
 class RedirectingPage extends StatefulWidget {
   const RedirectingPage({Key? key}) : super(key: key);
@@ -15,6 +15,7 @@ class RedirectingPage extends StatefulWidget {
 
 class _RedirectingPageState extends State<RedirectingPage> {
   int currentTab = 0, index = 0;
+  List navName = ["Home", "Stations", "Podcasts", "Events", "Profile"];
 
   @override
   Widget build(BuildContext context) {
@@ -109,44 +110,3 @@ class _RedirectingPageState extends State<RedirectingPage> {
     );
   }
 }
-
-// class NavBar extends StatefulWidget {
-//   const NavBar({Key? key, required this.list1, required this.list2})
-//       : super(key: key);
-//   final List list1;
-//   final List list2;
-
-//   @override
-//   State<NavBar> createState() => _NavBarState();
-// }
-
-// class _NavBarState extends State<NavBar> {
-//   @override
-//   Widget build(BuildContext context) {
-//     return Container(
-//       width: 100,
-//       height: 200,
-//       color: Colors.white,
-//       child: Row(
-//         children: List.generate(list1.length, (index) {
-//           return Container(
-//             padding: EdgeInsets.only(bottom: 60),
-//             child: RaisedButton(
-//               onPressed: () {
-//                 setState(() {});
-//               },
-//               child: Column(
-//                 children: [
-//                   Icon(
-//                     list1[index],
-//                     color: Colors.red,
-//                   ),
-//                 ],
-//               ),
-//             ),
-//           );
-//         }),
-//       ),
-//     );
-//   }
-// }

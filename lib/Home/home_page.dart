@@ -1,10 +1,10 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
-import 'package:podcast_app/Home/components/list_card_home.dart';
-import 'package:podcast_app/components/data_for_dynamic.dart';
-import 'package:podcast_app/Home/components/home_card_carousel.dart';
-import 'package:podcast_app/components/normal_text.dart';
-import 'package:podcast_app/components/sample_json.dart';
+import 'package:podcast_app/_components/list_card_home.dart';
+import 'package:podcast_app/_components/data_for_dynamic.dart';
+import 'package:podcast_app/_components/home_card_carousel.dart';
+import 'package:podcast_app/_components/normal_text.dart';
+import 'package:podcast_app/_components/sample_json.dart';
 
 class HomePage extends StatelessWidget {
   HomePage({Key? key}) : super(key: key);
