@@ -11,7 +11,7 @@ class BackGroundImageFilter extends StatelessWidget {
     return Stack(
       children: [
         Container(
-          height: SizeForDynamic.screenHeight * 0.4,
+          height: AppConfig.screenHeight * 0.4,
           decoration: BoxDecoration(
             image: DecorationImage(
               fit: BoxFit.fitHeight,
@@ -24,7 +24,7 @@ class BackGroundImageFilter extends StatelessWidget {
           // mainAxisAlignment: MainAxisAlignment.start,
           children: [
             Container(
-              height: SizeForDynamic.screenHeight * 0.3,
+              height: AppConfig.screenHeight * 0.3,
               decoration: BoxDecoration(
                 gradient: RadialGradient(
                   // begin: Alignment.bottomCenter,
@@ -44,7 +44,7 @@ class BackGroundImageFilter extends StatelessWidget {
               ),
             ),
             Container(
-              height: SizeForDynamic.screenHeight * 0.669,
+              height: AppConfig.screenHeight * 0.669,
               decoration: BoxDecoration(
                 gradient: RadialGradient(
                   colors: [
@@ -59,7 +59,7 @@ class BackGroundImageFilter extends StatelessWidget {
           ],
         ),
         Container(
-          height: SizeForDynamic.screenHeight,
+          height: AppConfig.screenHeight,
           decoration: BoxDecoration(
             color: ColorsForApp.backGradientColor1.withOpacity(0.2),
           ),

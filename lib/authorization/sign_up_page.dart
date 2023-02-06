@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:podcast_app/_components/colors.dart';
 import 'package:podcast_app/_components/gradient_button.dart';
-import 'package:podcast_app/_components/sign_in_button.dart';
+import 'package:podcast_app/_components/util_function.dart';
 import 'package:podcast_app/authorization/sign_in.dart';
 import 'package:podcast_app/_components/data_for_dynamic.dart';
 import 'package:podcast_app/_components/normal_text.dart';
@@ -16,15 +17,44 @@ class SignUpPage extends StatefulWidget {
 class _SignUpPageState extends State<SignUpPage> {
   bool value = false;
   bool isVisible = false;
-  final textController = TextEditingController();
+  // TextEditingController textController = TextEditingController();
+  late TextEditingController _usernameController; // = TextEditingController();
+  late TextEditingController _mailController; // = TextEditingController();
+  late TextEditingController _passwordController; // = TextEditingController();
+
+  @override
+  void initState() {
+    super.initState();
+    _usernameController = TextEditingController();
+    _mailController = TextEditingController();
+    _passwordController = TextEditingController();
+    _usernameController.addListener(() {
+      setState(() {});
+    });
+    _mailController.addListener(() {
+      setState(() {});
+    });
+    _passwordController.addListener(() {
+      setState(() {});
+    });
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    _usernameController.dispose();
+    _mailController.dispose();
+    _passwordController.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
+    pPrintLog("text:", _usernameController.text.isEmpty);
     return Scaffold(
       body: SafeArea(
         child: Container(
-          width: SizeForDynamic.screenWidth,
-          height: SizeForDynamic.screenHeight,
+          width: AppConfig.screenWidth,
+          height: AppConfig.screenHeight,
           decoration: BoxDecoration(
             gradient: RadialGradient(
               radius: 5,
@@ -41,114 +71,126 @@ class _SignUpPageState extends State<SignUpPage> {
               children: [
                 Column(
                   children: [
-                    SizedBox(height: SizeForDynamic.height60),
+                    SizedBox(height: AppConfig.height60),
                     NormalText(
                       text: "Sign Up",
-                      textColor: Colors.white,
-                      textSize: SizeForDynamic.textSize24,
+                      textColor: pWhite,
+                      textSize: AppConfig.textSize24,
                       isBold: true,
                     ),
-                    SizedBox(height: SizeForDynamic.height5),
+                    SizedBox(height: AppConfig.height5),
                     NormalText(text: "Sign Up and Start Learning"),
-                    SizedBox(height: SizeForDynamic.height20),
+                    SizedBox(height: AppConfig.height20),
                     Container(
                       decoration: BoxDecoration(
-                        color: Color(0xFF1D192C),
+                        color: pDeepPrimary,
                         borderRadius: BorderRadius.circular(6),
                       ),
-                      width:
-                          SizeForDynamic.screenWidth - SizeForDynamic.width50,
+                      width: AppConfig.screenWidth - AppConfig.width50,
                       child: TextField(
-                        style: TextStyle(color: Color(0xFF7477A0)),
+                        cursorColor: pPrimaryTextColor,
+                        controller: _usernameController,
+                        style: TextStyle(color: pPrimaryTextColor),
                         keyboardType: TextInputType.emailAddress,
                         decoration: InputDecoration(
                           border: InputBorder.none,
                           prefixIcon: Icon(
                             Icons.person_outline_outlined,
-                            color: Color(0xFF7477A0),
-                            size: 18,
+                            color: pPrimaryTextColor,
+                            size: AppConfig.textSize18,
                           ),
-                          suffixIcon: textController.text.isNotEmpty
+                          suffixIcon: _usernameController.text.isEmpty
                               ? Container(width: 0)
-                              : IconButton(
-                                  icon: Icon(Icons.close),
-                                  onPressed: () {
+                              : InkWell(
+                                  child: Icon(
+                                    Icons.close,
+                                    color: pPrimaryTextColor,
+                                  ),
+                                  onTap: () {
                                     setState(() {
-                                      textController.clear();
+                                      _usernameController.clear();
                                     });
                                   },
                                 ),
                           hintText: "User Name",
                           hintStyle: TextStyle(
                             fontFamily: 'CircularStd-Book',
-                            color: Color(0xFF7477A0),
-                            fontSize: 12,
+                            color: pPrimaryTextColor,
+                            fontSize: AppConfig.textSize12,
                           ),
                         ),
                         textInputAction: TextInputAction.next,
                       ),
                     ),
-                    SizedBox(height: SizeForDynamic.height20),
+                    SizedBox(height: AppConfig.height20),
                     Container(
                       decoration: BoxDecoration(
-                        color: Color(0xFF1D192C),
+                        color: pDeepPrimary,
                         borderRadius: BorderRadius.circular(6),
                       ),
-                      width:
-                          SizeForDynamic.screenWidth - SizeForDynamic.width50,
+                      width: AppConfig.screenWidth - AppConfig.width50,
                       child: TextField(
-                        style: TextStyle(color: Color(0xFF7477A0)),
+                        cursorColor: pPrimaryTextColor,
+                        controller: _mailController,
+                        style: TextStyle(color: pPrimaryTextColor),
                         keyboardType: TextInputType.emailAddress,
                         decoration: InputDecoration(
                           border: InputBorder.none,
                           prefixIcon: Icon(
                             Icons.mail_outline,
-                            color: Color(0xFF7477A0),
-                            size: 18,
+                            color: pPrimaryTextColor,
+                            size: AppConfig.textSize18,
                           ),
-                          suffixIcon: textController.text.isNotEmpty
+                          suffixIcon: _mailController.text.isEmpty
                               ? Container(width: 0)
                               : IconButton(
-                                  icon: Icon(Icons.close),
+                                  icon: Icon(
+                                    Icons.close,
+                                    color: pPrimaryTextColor,
+                                  ),
                                   onPressed: () {
                                     setState(() {
-                                      textController.clear();
+                                      _mailController.clear();
                                     });
                                   },
                                 ),
                           hintText: "Email Address",
                           hintStyle: TextStyle(
                             fontFamily: 'CircularStd-Book',
-                            color: Color(0xFF7477A0),
-                            fontSize: 12,
+                            color: pPrimaryTextColor,
+                            fontSize: AppConfig.textSize12,
                           ),
                         ),
                         textInputAction: TextInputAction.next,
                       ),
                     ),
-                    SizedBox(height: SizeForDynamic.height20),
+                    SizedBox(height: AppConfig.height20),
                     Container(
                       decoration: BoxDecoration(
-                        color: Color(0xFF1D192C),
+                        color: pDeepPrimary,
                         borderRadius: BorderRadius.circular(6),
                       ),
-                      width:
-                          SizeForDynamic.screenWidth - SizeForDynamic.width50,
+                      width: AppConfig.screenWidth - AppConfig.width50,
                       child: TextField(
-                        obscureText: !isVisible,
-                        style: TextStyle(color: Color(0xFF7477A0)),
+                        cursorColor: pPrimaryTextColor,
+                        controller: _passwordController,
+                        obscureText: isVisible,
+                        style: TextStyle(color: pPrimaryTextColor),
                         keyboardType: TextInputType.emailAddress,
                         decoration: InputDecoration(
                           border: InputBorder.none,
                           prefixIcon: Icon(
                             Icons.lock_outline,
-                            color: Color(0xFF7477A0),
-                            size: 18,
+                            color: pPrimaryTextColor,
+                            size: AppConfig.textSize18,
                           ),
                           suffixIcon: IconButton(
-                            icon: Icon(isVisible
-                                ? Icons.visibility_off
-                                : Icons.remove_red_eye),
+                            icon: Icon(
+                              isVisible
+                                  ? Icons.visibility_off
+                                  : Icons.remove_red_eye,
+                              color: pPrimaryTextColor,
+                            ),
                             onPressed: () {
                               setState(() {
                                 isVisible = !isVisible;
@@ -158,20 +200,20 @@ class _SignUpPageState extends State<SignUpPage> {
                           hintText: "Password",
                           hintStyle: TextStyle(
                             fontFamily: 'CircularStd-Book',
-                            color: Color(0xFF7477A0),
-                            fontSize: 12,
+                            color: pPrimaryTextColor,
+                            fontSize: AppConfig.textSize12,
                           ),
                         ),
                         textInputAction: TextInputAction.next,
                       ),
                     ),
-                    SizedBox(height: SizeForDynamic.height10),
+                    SizedBox(height: AppConfig.height10),
                     Row(
                       children: [
                         Checkbox(
                           value: value,
                           activeColor: ColorsForApp.buttonGradientColor1,
-                          checkColor: ColorsForApp.customWhite,
+                          checkColor: pWhite,
                           shape: CircleBorder(),
                           onChanged: (value) {
                             setState(() {
@@ -180,32 +222,45 @@ class _SignUpPageState extends State<SignUpPage> {
                           },
                         ),
                         Container(
-                          width: SizeForDynamic.screenWidth -
-                              SizeForDynamic.width70,
+                          width: AppConfig.screenWidth - AppConfig.width70,
                           child: NormalText(
-                              textSize: SizeForDynamic.textSize12,
+                              textSize: AppConfig.textSize12,
                               text:
                                   "Yes! I want to get the most out of Ezymaster by\n receiving emails with exclusive deals and learning tips!"),
                         )
                       ],
                     ),
-                    SizedBox(height: SizeForDynamic.height20),
-                    GradientButton("Sign Up", () {}),
-                    SizedBox(height: SizeForDynamic.height20),
+                    SizedBox(height: AppConfig.height20),
+                    GradientButton(
+                      "Sign Up",
+                      () {
+                        Get.offAll(() => SignInPage());
+                      },
+                      isDisable: (_usernameController.text.isNotEmpty &&
+                              _mailController.text.isNotEmpty &&
+                              _passwordController.text.isNotEmpty)
+                          ? false
+                          : true,
+                    ),
+                    SizedBox(height: AppConfig.height20),
                     NormalText(text: "OR"),
-                    SizedBox(height: SizeForDynamic.height20),
-                    SignInButtoncustom(
-                      text: "Continue with Google",
-                      iconLocation: 'assets/images/google-png.png',
+                    SizedBox(height: AppConfig.height20),
+                    SignInSocial(
+                      "Continue with Google",
+                      () {},
+                      "assets/images/google-png.png",
+                      backColor: pWhite,
+                      textColor: pBlack,
                     ),
-                    SizedBox(height: SizeForDynamic.height20),
-                    SignInButtoncustom(
-                      text: "Continue with Facebook",
-                      iconLocation: 'assets/images/fb.jpg',
-                      backColor: ColorsForApp.fbColor,
-                      textColor: ColorsForApp.customWhite,
+                    SizedBox(height: AppConfig.height20),
+                    SignInSocial(
+                      'Continue with Facebook',
+                      () {},
+                      "assets/images/facebook.png",
+                      textColor: pWhite,
+                      backColor: pFB,
                     ),
-                    SizedBox(height: SizeForDynamic.height30),
+                    SizedBox(height: AppConfig.height30),
                   ],
                 ),
                 Row(
@@ -213,7 +268,7 @@ class _SignUpPageState extends State<SignUpPage> {
                   children: [
                     NormalText(
                       text: "Already have account?",
-                      textSize: 12,
+                      textSize: AppConfig.textSize12,
                     ),
                     TextButton(
                       style: ButtonStyle(
@@ -224,7 +279,7 @@ class _SignUpPageState extends State<SignUpPage> {
                         Get.to(SignInPage());
                       },
                       child: NormalText(
-                        text: "Log In (WORK)",
+                        text: "Log In",
                         textColor: ColorsForApp.buttonGradientColor1,
                         isBold: true,
                       ),

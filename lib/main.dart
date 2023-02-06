@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:podcast_app/authorization/sign_in.dart';
-import 'package:podcast_app/redirecting_page/redirecting_page.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -34,7 +33,8 @@ class _MyAppState extends State<MyApp> {
             // if (snapshot.hasData) {
             //   return RedirectingPage();
             // } else {
-              return SignInPage();
+            // return RedirectingPage();
+            return SignInPage();
             // }
           }), //const RedirectingPage(),
     );

@@ -24,8 +24,8 @@ class GradientButton extends StatelessWidget {
         func();
       },
       child: Container(
-        width: SizeForDynamic.screenWidth - SizeForDynamic.width50,
-        height: SizeForDynamic.height40 + SizeForDynamic.height5,
+        width: AppConfig.screenWidth - AppConfig.width50,
+        height: AppConfig.height40 + AppConfig.height5,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.all(Radius.circular(6)),
           gradient: LinearGradient(
@@ -39,7 +39,7 @@ class GradientButton extends StatelessWidget {
             : Center(
                 child: NormalText(
                   text: text,
-                  textColor: Colors.white,
+                  textColor: pWhite,
                   textSize: 18,
                   isBold: true,
                 ),
@@ -76,8 +76,8 @@ class SignInSocial extends StatelessWidget {
         func();
       },
       child: Container(
-        width: SizeForDynamic.screenWidth - SizeForDynamic.width50,
-        height: SizeForDynamic.height40 + SizeForDynamic.height5,
+        width: AppConfig.screenWidth - AppConfig.width50,
+        height: AppConfig.height40 + AppConfig.height5,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.all(Radius.circular(6)),
           color: backColor,
@@ -90,8 +90,8 @@ class SignInSocial extends StatelessWidget {
                   children: [
                     Image(
                       image: AssetImage(iconLocation),
-                      width: SizeForDynamic.width40,
-                      height: SizeForDynamic.height20,
+                      width: AppConfig.width40,
+                      height: AppConfig.height20,
                     ),
                     NormalText(
                       text: text,

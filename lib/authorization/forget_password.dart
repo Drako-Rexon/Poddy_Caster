@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:podcast_app/_components/colors.dart';
 import 'package:podcast_app/_components/gradient_button.dart';
 import 'package:podcast_app/authorization/sign_in.dart';
 import 'package:podcast_app/_components/data_for_dynamic.dart';
@@ -13,15 +14,15 @@ class ForgetPassPage extends StatefulWidget {
 }
 
 class _ForgetPassPageState extends State<ForgetPassPage> {
-  final textController = TextEditingController();
   @override
   Widget build(BuildContext context) {
+    final textController = TextEditingController();
     return Scaffold(
       resizeToAvoidBottomInset: false,
       body: SafeArea(
         child: Container(
-          width: SizeForDynamic.screenWidth,
-          height: SizeForDynamic.screenHeight,
+          width: AppConfig.screenWidth,
+          height: AppConfig.screenHeight,
           decoration: BoxDecoration(
             gradient: RadialGradient(
               radius: 5,
@@ -36,40 +37,41 @@ class _ForgetPassPageState extends State<ForgetPassPage> {
             children: [
               Column(
                 children: [
-                  SizedBox(height: SizeForDynamic.screenHeight * 0.25),
+                  SizedBox(height: AppConfig.screenHeight * 0.25),
                   NormalText(
                     text: "Forget Password",
-                    textColor: ColorsForApp.customWhite,
-                    textSize: SizeForDynamic.textSize24,
+                    textColor: pWhite,
+                    textSize: AppConfig.textSize24,
                     isBold: true,
                   ),
-                  SizedBox(height: SizeForDynamic.height10),
+                  SizedBox(height: AppConfig.height10),
                   NormalText(
                     text:
                         "Enter your email address below.\nWe'll look for your account and send you a\npassword reset email.",
                     align: TextAlign.center,
                   ),
-                  SizedBox(height: SizeForDynamic.height30),
+                  SizedBox(height: AppConfig.height30),
                   Container(
                     decoration: BoxDecoration(
-                      color: Color(0xFF1D192C),
+                      color: pDeepPrimary,
                       borderRadius: BorderRadius.circular(6),
                     ),
-                    width: SizeForDynamic.screenWidth - SizeForDynamic.width50,
-                    child: TextField(
-                      style: TextStyle(color: Color(0xFF7477A0)),
+                    width: AppConfig.screenWidth - AppConfig.width50,
+                    child: TextFormField(
+                      cursorColor: pPrimaryTextColor,
+                      style: TextStyle(color: pLightPrimary),
                       keyboardType: TextInputType.emailAddress,
                       decoration: InputDecoration(
                         border: InputBorder.none,
                         prefixIcon: Icon(
                           Icons.mail_outline,
-                          color: Color(0xFF7477A0),
-                          size: 18,
+                          color: pLightPrimary,
+                          size: AppConfig.textSize18,
                         ),
-                        suffixIcon: textController.text.isNotEmpty
+                        suffixIcon: textController.text.isEmpty
                             ? Container(width: 0)
                             : IconButton(
-                                icon: Icon(Icons.close),
+                                icon: Icon(Icons.close, color: pLightPrimary),
                                 onPressed: () {
                                   setState(() {
                                     textController.clear();
@@ -79,18 +81,22 @@ class _ForgetPassPageState extends State<ForgetPassPage> {
                         hintText: "Email Address",
                         hintStyle: TextStyle(
                           fontFamily: 'CircularStd-Book',
-                          color: Color(0xFF7477A0),
-                          fontSize: 12,
+                          color: pLightPrimary,
+                          fontSize: AppConfig.textSize12,
                         ),
                       ),
                       textInputAction: TextInputAction.next,
                     ),
                   ),
-                  SizedBox(height: SizeForDynamic.height20),
-                  GradientButton("Send Password Reset", () {}),
+                  SizedBox(height: AppConfig.height20),
+                  GradientButton(
+                    "Send Password Reset",
+                    () {},
+                    isDisable: false,
+                  ),
                 ],
               ),
-              SizedBox(height: SizeForDynamic.height80),
+              SizedBox(height: AppConfig.height80),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [

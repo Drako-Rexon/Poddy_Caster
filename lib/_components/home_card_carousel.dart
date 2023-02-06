@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:podcast_app/_components/colors.dart';
 import 'package:podcast_app/_components/ellipses_text.dart';
 import 'package:podcast_app/_components/data_for_dynamic.dart';
 
@@ -34,15 +35,16 @@ class CarouselCardHome extends StatelessWidget {
             child: EllipsisText(
               text: text1,
               toUpper: true,
-              textColor: ColorsForApp.customWhite,
-              textSize: SizeForDynamic.textSize12,isBold: true,
+              textColor: pWhite,
+              textSize: AppConfig.textSize12,
+              isBold: true,
             ),
           ),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 10),
             child: EllipsisText(
               text: text2,
-              textSize: SizeForDynamic.textSize8,
+              textSize: AppConfig.textSize8,
             ),
           ),
         ],
@@ -57,6 +59,6 @@ class CarouselCardHome extends StatelessWidget {
 //               style: TextStyle(
 //                 fontWeight: FontWeight.bold,
 //                 color: ColorsForApp.cutomWhite,
-//                 fontSize: SizeForDynamic.textSize12,
+//                 fontSize: AppConfig.textSize12,
 //               ),
 //             ),

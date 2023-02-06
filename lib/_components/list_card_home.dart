@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:podcast_app/_components/colors.dart';
 import 'package:podcast_app/_components/ellipses_text.dart';
 import 'package:podcast_app/_components/data_for_dynamic.dart';
 import 'package:podcast_app/player_page/player.dart';
@@ -17,7 +18,7 @@ class ListCardBottomHome extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: SizeForDynamic.screenWidth - 40,
+      width: AppConfig.screenWidth - 40,
       height: 80,
       padding: const EdgeInsets.all(10),
       decoration: BoxDecoration(
@@ -43,22 +44,22 @@ class ListCardBottomHome extends StatelessWidget {
             ),
           ),
           SizedBox(
-            width: SizeForDynamic.screenWidth - 200,
+            width: AppConfig.screenWidth - 200,
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.start,
               /* for the text data */ children: [
                 EllipsisText(
                   text: mainText,
-                  textColor: ColorsForApp.customWhite,
+                  textColor: pWhite,
                   isBold: true,
-                  textSize: SizeForDynamic.textSize12,
+                  textSize: AppConfig.textSize12,
                 ),
                 SizedBox(height: 5),
                 EllipsisText(
                   text: subText,
                   textColor: ColorsForApp.customGrey,
-                  textSize: SizeForDynamic.textSize10,
+                  textSize: AppConfig.textSize10,
                 ),
               ],
             ),
@@ -69,7 +70,7 @@ class ListCardBottomHome extends StatelessWidget {
             },
             icon: Icon(
               Icons.more_horiz,
-              color: ColorsForApp.customWhite,
+              color: pWhite,
             ),
           ),
         ],

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:podcast_app/_components/colors.dart';
 import 'package:podcast_app/_components/gradient_button_radio.dart';
 import 'package:podcast_app/_components/list_card_radio.dart';
 import 'package:podcast_app/_components/data_for_dynamic.dart';
@@ -22,14 +23,12 @@ class _RadioStationPageState extends State<RadioStationPage>
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     _tabController = TabController(length: myTabs.length, vsync: this);
   }
 
   @override
   void dispose() {
-    // TODO: implement dispose
     super.dispose();
     _tabController.dispose();
   }
@@ -42,8 +41,8 @@ class _RadioStationPageState extends State<RadioStationPage>
         title: NormalText(
           text: "Radio Stations",
           isBold: true,
-          textColor: ColorsForApp.customWhite,
-          textSize: SizeForDynamic.textSize24,
+          textColor: pWhite,
+          textSize: AppConfig.textSize24,
         ),
         actions: [
           IconButton(
@@ -63,17 +62,17 @@ class _RadioStationPageState extends State<RadioStationPage>
           labelStyle: TextStyle(
             fontFamily: 'CircularStd',
             fontWeight: FontWeight.bold,
-            fontSize: SizeForDynamic.textSize12,
+            fontSize: AppConfig.textSize12,
           ),
           labelPadding: EdgeInsets.only(
-            left: SizeForDynamic.width15,
-            right: SizeForDynamic.width15,
+            left: AppConfig.width15,
+            right: AppConfig.width15,
           ),
           unselectedLabelStyle: TextStyle(
             fontFamily: 'CircularStd',
             color: ColorsForApp.customGrey,
             fontWeight: FontWeight.bold,
-            fontSize: SizeForDynamic.textSize12,
+            fontSize: AppConfig.textSize12,
           ),
           indicator: BoxDecoration(
             border: Border.all(width: 0),
@@ -84,11 +83,11 @@ class _RadioStationPageState extends State<RadioStationPage>
       body: SizedBox(
         child: Column(
           children: [
-            SizedBox(height: SizeForDynamic.height20),
+            SizedBox(height: AppConfig.height20),
             Container(
-              padding: EdgeInsets.all(SizeForDynamic.width20),
-              width: SizeForDynamic.screenWidth - 20,
-              height: SizeForDynamic.height80,
+              padding: EdgeInsets.all(AppConfig.width20),
+              width: AppConfig.screenWidth - 20,
+              height: AppConfig.height80,
               decoration: BoxDecoration(
                 color: ColorsForApp.buttonGradientColor1,
                 image: DecorationImage(
@@ -107,20 +106,20 @@ class _RadioStationPageState extends State<RadioStationPage>
                     children: [
                       NormalText(
                         text: "Enjoy your day with RadioApp",
-                        textColor: ColorsForApp.customWhite,
+                        textColor: pWhite,
                       ),
                       NormalText(
                         text: "Tune your radio now",
-                        textColor: ColorsForApp.customWhite,
+                        textColor: pWhite,
                         isBold: true,
-                        textSize: SizeForDynamic.textSize18,
+                        textSize: AppConfig.textSize18,
                       ),
                     ],
                   ),
                   GradientButtonRadio(
                     "Tune Now",
                     () {},
-                    txtSize: SizeForDynamic.textSize14,
+                    txtSize: AppConfig.textSize14,
                     textWeight: FontWeight.w900,
                   )
                 ],
@@ -128,7 +127,7 @@ class _RadioStationPageState extends State<RadioStationPage>
             ),
             // ! tabview here below
             SizedBox(
-              height: SizeForDynamic.screenHeight - SizeForDynamic.height308,
+              height: AppConfig.screenHeight - AppConfig.height308,
               child: TabBarView(
                 controller:
                     _tabController, // * This is controller for the controlling the shifting of pages between the tabs
@@ -138,10 +137,10 @@ class _RadioStationPageState extends State<RadioStationPage>
                     itemBuilder: ((context, index) {
                       return Container(
                         padding: EdgeInsets.symmetric(
-                          vertical: SizeForDynamic.height10,
-                          horizontal: SizeForDynamic.width15,
+                          vertical: AppConfig.height10,
+                          horizontal: AppConfig.width15,
                         ),
-                        // width: SizeForDynamic.screenWidth - 40,
+                        // width: AppConfig.screenWidth - 40,
                         child: ListCardRadio(
                           img: radioPopularBroadCard[index]['img'],
                           mainText: radioPopularBroadCard[index]['mainTitle'],
@@ -156,12 +155,12 @@ class _RadioStationPageState extends State<RadioStationPage>
                       children: List.generate(radioGenre.length, (index) {
                         return Container(
                           margin: EdgeInsets.symmetric(
-                              vertical: SizeForDynamic.height10),
+                              vertical: AppConfig.height10),
                           padding: EdgeInsets.symmetric(
-                            vertical: SizeForDynamic.height15,
-                            horizontal: SizeForDynamic.width25,
+                            vertical: AppConfig.height15,
+                            horizontal: AppConfig.width25,
                           ),
-                          width: SizeForDynamic.screenWidth - 40,
+                          width: AppConfig.screenWidth - 40,
                           decoration: BoxDecoration(
                             color: ColorsForApp.darkPurple,
                             borderRadius: BorderRadius.all(Radius.circular(6)),
@@ -171,8 +170,8 @@ class _RadioStationPageState extends State<RadioStationPage>
                             children: [
                               NormalText(
                                 text: radioGenre[index]['category'],
-                                textColor: ColorsForApp.customWhite,
-                                textSize: SizeForDynamic.textSize18,
+                                textColor: pWhite,
+                                textSize: AppConfig.textSize18,
                               ),
                               Container(
                                 height: 20,
@@ -183,7 +182,7 @@ class _RadioStationPageState extends State<RadioStationPage>
                                 ),
                                 child: Icon(
                                   Icons.arrow_forward_ios,
-                                  color: ColorsForApp.customWhite,
+                                  color: pWhite,
                                   size: 8,
                                 ),
                               ),

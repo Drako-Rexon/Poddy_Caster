@@ -20,8 +20,8 @@ class GradientButtonRadio extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: SizeForDynamic.screenWidth - 300,
-      height: SizeForDynamic.width35,
+      width: AppConfig.screenWidth - 300,
+      height: AppConfig.width35,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.all(
           Radius.circular(6),

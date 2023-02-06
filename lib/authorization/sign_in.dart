@@ -1,9 +1,10 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:podcast_app/Terms_of_service/terms_of_service.dart';
 import 'package:podcast_app/_components/colors.dart';
+import 'package:podcast_app/_components/terms_of_service.dart';
 import 'package:podcast_app/_components/gradient_button.dart';
+import 'package:podcast_app/_components/util_function.dart';
 import 'package:podcast_app/authorization/forget_password.dart';
 import 'package:podcast_app/authorization/sign_up_page.dart';
 import 'package:podcast_app/_components/data_for_dynamic.dart';
@@ -20,35 +21,42 @@ class SignInPage extends StatefulWidget {
 class _SignInPageState extends State<SignInPage> {
   bool value = false;
   bool isVisible = false;
-  final textController = TextEditingController();
-  final emailController = TextEditingController();
-  final passController = TextEditingController();
+  late TextEditingController _emailController;
+  late TextEditingController _passController;
   bool isLoading = false;
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
-    textController.addListener(() => setState(() {}));
-    // isLoading = false;
+    _emailController = TextEditingController();
+    _passController = TextEditingController();
+    _emailController.addListener(() => setState(() {}));
+    _passController.addListener(() => setState(() {}));
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    _emailController.dispose();
+    _passController.dispose();
   }
 
   Future signIn() async {
-    await FirebaseAuth.instance.signInWithEmailAndPassword(
-      email: emailController.text.trim(),
-      password: passController.text.trim(),
+    dynamic ans = await FirebaseAuth.instance.signInWithEmailAndPassword(
+      email: _emailController.text.trim(),
+      password: _passController.text.trim(),
     );
+    pPrintLog("sign in data", ans);
   }
 
   @override
   Widget build(BuildContext context) {
     final isKeyboard = MediaQuery.of(context).viewInsets.bottom != 0;
-    // double devHeight = MediaQuery.of(context).size.height;
     return Scaffold(
       resizeToAvoidBottomInset: false,
       body: SafeArea(
         child: Container(
-          height: SizeForDynamic.screenHeight,
+          height: AppConfig.screenHeight,
           decoration: BoxDecoration(
             gradient: RadialGradient(
               radius: 5,
@@ -64,35 +72,40 @@ class _SignInPageState extends State<SignInPage> {
               Column(
                 mainAxisSize: MainAxisSize.max,
                 children: [
-                  SizedBox(height: SizeForDynamic.height30),
+                  SizedBox(height: AppConfig.height30),
                   isKeyboard
-                      ? Container(height: 0)
+                      ? Container()
                       : Container(
                           padding: EdgeInsets.only(
-                              left: SizeForDynamic.width50,
-                              right: SizeForDynamic.width50),
-                          child: Image.asset('assets/images/logo.png',
-                              fit: BoxFit.cover),
+                              left: AppConfig.width50,
+                              right: AppConfig.width50),
+                          child: Image.asset(
+                            'assets/images/logo.png',
+                            fit: BoxFit.cover,
+                          ),
                         ),
-                  SizedBox(height: SizeForDynamic.height30),
-                  NormalText(
-                    text: "Welcome Back!",
-                    isBold: true,
-                    textColor: Colors.white,
-                    textSize: SizeForDynamic.textSize24,
+                  SizedBox(height: AppConfig.height30),
+                  Text(
+                    "Welcome Back!",
+                    style: TextStyle(
+                      color: pWhite,
+                      fontSize: AppConfig.textSize24,
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
                   NormalText(text: "Login to continue Radio App"),
-                  SizedBox(height: SizeForDynamic.height20),
+                  SizedBox(height: AppConfig.height20),
                   Container(
                     decoration: BoxDecoration(
                       color: pDeepPrimary,
                       borderRadius: BorderRadius.circular(6),
                     ),
-                    width: SizeForDynamic.screenWidth - SizeForDynamic.width50,
-                    child: TextField(
-                      controller: emailController,
+                    width: AppConfig.screenWidth - AppConfig.width50,
+                    child: TextFormField(
+                      controller: _emailController,
                       style: TextStyle(color: pLightPrimary),
                       keyboardType: TextInputType.emailAddress,
+                      cursorColor: pPrimaryTextColor,
                       decoration: InputDecoration(
                         border: InputBorder.none,
                         prefixIcon: Icon(
@@ -100,8 +113,8 @@ class _SignInPageState extends State<SignInPage> {
                           color: pPrimaryTextColor,
                           size: 18,
                         ),
-                        suffixIcon: emailController.text.isNotEmpty
-                            ? Container(width: 0)
+                        suffixIcon: _emailController.text.isEmpty
+                            ? Container()
                             : IconButton(
                                 icon: Icon(
                                   Icons.close,
@@ -109,7 +122,7 @@ class _SignInPageState extends State<SignInPage> {
                                 ),
                                 onPressed: () {
                                   setState(() {
-                                    emailController.clear();
+                                    _emailController.clear();
                                   });
                                 },
                               ),
@@ -117,24 +130,25 @@ class _SignInPageState extends State<SignInPage> {
                         hintStyle: TextStyle(
                           fontFamily: 'CircularStd-Book',
                           color: pPrimaryTextColor,
-                          fontSize: 12,
+                          fontSize: AppConfig.textSize12,
                         ),
                       ),
-                      textInputAction: TextInputAction.next,
+                      // textInputAction: TextInputAction.next,
                     ),
                   ),
-                  SizedBox(height: SizeForDynamic.height20),
+                  SizedBox(height: AppConfig.height20),
                   Container(
                     decoration: BoxDecoration(
                       color: pDeepPrimary,
                       borderRadius: BorderRadius.circular(6),
                     ),
-                    width: SizeForDynamic.screenWidth - SizeForDynamic.width50,
+                    width: AppConfig.screenWidth - AppConfig.width50,
                     child: TextField(
-                      controller: passController,
+                      controller: _passController,
                       obscureText: !isVisible,
                       style: TextStyle(color: pLightPrimary),
                       keyboardType: TextInputType.emailAddress,
+                      cursorColor: pPrimaryTextColor,
                       decoration: InputDecoration(
                         border: InputBorder.none,
                         prefixIcon: Icon(
@@ -167,8 +181,8 @@ class _SignInPageState extends State<SignInPage> {
                   ),
                   Container(
                     padding: EdgeInsets.only(
-                        left: SizeForDynamic.width10 + 2,
-                        right: SizeForDynamic.width25 + 2),
+                        left: AppConfig.width10 + 2,
+                        right: AppConfig.width25 + 2),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
@@ -178,8 +192,8 @@ class _SignInPageState extends State<SignInPage> {
                               overlayColor:
                                   MaterialStateProperty.all(Colors.transparent),
                               value: value,
-                              activeColor: pDeepPrimary,
-                              checkColor: pLightPrimary,
+                              activeColor: ColorsForApp.buttonGradientColor1,
+                              checkColor: pWhite,
                               shape: CircleBorder(),
                               onChanged: (value) {
                                 setState(() {
@@ -192,10 +206,10 @@ class _SignInPageState extends State<SignInPage> {
                         ),
                         InkWell(
                           onTap: () {
-                            Get.to(ForgetPassPage());
+                            Get.offAll(() => ForgetPassPage());
                           },
                           child: NormalText(
-                            text: "Forget(WORKING)?",
+                            text: "Forget Password?",
                             isBold: true,
                           ),
                         ),
@@ -204,15 +218,18 @@ class _SignInPageState extends State<SignInPage> {
                   ),
                   GradientButton(
                     "Log In",
-                    () {
-                      Get.to(RedirectingPage());
+                    () async {
+                      // dynamic str = '';
+                      // str = await signIn();
+                      // pPrintLog("Login data", str);
+                      Get.offAll(() => RedirectingPage());
                     },
                     isDisable: false,
                     isLoading: isLoading,
                   ),
-                  SizedBox(height: SizeForDynamic.height20),
+                  SizedBox(height: AppConfig.height20),
                   NormalText(text: "OR"),
-                  SizedBox(height: SizeForDynamic.height20),
+                  SizedBox(height: AppConfig.height20),
                   SignInSocial(
                     "Continue with Google",
                     () {},
@@ -220,30 +237,33 @@ class _SignInPageState extends State<SignInPage> {
                     backColor: pWhite,
                     textColor: pBlack,
                   ),
-                  SizedBox(height: SizeForDynamic.height20),
+                  SizedBox(height: AppConfig.height20),
                   SignInSocial(
                     'Continue with Facebook',
                     () {},
                     "assets/images/facebook.png",
                     textColor: pWhite,
-                    backColor: Color(0xFF3d599f),
+                    backColor: pFB,
                   ),
-                  SizedBox(height: SizeForDynamic.height10),
+                  SizedBox(height: AppConfig.height10),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       NormalText(
                         text: "Don't have account?",
-                        textSize: SizeForDynamic.textSize12,
+                        textSize: AppConfig.textSize12,
                       ),
                       InkWell(
                         onTap: () {
                           Get.to(SignUpPage());
                         },
-                        child: NormalText(
-                          text: "Sign Up (WORK)",
-                          textColor: ColorsForApp.buttonGradientColor1,
-                          isBold: true,
+                        child: Text(
+                          "Sign Up",
+                          style: TextStyle(
+                            color: ColorsForApp.buttonGradientColor1,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 12,
+                          ),
                         ),
                       ),
                     ],
@@ -268,13 +288,14 @@ class _SignInPageState extends State<SignInPage> {
                           Get.to(TermsOfService());
                         },
                         child: NormalText(
-                          text: "Terms of Service (WORK)",
+                          text: "Terms of Service",
                           textSize: 10,
                           textColor: ColorsForApp.buttonGradientColor1,
                         ),
                       ),
                     ],
                   ),
+                  SizedBox(height: AppConfig.height10),
                 ],
               ),
             ],

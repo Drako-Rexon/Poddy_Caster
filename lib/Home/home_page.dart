@@ -1,5 +1,6 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:podcast_app/_components/colors.dart';
 import 'package:podcast_app/_components/list_card_home.dart';
 import 'package:podcast_app/_components/data_for_dynamic.dart';
 import 'package:podcast_app/_components/home_card_carousel.dart';
@@ -9,6 +10,8 @@ import 'package:podcast_app/_components/sample_json.dart';
 class HomePage extends StatelessWidget {
   HomePage({Key? key}) : super(key: key);
   final _sliderController = CarouselController();
+  final double scrollValue = 1;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -17,8 +20,10 @@ class HomePage extends StatelessWidget {
       appBar: AppBar(
         elevation: 0,
         actions: [
-          Icon(Icons.search, size: 32),
-          SizedBox(width: SizeForDynamic.width10),
+          Padding(
+            padding: const EdgeInsets.only(right: 10),
+            child: Icon(Icons.search, size: 32),
+          ),
         ],
         backgroundColor: Colors.transparent,
       ),
@@ -28,6 +33,7 @@ class HomePage extends StatelessWidget {
             height: 350,
             decoration: BoxDecoration(
               image: DecorationImage(
+                opacity: scrollValue,
                 fit: BoxFit.fitHeight,
                 image: AssetImage('assets/images/slider1.jpg'),
               ),
@@ -38,7 +44,7 @@ class HomePage extends StatelessWidget {
             child: Column(
               mainAxisSize: MainAxisSize.min,
               children: [
-                SizedBox(height: SizeForDynamic.height80),
+                SizedBox(height: AppConfig.height80),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
@@ -53,7 +59,7 @@ class HomePage extends StatelessWidget {
                             shape: BoxShape.circle,
                             border: Border.all(
                               width: 1,
-                              color: ColorsForApp.customWhite,
+                              color: pWhite,
                             ),
                           ),
                         ),
@@ -65,7 +71,7 @@ class HomePage extends StatelessWidget {
                             shape: BoxShape.circle,
                             border: Border.all(
                               width: 2,
-                              color: ColorsForApp.customWhite,
+                              color: pWhite,
                             ),
                           ),
                         ),
@@ -74,11 +80,11 @@ class HomePage extends StatelessWidget {
                           width: 8,
                           margin: const EdgeInsets.all(5),
                           decoration: BoxDecoration(
-                            color: ColorsForApp.customWhite,
+                            color: pWhite,
                             shape: BoxShape.circle,
                             border: Border.all(
                               width: 2,
-                              color: ColorsForApp.customWhite,
+                              color: pWhite,
                             ),
                           ),
                         ),
@@ -90,7 +96,7 @@ class HomePage extends StatelessWidget {
                             shape: BoxShape.circle,
                             border: Border.all(
                               width: 2,
-                              color: ColorsForApp.customWhite,
+                              color: pWhite,
                             ),
                           ),
                         ),
@@ -98,7 +104,7 @@ class HomePage extends StatelessWidget {
                     ),
                     SizedBox(
                       height: 120,
-                      width: SizeForDynamic.screenWidth - 60,
+                      width: AppConfig.screenWidth - 60,
                       child: CarouselSlider(
                         carouselController: _sliderController,
                         items: List.generate(homeTopSliderOne.length, (index) {
@@ -109,15 +115,15 @@ class HomePage extends StatelessWidget {
                                 homeTopSliderOne[index]["text1"],
                                 style: TextStyle(
                                   color: ColorsForApp.customGrey,
-                                  fontSize: SizeForDynamic.textSize12,
+                                  fontSize: AppConfig.textSize12,
                                   fontFamily: 'CircularStd-Book',
                                 ),
                               ),
                               NormalText(
                                 text: homeTopSliderOne[index]["text2"],
-                                textSize: SizeForDynamic.textSize36,
+                                textSize: AppConfig.textSize36,
                                 isBold: true,
-                                textColor: ColorsForApp.customWhite,
+                                textColor: pWhite,
                               ),
                             ],
                           );
@@ -139,17 +145,20 @@ class HomePage extends StatelessWidget {
                       padding: const EdgeInsets.only(left: 20),
                       child: Row(
                         children: [
-                          NormalText(
-                            text: "Popular Broadcast",
-                            isBold: true,
-                            textSize: SizeForDynamic.textSize12,
-                            textColor: ColorsForApp.customWhite,
+                          Text(
+                            "Popular Broadcast",
+                            style: TextStyle(
+                              color: pWhite,
+                              fontSize: AppConfig.textSize12,
+                              fontWeight: FontWeight.bold,
+                            ),
                           ),
                         ],
                       ),
                     ),
                     SingleChildScrollView(
                       scrollDirection: Axis.horizontal,
+                      physics: BouncingScrollPhysics(),
                       child: Row(
                         children:
                             List.generate(homeCarouselSlider.length, (index) {
@@ -163,7 +172,7 @@ class HomePage extends StatelessWidget {
                     ),
                   ],
                 ),
-                SizedBox(height: SizeForDynamic.height20),
+                SizedBox(height: AppConfig.height20),
                 Container(
                   padding: const EdgeInsets.only(left: 20),
                   child: Row(
@@ -171,13 +180,13 @@ class HomePage extends StatelessWidget {
                       NormalText(
                         text: "Similar Broadcast",
                         isBold: true,
-                        textSize: SizeForDynamic.textSize12,
-                        textColor: ColorsForApp.customWhite,
+                        textSize: AppConfig.textSize12,
+                        textColor: pWhite,
                       ),
                     ],
                   ),
                 ),
-                SizedBox(height: SizeForDynamic.height20),
+                SizedBox(height: AppConfig.height20),
                 Column(
                   children: List.generate(HomeCardBottom.length, (index) {
                     return Column(

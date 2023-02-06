@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:podcast_app/_components/colors.dart';
 import 'package:podcast_app/_components/ellipses_text.dart';
 import 'package:podcast_app/_components/data_for_dynamic.dart';
 import 'package:podcast_app/player_page/player.dart';
@@ -17,7 +18,7 @@ class ListCardRadio extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: SizeForDynamic.screenWidth - 40,
+      width: AppConfig.screenWidth - 40,
       height: 80,
       padding: const EdgeInsets.all(10),
       decoration: BoxDecoration(
@@ -32,8 +33,8 @@ class ListCardRadio extends StatelessWidget {
             width: 50,
             height: 50,
             padding: EdgeInsets.symmetric(
-              horizontal: SizeForDynamic.height10,
-              vertical: SizeForDynamic.width10,
+              horizontal: AppConfig.height10,
+              vertical: AppConfig.width10,
             ),
             decoration: BoxDecoration(
               borderRadius: BorderRadius.all(
@@ -45,22 +46,22 @@ class ListCardRadio extends StatelessWidget {
             ),
           ),
           SizedBox(
-            width: SizeForDynamic.screenWidth - 240,
+            width: AppConfig.screenWidth - 240,
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.start,
               /* for the text data */ children: [
                 EllipsisText(
                   text: mainText,
-                  textColor: ColorsForApp.customWhite,
+                  textColor: pWhite,
                   isBold: true,
-                  textSize: SizeForDynamic.textSize12,
+                  textSize: AppConfig.textSize12,
                 ),
                 SizedBox(height: 5),
                 EllipsisText(
                   text: subText,
                   textColor: ColorsForApp.customGrey,
-                  textSize: SizeForDynamic.textSize10,
+                  textSize: AppConfig.textSize10,
                 ),
               ],
             ),
@@ -71,14 +72,14 @@ class ListCardRadio extends StatelessWidget {
             },
             icon: Icon(
               Icons.more_horiz,
-              color: ColorsForApp.customWhite,
+              color: pWhite,
             ),
           ),
           IconButton(
             onPressed: () {},
             icon: Icon(
               Icons.favorite_rounded,
-              color: ColorsForApp.customWhite,
+              color: pWhite,
             ),
           ),
         ],

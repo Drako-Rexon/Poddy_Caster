@@ -23,31 +23,27 @@ class TermsOfService extends StatelessWidget {
         title: NormalText(
           text: "Terms & Conditions",
           isBold: true,
-          textColor: ColorsForApp.customWhite,
-          textSize: SizeForDynamic.textSize24,
+          textColor: pWhite,
+          textSize: AppConfig.textSize24,
         ),
-        actions: [
-          Padding(
-            padding: EdgeInsets.only(right: SizeForDynamic.width15),
-            child: Icon(Icons.search),
-          )
-        ],
       ),
       body: SingleChildScrollView(
         child: Container(
           margin: EdgeInsets.only(
-            left: SizeForDynamic.width20,
-            right: SizeForDynamic.width20,
-            top: SizeForDynamic.width10,
-            bottom: SizeForDynamic.width30,
+            left: AppConfig.width20,
+            right: AppConfig.width20,
+            top: AppConfig.width10,
+            bottom: AppConfig.width30,
           ),
           decoration: BoxDecoration(color: pSecondaryDeep),
           child: Container(
+            decoration: BoxDecoration(
+                borderRadius: BorderRadius.all(Radius.circular(16))),
             padding: EdgeInsets.only(
-              left: SizeForDynamic.width10,
-              top: SizeForDynamic.width10,
-              right: SizeForDynamic.width10,
-              bottom: SizeForDynamic.width10,
+              left: AppConfig.width10,
+              top: AppConfig.width30,
+              right: AppConfig.width10,
+              bottom: AppConfig.width10,
             ),
             child: NormalText(
               align: TextAlign.justify,

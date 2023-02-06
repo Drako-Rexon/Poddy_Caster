@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:podcast_app/_components/colors.dart';
 import 'package:podcast_app/_components/data_for_dynamic.dart';
 import 'package:podcast_app/_components/normal_text.dart';
 import 'package:podcast_app/_components/sample_json.dart';
@@ -19,8 +20,8 @@ class PlayerPage extends StatelessWidget {
             BackGroundImageFilter(),
             Container(
               padding: EdgeInsets.only(
-                top: SizeForDynamic.height20,
-                left: SizeForDynamic.width10,
+                top: AppConfig.height20,
+                left: AppConfig.width10,
               ),
               child: Row(
                 children: [
@@ -41,7 +42,7 @@ class PlayerPage extends StatelessWidget {
             Column(
               children: [
                 Container(
-                  height: SizeForDynamic.screenHeight * 0.5,
+                  height: AppConfig.screenHeight * 0.5,
                   child: Align(
                     alignment: Alignment.bottomCenter,
                     child: Container(
@@ -57,21 +58,21 @@ class PlayerPage extends StatelessWidget {
                   ),
                 ),
                 Container(
-                  height: SizeForDynamic.screenHeight * 0.35,
+                  height: AppConfig.screenHeight * 0.35,
                   // color: Colors.white, // ! testing the size of container
                   margin: EdgeInsets.only(
-                    top: SizeForDynamic.height30,
-                    bottom: SizeForDynamic.height60,
-                    left: SizeForDynamic.width20,
-                    right: SizeForDynamic.width20,
+                    top: AppConfig.height30,
+                    bottom: AppConfig.height60,
+                    left: AppConfig.width20,
+                    right: AppConfig.width20,
                   ),
                   child: Column(
                     // mainAxisSize: MainAxisSize.min,
                     children: [
                       NormalText(
                         text: "The Jordan",
-                        textColor: ColorsForApp.customWhite,
-                        textSize: SizeForDynamic.textSize24,
+                        textColor: pWhite,
+                        textSize: AppConfig.textSize24,
                         isBold: true,
                       ),
                       NormalText(text: "Celeste Headlee"),

@@ -1,13 +1,3 @@
-import 'package:flutter/material.dart';
-
-
-List navIcons = [
-  Icons.home,
-  Icons.radar_outlined,
-  Icons.podcasts,
-  Icons.calendar_month_outlined,
-  Icons.person_add_alt_outlined
-];
 List homeCarouselSlider = [
   {
     "img": "assets/images/Image.png",
