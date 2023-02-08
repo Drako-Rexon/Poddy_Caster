@@ -33,7 +33,7 @@ class PlayerPage extends StatelessWidget {
                     },
                     icon: Icon(
                       Icons.arrow_back,
-                      color: ColorsForApp.buttonGradientColor1,
+                      color: pLightPink,
                     ),
                   ),
                 ],
@@ -89,7 +89,7 @@ class PlayerPage extends StatelessWidget {
                             onPressed: () {},
                             icon: Icon(
                               Icons.favorite,
-                              color: ColorsForApp.customGrey,
+                              color: pCustomGrey,
                             ),
                           ),
                         ],

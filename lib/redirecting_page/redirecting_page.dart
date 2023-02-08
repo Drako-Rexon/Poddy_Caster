@@ -58,7 +58,7 @@ class _RedirectingPageState extends State<RedirectingPage> {
           topLeft: Radius.circular(8),
           topRight: Radius.circular(8),
         ),
-        color: ColorsForApp.forgroundAppColor,
+        color: pSecondaryDeep,
       ),
       padding: const EdgeInsets.only(bottom: 8),
       child: Row(
@@ -76,9 +76,7 @@ class _RedirectingPageState extends State<RedirectingPage> {
                     bottomRight: Radius.circular(8),
                     bottomLeft: Radius.circular(8),
                   ),
-                  color: index == currentTab
-                      ? ColorsForApp.buttonGradientColor1
-                      : ColorsForApp.forgroundAppColor,
+                  color: index == currentTab ? pLightPink : pSecondaryDeep,
                 ),
               ),
               SizedBox(height: 6),
@@ -96,18 +94,14 @@ class _RedirectingPageState extends State<RedirectingPage> {
                       navIcon[index],
                       height: 24,
                       width: 24,
-                      color: index == currentTab
-                          ? ColorsForApp.buttonGradientColor1
-                          : ColorsForApp.customGrey,
+                      color: index == currentTab ? pLightPink : pCustomGrey,
                     ),
                     SizedBox(height: 6),
                     Text(
                       navName[index],
                       style: TextStyle(
                         fontSize: AppConfig.textSize12,
-                        color: index == currentTab
-                            ? ColorsForApp.buttonGradientColor1
-                            : ColorsForApp.customGrey,
+                        color: index == currentTab ? pLightPink : pCustomGrey,
                       ),
                     ),
                   ],

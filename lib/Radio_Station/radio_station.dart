@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:podcast_app/_components/colors.dart';
-import 'package:podcast_app/_components/gradient_button_radio.dart';
-import 'package:podcast_app/_components/list_card_radio.dart';
 import 'package:podcast_app/_components/data_for_dynamic.dart';
 import 'package:podcast_app/_components/normal_text.dart';
 import 'package:podcast_app/_components/sample_json.dart';
+import 'package:podcast_app/_components/util_widgets.dart';
 
 class RadioStationPage extends StatefulWidget {
   const RadioStationPage({Key? key}) : super(key: key);
@@ -54,11 +53,10 @@ class _RadioStationPageState extends State<RadioStationPage>
         elevation: 0,
         bottom: TabBar(
           isScrollable: true,
-          controller:
-              _tabController, // * this controller is needed to declare in the init() and need to dispose too for control the ram consumption
+          controller: _tabController,
           tabs: myTabs,
-          labelColor: ColorsForApp.buttonGradientColor1,
-          unselectedLabelColor: ColorsForApp.customGrey,
+          labelColor: pLightPink,
+          unselectedLabelColor: pCustomGrey,
           labelStyle: TextStyle(
             fontFamily: 'CircularStd',
             fontWeight: FontWeight.bold,
@@ -70,132 +68,111 @@ class _RadioStationPageState extends State<RadioStationPage>
           ),
           unselectedLabelStyle: TextStyle(
             fontFamily: 'CircularStd',
-            color: ColorsForApp.customGrey,
+            color: pCustomGrey,
             fontWeight: FontWeight.bold,
             fontSize: AppConfig.textSize12,
           ),
           indicator: BoxDecoration(
-            border: Border.all(width: 0),
+            border: Border(
+              bottom: BorderSide(width: 1, color: pPrimaryTextColor),
+            ),
           ),
         ),
       ),
       // ! The below content is for the list of cards in radio station
-      body: SizedBox(
-        child: Column(
-          children: [
-            SizedBox(height: AppConfig.height20),
-            Container(
-              padding: EdgeInsets.all(AppConfig.width20),
-              width: AppConfig.screenWidth - 20,
-              height: AppConfig.height80,
-              decoration: BoxDecoration(
-                color: ColorsForApp.buttonGradientColor1,
-                image: DecorationImage(
-                  fit: BoxFit.cover,
-                  image: AssetImage('assets/images/Rectangle-1.png'),
+      body: SingleChildScrollView(
+        child: SizedBox(
+          child: Column(
+            children: [
+              SizedBox(height: AppConfig.height20),
+              Container(
+                padding: EdgeInsets.all(AppConfig.width20),
+                width: AppConfig.screenWidth - 20,
+                height: AppConfig.height80,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.all(Radius.circular(8)),
+                  image: DecorationImage(
+                    fit: BoxFit.cover,
+                    image: AssetImage('assets/images/Rectangle-1.png'),
+                  ),
+                ),
+                child: Row(
+                  mainAxisSize: MainAxisSize.max,
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Column(
+                      mainAxisSize: MainAxisSize.max,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        NormalText(
+                          text: "Enjoy your day with RadioApp",
+                          textColor: pWhite,
+                        ),
+                        NormalText(
+                          text: "Tune your radio now",
+                          textColor: pWhite,
+                          isBold: true,
+                          textSize: AppConfig.textSize18,
+                        ),
+                      ],
+                    ),
+                    GradientButton(
+                      "Tune Now",
+                      () {},
+                      wid: 90,
+                      isDisable: false,
+                      textSize: AppConfig.textSize14,
+                    )
+                  ],
                 ),
               ),
-              child: Row(
-                mainAxisSize: MainAxisSize.max,
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Column(
-                    mainAxisSize: MainAxisSize.max,
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      NormalText(
-                        text: "Enjoy your day with RadioApp",
-                        textColor: pWhite,
-                      ),
-                      NormalText(
-                        text: "Tune your radio now",
-                        textColor: pWhite,
-                        isBold: true,
-                        textSize: AppConfig.textSize18,
-                      ),
-                    ],
-                  ),
-                  GradientButtonRadio(
-                    "Tune Now",
-                    () {},
-                    txtSize: AppConfig.textSize14,
-                    textWeight: FontWeight.w900,
-                  )
-                ],
-              ),
-            ),
-            // ! tabview here below
-            SizedBox(
-              height: AppConfig.screenHeight - AppConfig.height308,
-              child: TabBarView(
-                controller:
-                    _tabController, // * This is controller for the controlling the shifting of pages between the tabs
-                children: [
-                  ListView.builder(
-                    itemCount: radioPopularBroadCard.length,
-                    itemBuilder: ((context, index) {
-                      return Container(
-                        padding: EdgeInsets.symmetric(
-                          vertical: AppConfig.height10,
-                          horizontal: AppConfig.width15,
-                        ),
-                        // width: AppConfig.screenWidth - 40,
-                        child: ListCardRadio(
-                          img: radioPopularBroadCard[index]['img'],
-                          mainText: radioPopularBroadCard[index]['mainTitle'],
-                          subText: radioPopularBroadCard[index]['subTitle'],
-                        ),
-                      );
-                    }),
-                  ),
-                  //! Popular Broadcast Ends here
-                  SingleChildScrollView(
-                    child: Column(
-                      children: List.generate(radioGenre.length, (index) {
+              // ! tabview here below
+              SizedBox(
+                height: (AppConfig.height80 + AppConfig.height10) *
+                    radioPopularBroadCard.length,
+                child: TabBarView(
+                  controller: _tabController,
+                  children: [
+                    ListView.builder(
+                      physics: NeverScrollableScrollPhysics(),
+                      itemCount: radioPopularBroadCard.length,
+                      itemBuilder: ((BuildContext context, int index) {
                         return Container(
-                          margin: EdgeInsets.symmetric(
-                              vertical: AppConfig.height10),
                           padding: EdgeInsets.symmetric(
-                            vertical: AppConfig.height15,
-                            horizontal: AppConfig.width25,
+                            vertical: AppConfig.height5,
+                            horizontal: AppConfig.width15,
                           ),
-                          width: AppConfig.screenWidth - 40,
-                          decoration: BoxDecoration(
-                            color: ColorsForApp.darkPurple,
-                            borderRadius: BorderRadius.all(Radius.circular(6)),
-                          ),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              NormalText(
-                                text: radioGenre[index]['category'],
-                                textColor: pWhite,
-                                textSize: AppConfig.textSize18,
-                              ),
-                              Container(
-                                height: 20,
-                                width: 20,
-                                decoration: BoxDecoration(
-                                  shape: BoxShape.circle,
-                                  color: ColorsForApp.commonBackGround,
-                                ),
-                                child: Icon(
-                                  Icons.arrow_forward_ios,
-                                  color: pWhite,
-                                  size: 8,
-                                ),
-                              ),
-                            ],
+                          child: ListCardBottomHome(
+                            list: radioPopularBroadCard,
+                            ind: index,
+                            radio: true,
                           ),
                         );
                       }),
                     ),
-                  ),
-                ],
+                    // ! Popular Broadcast Ends here
+                    SingleChildScrollView(
+                      child: Column(
+                        children: [
+                          ListView.builder(
+                            itemCount: radioGenre.length,
+                            itemBuilder: (BuildContext context, int index) {
+                              return RadioGenreCard(
+                                list: radioGenre,
+                                ind: index,
+                              );
+                            },
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
               ),
-            ),
-          ],
+              // SizedBox(height: 30),
+            ],
+          ),
         ),
       ),
     );

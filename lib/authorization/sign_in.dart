@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:podcast_app/_components/colors.dart';
 import 'package:podcast_app/_components/terms_of_service.dart';
-import 'package:podcast_app/_components/gradient_button.dart';
 import 'package:podcast_app/_components/util_function.dart';
+import 'package:podcast_app/_components/util_widgets.dart';
 import 'package:podcast_app/authorization/forget_password.dart';
 import 'package:podcast_app/authorization/sign_up_page.dart';
 import 'package:podcast_app/_components/data_for_dynamic.dart';
@@ -192,7 +192,7 @@ class _SignInPageState extends State<SignInPage> {
                               overlayColor:
                                   MaterialStateProperty.all(Colors.transparent),
                               value: value,
-                              activeColor: ColorsForApp.buttonGradientColor1,
+                              activeColor: pLightPink,
                               checkColor: pWhite,
                               shape: CircleBorder(),
                               onChanged: (value) {
@@ -219,9 +219,6 @@ class _SignInPageState extends State<SignInPage> {
                   GradientButton(
                     "Log In",
                     () async {
-                      // dynamic str = '';
-                      // str = await signIn();
-                      // pPrintLog("Login data", str);
                       Get.offAll(() => RedirectingPage());
                     },
                     isDisable: false,
@@ -260,7 +257,7 @@ class _SignInPageState extends State<SignInPage> {
                         child: Text(
                           "Sign Up",
                           style: TextStyle(
-                            color: ColorsForApp.buttonGradientColor1,
+                            color: pLightPink,
                             fontWeight: FontWeight.bold,
                             fontSize: 12,
                           ),
@@ -290,7 +287,7 @@ class _SignInPageState extends State<SignInPage> {
                         child: NormalText(
                           text: "Terms of Service",
                           textSize: 10,
-                          textColor: ColorsForApp.buttonGradientColor1,
+                          textColor: pLightPink,
                         ),
                       ),
                     ],

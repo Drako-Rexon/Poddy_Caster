@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:podcast_app/_components/colors.dart';
-import 'package:podcast_app/_components/gradient_button.dart';
 import 'package:podcast_app/_components/util_function.dart';
+import 'package:podcast_app/_components/util_widgets.dart';
 import 'package:podcast_app/authorization/sign_in.dart';
 import 'package:podcast_app/_components/data_for_dynamic.dart';
 import 'package:podcast_app/_components/normal_text.dart';
@@ -212,7 +212,7 @@ class _SignUpPageState extends State<SignUpPage> {
                       children: [
                         Checkbox(
                           value: value,
-                          activeColor: ColorsForApp.buttonGradientColor1,
+                          activeColor: pLightPink,
                           checkColor: pWhite,
                           shape: CircleBorder(),
                           onChanged: (value) {
@@ -280,7 +280,7 @@ class _SignUpPageState extends State<SignUpPage> {
                       },
                       child: NormalText(
                         text: "Log In",
-                        textColor: ColorsForApp.buttonGradientColor1,
+                        textColor: pLightPink,
                         isBold: true,
                       ),
                     ),

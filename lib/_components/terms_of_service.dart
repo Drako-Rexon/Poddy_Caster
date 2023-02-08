@@ -17,7 +17,7 @@ class TermsOfService extends StatelessWidget {
           onPressed: () {
             Get.back();
           },
-          color: ColorsForApp.buttonGradientColor1,
+          color: pLightPink,
         ),
         backgroundColor: ColorsForApp.backgroundAppColor,
         title: NormalText(
