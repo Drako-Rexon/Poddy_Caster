@@ -203,6 +203,13 @@ List radioGenre = [
   {"category": "Classic Hits"},
   {"category": "Classic Rock"},
   {"category": "Comedy"},
+  {"category": "Comedy"},
+  {"category": "Comedy"},
+  {"category": "Comedy"},
+  {"category": "Comedy"},
+  {"category": "Comedy"},
+  {"category": "Comedy"},
+  {"category": "Comedy"},
 ];
 
 List homeTopSliderOne = [

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:podcast_app/_components/colors.dart';
 import 'package:podcast_app/_components/data_for_dynamic.dart';
-import 'package:podcast_app/_components/normal_text.dart';
+import 'package:podcast_app/_components/util_widgets.dart';
 
 class TermsOfService extends StatelessWidget {
   const TermsOfService({Key? key}) : super(key: key);
@@ -11,22 +11,7 @@ class TermsOfService extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: ColorsForApp.backgroundAppColor,
-      appBar: AppBar(
-        leading: IconButton(
-          icon: Icon(Icons.arrow_back),
-          onPressed: () {
-            Get.back();
-          },
-          color: pLightPink,
-        ),
-        backgroundColor: ColorsForApp.backgroundAppColor,
-        title: NormalText(
-          text: "Terms & Conditions",
-          isBold: true,
-          textColor: pWhite,
-          textSize: AppConfig.textSize24,
-        ),
-      ),
+      appBar: commonAppbar(),
       body: SingleChildScrollView(
         child: Container(
           margin: EdgeInsets.only(
@@ -35,7 +20,10 @@ class TermsOfService extends StatelessWidget {
             top: AppConfig.width10,
             bottom: AppConfig.width30,
           ),
-          decoration: BoxDecoration(color: pSecondaryDeep),
+          decoration: BoxDecoration(
+            color: pSecondaryDeep,
+            borderRadius: BorderRadius.all(Radius.circular(8)),
+          ),
           child: Container(
             decoration: BoxDecoration(
                 borderRadius: BorderRadius.all(Radius.circular(16))),
@@ -52,6 +40,26 @@ class TermsOfService extends StatelessWidget {
             ),
           ),
         ),
+      ),
+    );
+  }
+
+  AppBar commonAppbar() {
+    return AppBar(
+      elevation: 0,
+      leading: IconButton(
+        icon: Icon(Icons.arrow_back),
+        onPressed: () {
+          Get.back();
+        },
+        color: pLightPink,
+      ),
+      backgroundColor: pBackgroundAppColor,
+      title: NormalText(
+        text: "Terms & Conditions",
+        isBold: true,
+        textColor: pWhite,
+        textSize: AppConfig.textSize24,
       ),
     );
   }

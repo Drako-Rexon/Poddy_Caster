@@ -5,7 +5,6 @@ import 'package:podcast_app/_components/util_function.dart';
 import 'package:podcast_app/_components/util_widgets.dart';
 import 'package:podcast_app/authorization/sign_in.dart';
 import 'package:podcast_app/_components/data_for_dynamic.dart';
-import 'package:podcast_app/_components/normal_text.dart';
 
 class SignUpPage extends StatefulWidget {
   const SignUpPage({Key? key}) : super(key: key);

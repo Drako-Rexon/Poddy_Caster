@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:podcast_app/_components/colors.dart';
 import 'package:podcast_app/_components/data_for_dynamic.dart';
-import 'package:podcast_app/_components/normal_text.dart';
 import 'package:podcast_app/_components/sample_json.dart';
+import 'package:podcast_app/_components/util_function.dart';
 import 'package:podcast_app/_components/util_widgets.dart';
 
 class RadioStationPage extends StatefulWidget {
@@ -34,8 +34,9 @@ class _RadioStationPageState extends State<RadioStationPage>
 
   @override
   Widget build(BuildContext context) {
+    pPrintLog("value:", _tabController.index);
     return Scaffold(
-      backgroundColor: ColorsForApp.commonBackGround,
+      backgroundColor: pBackground,
       appBar: AppBar(
         title: NormalText(
           text: "Radio Stations",
@@ -45,13 +46,17 @@ class _RadioStationPageState extends State<RadioStationPage>
         ),
         actions: [
           IconButton(
-            onPressed: () {},
             icon: Icon(Icons.search),
+            onPressed: () {},
           ),
         ],
-        backgroundColor: ColorsForApp.commonBackGround,
+        backgroundColor: pBackground,
         elevation: 0,
         bottom: TabBar(
+          onTap: (int ind) {
+            setState(() {});
+          },
+          overlayColor: MaterialStateProperty.all(pPrimaryTextColor),
           isScrollable: true,
           controller: _tabController,
           tabs: myTabs,
@@ -74,7 +79,7 @@ class _RadioStationPageState extends State<RadioStationPage>
           ),
           indicator: BoxDecoration(
             border: Border(
-              bottom: BorderSide(width: 1, color: pPrimaryTextColor),
+              bottom: BorderSide(width: 1, color: pLightPink),
             ),
           ),
         ),
@@ -129,8 +134,10 @@ class _RadioStationPageState extends State<RadioStationPage>
               ),
               // ! tabview here below
               SizedBox(
-                height: (AppConfig.height80 + AppConfig.height10) *
-                    radioPopularBroadCard.length,
+                height: _tabController.index == 0
+                    ? (AppConfig.height80 + AppConfig.height10) *
+                        radioPopularBroadCard.length
+                    : (AppConfig.height70) * radioGenre.length,
                 child: TabBarView(
                   controller: _tabController,
                   children: [
@@ -152,25 +159,26 @@ class _RadioStationPageState extends State<RadioStationPage>
                       }),
                     ),
                     // ! Popular Broadcast Ends here
-                    SingleChildScrollView(
-                      child: Column(
-                        children: [
-                          ListView.builder(
-                            itemCount: radioGenre.length,
-                            itemBuilder: (BuildContext context, int index) {
-                              return RadioGenreCard(
-                                list: radioGenre,
-                                ind: index,
-                              );
-                            },
-                          ),
-                        ],
-                      ),
+                    ListView.builder(
+                      physics: NeverScrollableScrollPhysics(),
+                      itemCount: radioGenre.length,
+                      itemBuilder: (BuildContext context, int index) {
+                        return Column(
+                          children: [
+                            SizedBox(height: 10),
+                            RadioGenreCard(
+                              list: radioGenre,
+                              ind: index,
+                              func: () {},
+                            ),
+                          ],
+                        );
+                      },
                     ),
                   ],
                 ),
               ),
-              // SizedBox(height: 30),
+              SizedBox(height: 10),
             ],
           ),
         ),

@@ -2,7 +2,6 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:podcast_app/_components/colors.dart';
 import 'package:podcast_app/_components/data_for_dynamic.dart';
-import 'package:podcast_app/_components/normal_text.dart';
 import 'package:podcast_app/_components/sample_json.dart';
 import 'package:podcast_app/_components/util_widgets.dart';
 
@@ -69,7 +68,6 @@ class _HomePageState extends State<HomePage> {
                   children: [
                     SizedBox(height: AppConfig.height80),
                     Row(
-                      // mainAxisAlignment: MainAxisAlignment.spaceAround,
                       children: [
                         Padding(
                           padding: const EdgeInsets.only(left: 10, right: 10),

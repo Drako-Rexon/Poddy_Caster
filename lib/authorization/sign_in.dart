@@ -8,7 +8,6 @@ import 'package:podcast_app/_components/util_widgets.dart';
 import 'package:podcast_app/authorization/forget_password.dart';
 import 'package:podcast_app/authorization/sign_up_page.dart';
 import 'package:podcast_app/_components/data_for_dynamic.dart';
-import 'package:podcast_app/_components/normal_text.dart';
 import 'package:podcast_app/redirecting_page/redirecting_page.dart';
 
 class SignInPage extends StatefulWidget {

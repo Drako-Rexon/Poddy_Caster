@@ -4,7 +4,6 @@ import 'package:get/get_navigation/get_navigation.dart';
 import 'package:podcast_app/_components/colors.dart';
 import 'package:podcast_app/_components/data_for_dynamic.dart';
 import 'package:podcast_app/_components/ellipses_text.dart';
-import 'package:podcast_app/_components/normal_text.dart';
 import 'package:podcast_app/player_page/player.dart';
 
 class HoriCarousel extends StatelessWidget {
@@ -319,46 +318,145 @@ class SignInSocial extends StatelessWidget {
 }
 
 class RadioGenreCard extends StatelessWidget {
-  const RadioGenreCard({Key? key, required this.list, this.ind = 0})
-      : super(key: key);
-  final List list;
+  const RadioGenreCard({
+    Key? key,
+    required this.list,
+    this.ind = 0,
+    required this.func,
+  }) : super(key: key);
+  final List<dynamic> list;
   final int ind;
+  final Function func;
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.symmetric(vertical: AppConfig.height10),
-      padding: EdgeInsets.symmetric(
-        vertical: AppConfig.height15,
-        horizontal: AppConfig.width25,
-      ),
+      height: 60,
       width: AppConfig.screenWidth - 40,
       decoration: BoxDecoration(
-        color: ColorsForApp.darkPurple,
+        color: pSecondaryDeep,
         borderRadius: BorderRadius.all(Radius.circular(6)),
       ),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          NormalText(
-            text: list[ind]['category'],
-            textColor: pWhite,
-            textSize: AppConfig.textSize18,
-          ),
-          Container(
-            height: 20,
-            width: 20,
-            decoration: BoxDecoration(
-              shape: BoxShape.circle,
-              color: ColorsForApp.commonBackGround,
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 20),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Text(
+              list[ind]['category'],
+              style: TextStyle(color: pWhite),
             ),
-            child: Icon(
-              Icons.arrow_forward_ios,
-              color: pWhite,
-              size: 8,
+            InkWell(
+              onTap: func(),
+              child: Container(
+                height: 20,
+                width: 20,
+                decoration: BoxDecoration(
+                  shape: BoxShape.circle,
+                  color: pBackground,
+                ),
+                child: Icon(
+                  Icons.arrow_forward_ios,
+                  color: pWhite,
+                  size: 8,
+                ),
+              ),
             ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class TestingPage extends StatelessWidget {
+  const TestingPage({
+    Key? key,
+    required this.text,
+  }) : super(key: key);
+
+  final String text;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      child: Center(
+        child: NormalText(text: text),
+      ),
+    );
+  }
+}
+
+class NormalText extends StatelessWidget {
+  const NormalText({
+    Key? key,
+    required this.text,
+    this.textSize = 14,
+    this.isBold = false,
+    this.textColor = pPrimaryTextColor,
+    this.align = TextAlign.justify,
+    this.toUpper = false,
+  }) : super(key: key);
+  final String text;
+  final double textSize;
+  final bool isBold;
+  final Color textColor;
+  final TextAlign align;
+  final bool toUpper;
+
+  @override
+  Widget build(BuildContext context) {
+    return Text(
+      toUpper ? text.toUpperCase() : text,
+      textAlign: align,
+      style: TextStyle(
+        fontSize: textSize,
+        fontFamily: isBold ? 'CircularStd' : 'CircularStd-Book',
+        color: textColor,
+      ),
+    );
+  }
+}
+
+class RegularCard extends StatelessWidget {
+  const RegularCard(
+    this.name,
+    this.func, {
+    Key? key,
+    this.listAction = const [],
+  }) : super(key: key);
+  final Function func;
+  final String name;
+  final List<Widget> listAction;
+  @override
+  Widget build(BuildContext context) {
+    return InkWell(
+      onTap: () {
+        func();
+      },
+      child: Container(
+        decoration: BoxDecoration(
+          color: pSecondaryDeep,
+          borderRadius: BorderRadius.all(Radius.circular(6)),
+        ),
+        padding: const EdgeInsets.symmetric(horizontal: 20),
+        height: 60,
+        width: AppConfig.screenWidth - 40,
+        child: Align(
+          alignment: Alignment.centerLeft,
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text(
+                name,
+                style: TextStyle(color: pWhite),
+              ),
+              Row(
+                children: listAction,
+              )
+            ],
           ),
-        ],
+        ),
       ),
     );
   }
