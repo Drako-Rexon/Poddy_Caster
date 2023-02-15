@@ -1,4 +1,3 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:podcast_app/_components/colors.dart';
@@ -38,14 +37,6 @@ class _SignInPageState extends State<SignInPage> {
     super.dispose();
     _emailController.dispose();
     _passController.dispose();
-  }
-
-  Future signIn() async {
-    dynamic ans = await FirebaseAuth.instance.signInWithEmailAndPassword(
-      email: _emailController.text.trim(),
-      password: _passController.text.trim(),
-    );
-    pPrintLog("sign in data", ans);
   }
 
   @override

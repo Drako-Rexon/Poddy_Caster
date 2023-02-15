@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:podcast_app/Events%20Pages/events.dart';
+import 'package:podcast_app/Podcasts/podcasts.dart';
 import 'package:podcast_app/Radio_Station/radio_station.dart';
 import 'package:podcast_app/_components/colors.dart';
 import 'package:podcast_app/_components/data_for_dynamic.dart';
 import 'package:podcast_app/Home/home_page.dart';
-import 'package:podcast_app/_components/util_widgets.dart';
 import 'package:podcast_app/profile/user_profile_page.dart';
 
 class RedirectingPage extends StatefulWidget {
@@ -14,7 +15,7 @@ class RedirectingPage extends StatefulWidget {
 }
 
 class _RedirectingPageState extends State<RedirectingPage> {
-  int currentTab = 4, index = 0;
+  int currentTab = 0, index = 0;
   List navName = ["Home", "Stations", "Podcasts", "Events", "Profile"];
   List<String> navIcon = [
     'assets/images/home.png',
@@ -33,10 +34,8 @@ class _RedirectingPageState extends State<RedirectingPage> {
         children: [
           HomePage(),
           RadioStationPage(),
-          TestingPage(text: "Podcast"),
-          TestingPage(text: "Events"),
-          // UserProfilePage(),
-          // UserProfilePage()
+          Podcasts(),
+          Events(),
           UserProfilePage()
         ],
       ),

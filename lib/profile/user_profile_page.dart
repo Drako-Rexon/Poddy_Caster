@@ -3,9 +3,13 @@ import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_navigation/get_navigation.dart';
 import 'package:podcast_app/_components/colors.dart';
 import 'package:podcast_app/_components/data_for_dynamic.dart';
-import 'package:podcast_app/_components/terms_of_service.dart';
+import 'package:podcast_app/_components/util_function.dart';
 import 'package:podcast_app/_components/util_widgets.dart';
 import 'package:podcast_app/profile/about_us.dart';
+import 'package:podcast_app/profile/connect_to_device.dart';
+import 'package:podcast_app/profile/music_quality.dart';
+import 'package:podcast_app/profile/playback.dart';
+import 'package:podcast_app/profile/social.dart';
 
 class UserProfilePage extends StatelessWidget {
   const UserProfilePage({Key? key}) : super(key: key);
@@ -23,43 +27,61 @@ class UserProfilePage extends StatelessWidget {
           },
           color: pLightPink,
         ),
-        backgroundColor: pBackgroundAppColor,
+        backgroundColor: pBackground,
         title: Text(
-          "About Us",
+          "More",
           style: TextStyle(
             color: pWhite,
             fontSize: AppConfig.textSize24,
-            fontWeight: FontWeight.bold,
           ),
         ),
       ),
       body: SafeArea(
-        child: SingleChildScrollView(
-          child: Container(
-            width: AppConfig.screenWidth,
-            child: Column(
-              children: [
-                SizedBox(height: 30),
-                RegularCard("About Us", () {
+        child: Container(
+          width: AppConfig.screenWidth,
+          child: Column(
+            children: [
+              SizedBox(height: 30),
+              RegularCard(
+                "Playback",
+                () {
+                  Get.to(() => Playback());
+                },
+                listAction: [enterArrow()],
+              ),
+              SizedBox(height: 10),
+              RegularCard(
+                "Connect to device",
+                () {
+                  Get.to(() => ConnToDevice());
+                },
+                listAction: [enterArrow()],
+              ),
+              SizedBox(height: 10),
+              RegularCard(
+                "Social",
+                () {
+                  Get.to(() => Social());
+                },
+                listAction: [enterArrow()],
+              ),
+              SizedBox(height: 10),
+              RegularCard(
+                "Music Quality",
+                () {
+                  Get.to(() => MusicQuality());
+                },
+                listAction: [enterArrow()],
+              ),
+              SizedBox(height: 10),
+              RegularCard(
+                "About Us",
+                () {
                   Get.to(() => AboutUs());
-                }),
-                SizedBox(height: 10),
-                RegularCard("Terms & Services", () {
-                  Get.to(() => TermsOfService());
-                }),
-                SizedBox(height: 10),
-                RegularCard(
-                  "Version",
-                  () {},
-                  listAction: [
-                    Text(
-                      "v1.0.0",
-                      style: TextStyle(color: pWhite),
-                    )
-                  ],
-                ),
-              ],
-            ),
+                },
+                listAction: [enterArrow()],
+              ),
+            ],
           ),
         ),
       ),

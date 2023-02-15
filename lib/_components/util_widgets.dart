@@ -424,10 +424,12 @@ class RegularCard extends StatelessWidget {
     this.func, {
     Key? key,
     this.listAction = const [],
+    this.listLead = const [],
   }) : super(key: key);
   final Function func;
   final String name;
   final List<Widget> listAction;
+  final List<Widget> listLead;
   @override
   Widget build(BuildContext context) {
     return InkWell(
@@ -439,21 +441,24 @@ class RegularCard extends StatelessWidget {
           color: pSecondaryDeep,
           borderRadius: BorderRadius.all(Radius.circular(6)),
         ),
-        padding: const EdgeInsets.symmetric(horizontal: 20),
+        padding: const EdgeInsets.symmetric(horizontal: 10),
         height: 60,
         width: AppConfig.screenWidth - 40,
         child: Align(
           alignment: Alignment.centerLeft,
           child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text(
-                name,
-                style: TextStyle(color: pWhite),
+              Expanded(flex: listLead.length, child: Row(children: listLead)),
+              Expanded(
+                flex: 8,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(name, style: TextStyle(color: pWhite)),
+                    Row(children: listAction)
+                  ],
+                ),
               ),
-              Row(
-                children: listAction,
-              )
             ],
           ),
         ),

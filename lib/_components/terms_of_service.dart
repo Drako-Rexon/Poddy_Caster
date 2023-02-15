@@ -10,7 +10,7 @@ class TermsOfService extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: ColorsForApp.backgroundAppColor,
+      backgroundColor: pBackground,
       appBar: commonAppbar(),
       body: SingleChildScrollView(
         child: Container(
@@ -54,7 +54,7 @@ class TermsOfService extends StatelessWidget {
         },
         color: pLightPink,
       ),
-      backgroundColor: pBackgroundAppColor,
+      backgroundColor: pBackground,
       title: NormalText(
         text: "Terms & Conditions",
         isBold: true,

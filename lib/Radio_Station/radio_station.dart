@@ -46,7 +46,7 @@ class _RadioStationPageState extends State<RadioStationPage>
         ),
         actions: [
           IconButton(
-            icon: Icon(Icons.search),
+            icon: Icon(Icons.search, size: 32),
             onPressed: () {},
           ),
         ],

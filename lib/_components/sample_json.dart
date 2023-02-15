@@ -211,7 +211,6 @@ List radioGenre = [
   {"category": "Comedy"},
   {"category": "Comedy"},
 ];
-
 List homeTopSliderOne = [
   {"text1": "Tabitha Nauser", "text2": "Bulletproof"},
   {"text1": "Tabitha Nauser2", "text2": "Bulletproof2"},
