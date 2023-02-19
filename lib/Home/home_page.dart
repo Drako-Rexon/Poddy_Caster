@@ -23,6 +23,7 @@ class _HomePageState extends State<HomePage> {
       backgroundColor: Colors.transparent,
       extendBodyBehindAppBar: true,
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         elevation: 0,
         actions: [
           Padding(
@@ -148,8 +149,7 @@ class _HomePageState extends State<HomePage> {
                         return Column(
                           children: [
                             ListCardBottomHome(
-                              list: homeCardBottom,
-                              ind: index,
+                              homeCardBottom[index],
                             ),
                             SizedBox(height: 10),
                           ],

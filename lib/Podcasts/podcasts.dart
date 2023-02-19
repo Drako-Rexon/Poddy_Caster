@@ -9,6 +9,8 @@ class Podcasts extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(backgroundColor: pBackground,
       appBar: AppBar(
+        automaticallyImplyLeading: false,
+        centerTitle: true,
         title: NormalText(
           text: "Podcasts",
           isBold: true,

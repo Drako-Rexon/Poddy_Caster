@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:get/get_core/src/get_main.dart';
-import 'package:get/get_navigation/get_navigation.dart';
 import 'package:podcast_app/_components/colors.dart';
 import 'package:podcast_app/_components/data_for_dynamic.dart';
 import 'package:podcast_app/_components/util_widgets.dart';
@@ -26,13 +24,7 @@ class _PlaybackState extends State<Playback> {
       backgroundColor: pBackground,
       appBar: AppBar(
         elevation: 0,
-        leading: IconButton(
-          icon: Icon(Icons.arrow_back),
-          onPressed: () {
-            Get.back();
-          },
-          color: pLightPink,
-        ),
+        leading: BackArrow(),
         backgroundColor: pBackground,
         title: Text(
           "Playback",

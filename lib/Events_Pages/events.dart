@@ -10,6 +10,8 @@ class Events extends StatelessWidget {
     return Scaffold(
       backgroundColor: pBackground,
       appBar: AppBar(
+        automaticallyImplyLeading: false,
+        centerTitle: true,
         title: NormalText(
           text: "Events",
           isBold: true,

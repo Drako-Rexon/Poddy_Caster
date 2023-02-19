@@ -12,6 +12,7 @@ const pDarkPink = Color(0xFFF11775);
 const pCustomGrey = Color(0xFF5C5E6F);
 const pBackground = Color(0xFF13131A);
 const pBackgroundAppColor = Color(0xFF2D2C3C);
+const trans = Colors.transparent;
 
 const gradientButton1 = [pLightPink, pDarkPink];
 const disableGradient = [Colors.grey, Colors.grey];

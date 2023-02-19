@@ -38,17 +38,14 @@ class ConnToDevice extends StatelessWidget {
               () {},
               listLead: [
                 Container(
-                  height: 26,
-                  width: 26,
+                  height: 30,
+                  width: 30,
+                  padding: const EdgeInsets.all(4),
                   decoration: BoxDecoration(
                     shape: BoxShape.circle,
                     color: Color(0xFFEA4335),
                   ),
-                  child: Image.asset(
-                    'assets/images/computer.png',
-                    height: 20,
-                    width: 20,
-                  ),
+                  child: Image.asset('assets/images/computer.png'),
                 ),
               ],
             ),
@@ -58,8 +55,9 @@ class ConnToDevice extends StatelessWidget {
               () {},
               listLead: [
                 Container(
-                  height: 26,
-                  width: 26,
+                  height: 30,
+                  width: 30,
+                  padding: const EdgeInsets.all(4),
                   decoration: BoxDecoration(
                     shape: BoxShape.circle,
                     color: Color(0xFFFBBC04),
@@ -78,8 +76,9 @@ class ConnToDevice extends StatelessWidget {
               () {},
               listLead: [
                 Container(
-                  height: 26,
-                  width: 26,
+                  height: 30,
+                  width: 30,
+                  padding: const EdgeInsets.all(4),
                   decoration: BoxDecoration(
                     shape: BoxShape.circle,
                     color: Color(0xFF9D00FF),
@@ -98,8 +97,9 @@ class ConnToDevice extends StatelessWidget {
               () {},
               listLead: [
                 Container(
-                  height: 26,
-                  width: 26,
+                  height: 30,
+                  width: 30,
+                  padding: const EdgeInsets.all(4),
                   decoration: BoxDecoration(
                     shape: BoxShape.circle,
                     color: Color(0xFF34A853),
@@ -118,14 +118,15 @@ class ConnToDevice extends StatelessWidget {
               () {},
               listLead: [
                 Container(
-                  height: 26,
-                  width: 26,
+                  height: 30,
+                  width: 30,
+                  padding: const EdgeInsets.all(4),
                   decoration: BoxDecoration(
                     shape: BoxShape.circle,
                     color: Color(0xFF0083FD),
                   ),
                   child: Image.asset(
-                    'assets/images/bluetooh.png',
+                    'assets/images/bluetooth.png',
                     height: 20,
                     width: 20,
                   ),

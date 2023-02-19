@@ -106,17 +106,17 @@ class CarouselCardHome extends StatelessWidget {
 }
 
 class ListCardBottomHome extends StatefulWidget {
-  ListCardBottomHome({
+  ListCardBottomHome(
+    this.list, {
     Key? key,
-    required this.list,
-    this.ind = 0,
     this.fav = false,
     this.radio = false,
+    this.func,
   }) : super(key: key);
-  final List list;
-  final int ind;
+  final dynamic list;
   bool fav;
   final bool radio;
+  final Function? func;
 
   @override
   State<ListCardBottomHome> createState() => _ListCardBottomHomeState();
@@ -125,84 +125,91 @@ class ListCardBottomHome extends StatefulWidget {
 class _ListCardBottomHomeState extends State<ListCardBottomHome> {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: AppConfig.screenWidth - 40,
-      height: 80,
-      padding: const EdgeInsets.all(10),
-      decoration: BoxDecoration(
-        color: ColorsForApp.darkPurple,
-        borderRadius: BorderRadius.all(
-          Radius.circular(12),
+    return InkWell(
+      onTap: () {
+        widget.func;
+      },
+      child: Container(
+        width: AppConfig.screenWidth - 40,
+        height: AppConfig.height80,
+        padding: const EdgeInsets.all(10),
+        decoration: BoxDecoration(
+          color: ColorsForApp.darkPurple,
+          borderRadius: BorderRadius.all(
+            Radius.circular(12),
+          ),
         ),
-      ),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          Row(
-            children: [
-              Container(
-                margin: EdgeInsets.only(right: AppConfig.width15),
-                width: 50,
-                height: 50,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.all(
-                    Radius.circular(10),
-                  ),
-                  image: DecorationImage(
-                    image: AssetImage(widget.list[widget.ind]['img']),
-                  ),
-                ),
-              ),
-              SizedBox(
-                width: AppConfig.screenWidth - 240,
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  /* for the text data */ children: [
-                    EllipsisText(
-                      text: widget.list[widget.ind]['mainTitle'],
-                      textColor: pWhite,
-                      isBold: true,
-                      textSize: AppConfig.textSize12,
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Row(
+              children: [
+                Container(
+                  margin: EdgeInsets.only(right: AppConfig.width15),
+                  width: 50,
+                  height: 50,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.all(
+                      Radius.circular(10),
                     ),
-                    SizedBox(height: 5),
-                    EllipsisText(
-                      text: widget.list[widget.ind]['subTitle'],
-                      textColor: pCustomGrey,
-                      textSize: AppConfig.textSize10,
+                    image: DecorationImage(
+                      image: AssetImage(widget.list['img']),
                     ),
-                  ],
+                  ),
                 ),
-              ),
-            ],
-          ),
-          Row(
-            children: [
-              IconButton(
-                onPressed: () {
-                  Get.to(() => PlayerPage());
-                },
-                icon: Icon(
-                  Icons.more_horiz,
-                  color: pWhite,
-                ),
-              ),
-              widget.radio
-                  ? IconButton(
-                      onPressed: () {
-                        setState(() {
-                          widget.fav ? widget.fav = false : widget.fav = true;
-                        });
-                      },
-                      icon: Icon(
-                        widget.fav ? Icons.favorite : Icons.favorite_border,
-                        color: pWhite,
+                SizedBox(
+                  width: AppConfig.screenWidth - 240,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    /* for the text data */ children: [
+                      EllipsisText(
+                        text: widget.list['mainTitle'],
+                        textColor: pWhite,
+                        isBold: true,
+                        textSize: AppConfig.textSize12,
                       ),
-                    )
-                  : Container(),
-            ],
-          ),
-        ],
+                      SizedBox(height: 5),
+                      EllipsisText(
+                        text: widget.list['subTitle'],
+                        textColor: pCustomGrey,
+                        textSize: AppConfig.textSize10,
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
+            Row(
+              children: [
+                IconButton(
+                  onPressed: () {
+                    Get.to(() => PlayerPage(
+                          data: widget.list,
+                        ));
+                  },
+                  icon: Icon(
+                    Icons.more_horiz,
+                    color: pWhite,
+                  ),
+                ),
+                widget.radio
+                    ? IconButton(
+                        onPressed: () {
+                          setState(() {
+                            widget.fav ? widget.fav = false : widget.fav = true;
+                          });
+                        },
+                        icon: Icon(
+                          widget.fav ? Icons.favorite : Icons.favorite_border,
+                          color: pWhite,
+                        ),
+                      )
+                    : Container(),
+              ],
+            ),
+          ],
+        ),
       ),
     );
   }
@@ -331,7 +338,7 @@ class RadioGenreCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 60,
+      height: AppConfig.height60,
       width: AppConfig.screenWidth - 40,
       decoration: BoxDecoration(
         color: pSecondaryDeep,
@@ -433,6 +440,7 @@ class RegularCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
+      overlayColor: MaterialStateProperty.all(Colors.transparent),
       onTap: () {
         func();
       },
@@ -463,6 +471,163 @@ class RegularCard extends StatelessWidget {
           ),
         ),
       ),
+    );
+  }
+}
+
+class BackArrow extends StatelessWidget {
+  const BackArrow({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return InkWell(
+      overlayColor: MaterialStateProperty.all(trans),
+      onTap: () {
+        Get.back();
+      },
+      child: Icon(
+        Icons.arrow_back,
+        color: pLightPink,
+      ),
+    );
+  }
+}
+
+class ProfileCards extends StatefulWidget {
+  ProfileCards({
+    Key? key,
+    this.fav = false,
+  }) : super(key: key);
+  bool fav;
+
+  @override
+  State<ProfileCards> createState() => _ProfileCardsState();
+}
+
+class _ProfileCardsState extends State<ProfileCards> {
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      children: [
+        SizedBox(width: 10),
+        Stack(
+          children: [
+            Container(
+              height: 180,
+              width: 180,
+              decoration: BoxDecoration(
+                image: DecorationImage(
+                  image: AssetImage('assets/images/Image-2.png'),
+                  fit: BoxFit.cover,
+                ),
+                borderRadius: BorderRadius.all(Radius.circular(12)),
+              ),
+            ),
+            Container(
+              margin: const EdgeInsets.symmetric(
+                horizontal: 10,
+                vertical: 10,
+              ),
+              height: 25,
+              width: 25,
+              decoration: BoxDecoration(
+                shape: BoxShape.circle,
+                color: pWhite,
+              ),
+              child: Center(
+                child: InkWell(
+                  onTap: () {
+                    setState(() {
+                      widget.fav =
+                          widget.fav ? widget.fav = false : widget.fav = true;
+                    });
+                  },
+                  child: widget.fav
+                      ? Icon(
+                          Icons.favorite,
+                          color: pLightPink,
+                        )
+                      : Icon(
+                          Icons.favorite_outline,
+                          color: pLightPink,
+                        ),
+                ),
+              ),
+            ),
+          ],
+        ),
+        SizedBox(width: 10),
+      ],
+    );
+  }
+}
+
+class BackGroundImageFilter extends StatelessWidget {
+  const BackGroundImageFilter({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Stack(
+      children: [
+        Container(
+          height: AppConfig.screenHeight * 0.4,
+          decoration: BoxDecoration(
+            image: DecorationImage(
+              fit: BoxFit.fitHeight,
+              image: AssetImage('assets/images/Image-7.png'),
+            ),
+          ),
+        ),
+        Column(
+          // mainAxisSize: MainAxisSize.min,
+          // mainAxisAlignment: MainAxisAlignment.start,
+          children: [
+            Container(
+              height: AppConfig.screenHeight * 0.3,
+              decoration: BoxDecoration(
+                gradient: RadialGradient(
+                  // begin: Alignment.bottomCenter,
+                  // end: Alignment.topCenter,
+                  radius: 0.75,
+                  colors: [
+                    // ColorsForApp.backGradientColor1.withOpacity(0.1),
+                    // ColorsForApp.backGradientColor1.withOpacity(0.8),
+                    // ColorsForApp.backGradientColor1.withOpacity(0.9),
+                    // ColorsForApp.backGradientColor1.withOpacity(1),
+                    // ColorsForApp.backGradientColor1,
+                    ColorsForApp.backImagRadial1.withOpacity(0.5),
+                    ColorsForApp.backImagRadial2.withOpacity(0.7),
+                    ColorsForApp.backImagRadial3.withOpacity(0.9),
+                  ],
+                ),
+              ),
+            ),
+            Container(
+              height: AppConfig.screenHeight * 0.669,
+              decoration: BoxDecoration(
+                gradient: RadialGradient(
+                  colors: [
+                    // ColorsForApp.backGradientColor1,
+                    ColorsForApp.backImagRadial3.withOpacity(1),
+                    ColorsForApp.backGradientColor2,
+                  ],
+                  radius: 2,
+                ),
+              ),
+            )
+          ],
+        ),
+        Container(
+          height: AppConfig.screenHeight,
+          decoration: BoxDecoration(
+            color: ColorsForApp.backGradientColor1.withOpacity(0.2),
+          ),
+        ),
+      ],
     );
   }
 }

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:get/get_core/src/get_main.dart';
-import 'package:get/get_navigation/get_navigation.dart';
+import 'package:get/get.dart';
 import 'package:podcast_app/_components/colors.dart';
 import 'package:podcast_app/_components/data_for_dynamic.dart';
 import 'package:podcast_app/_components/util_function.dart';
@@ -11,22 +10,16 @@ import 'package:podcast_app/profile/music_quality.dart';
 import 'package:podcast_app/profile/playback.dart';
 import 'package:podcast_app/profile/social.dart';
 
-class UserProfilePage extends StatelessWidget {
-  const UserProfilePage({Key? key}) : super(key: key);
-
+class More extends StatelessWidget {
+  const More({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: pBackground,
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         elevation: 0,
-        leading: IconButton(
-          icon: Icon(Icons.arrow_back),
-          onPressed: () {
-            Get.back();
-          },
-          color: pLightPink,
-        ),
+        leading: BackArrow(),
         backgroundColor: pBackground,
         title: Text(
           "More",

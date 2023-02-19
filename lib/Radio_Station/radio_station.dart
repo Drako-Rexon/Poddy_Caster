@@ -38,6 +38,8 @@ class _RadioStationPageState extends State<RadioStationPage>
     return Scaffold(
       backgroundColor: pBackground,
       appBar: AppBar(
+        automaticallyImplyLeading: false,
+        centerTitle: true,
         title: NormalText(
           text: "Radio Stations",
           isBold: true,
@@ -57,7 +59,6 @@ class _RadioStationPageState extends State<RadioStationPage>
             setState(() {});
           },
           overlayColor: MaterialStateProperty.all(pPrimaryTextColor),
-          isScrollable: true,
           controller: _tabController,
           tabs: myTabs,
           labelColor: pLightPink,
@@ -91,7 +92,7 @@ class _RadioStationPageState extends State<RadioStationPage>
             children: [
               SizedBox(height: AppConfig.height20),
               Container(
-                padding: EdgeInsets.all(AppConfig.width20),
+                padding: EdgeInsets.only(right: AppConfig.width20),
                 width: AppConfig.screenWidth - 20,
                 height: AppConfig.height80,
                 decoration: BoxDecoration(
@@ -105,22 +106,29 @@ class _RadioStationPageState extends State<RadioStationPage>
                   mainAxisSize: MainAxisSize.max,
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Column(
-                      mainAxisSize: MainAxisSize.max,
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        NormalText(
-                          text: "Enjoy your day with RadioApp",
-                          textColor: pWhite,
-                        ),
-                        NormalText(
-                          text: "Tune your radio now",
-                          textColor: pWhite,
-                          isBold: true,
-                          textSize: AppConfig.textSize18,
-                        ),
-                      ],
+                    Padding(
+                      padding: EdgeInsets.only(
+                        left: AppConfig.width20,
+                        top: AppConfig.height20,
+                      ),
+                      child: Column(
+                        // mainAxisSize: MainAxisSize.max,
+                        // mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          NormalText(
+                            text: "Enjoy your day with RadioApp",
+                            textColor: pWhite,
+                            textSize: AppConfig.textSize12,
+                          ),
+                          NormalText(
+                            text: "Tune your radio now",
+                            textColor: pWhite,
+                            isBold: true,
+                            textSize: AppConfig.textSize18,
+                          ),
+                        ],
+                      ),
                     ),
                     GradientButton(
                       "Tune Now",
@@ -151,8 +159,7 @@ class _RadioStationPageState extends State<RadioStationPage>
                             horizontal: AppConfig.width15,
                           ),
                           child: ListCardBottomHome(
-                            list: radioPopularBroadCard,
-                            ind: index,
+                            radioPopularBroadCard[index],
                             radio: true,
                           ),
                         );
@@ -165,7 +172,7 @@ class _RadioStationPageState extends State<RadioStationPage>
                       itemBuilder: (BuildContext context, int index) {
                         return Column(
                           children: [
-                            SizedBox(height: 10),
+                            SizedBox(height: AppConfig.height10),
                             RadioGenreCard(
                               list: radioGenre,
                               ind: index,

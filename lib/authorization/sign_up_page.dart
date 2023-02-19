@@ -16,10 +16,9 @@ class SignUpPage extends StatefulWidget {
 class _SignUpPageState extends State<SignUpPage> {
   bool value = false;
   bool isVisible = false;
-  // TextEditingController textController = TextEditingController();
-  late TextEditingController _usernameController; // = TextEditingController();
-  late TextEditingController _mailController; // = TextEditingController();
-  late TextEditingController _passwordController; // = TextEditingController();
+  late TextEditingController _usernameController; 
+  late TextEditingController _mailController;
+  late TextEditingController _passwordController;
 
   @override
   void initState() {

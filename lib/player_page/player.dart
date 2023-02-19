@@ -2,45 +2,46 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:podcast_app/_components/colors.dart';
 import 'package:podcast_app/_components/data_for_dynamic.dart';
-import 'package:podcast_app/_components/sample_json.dart';
-import 'package:podcast_app/_components/background_image_filter.dart';
+import 'package:podcast_app/_components/util_function.dart';
 import 'package:podcast_app/_components/util_widgets.dart';
-import 'package:podcast_app/redirecting_page/redirecting_page.dart';
 
 class PlayerPage extends StatelessWidget {
-  const PlayerPage({Key? key}) : super(key: key);
+  PlayerPage({Key? key, this.data}) : super(key: key);
+  final dynamic data;
 
   @override
   Widget build(BuildContext context) {
+    pPrintLog("data here 1", data);
     double _value = 0;
     return Scaffold(
+      backgroundColor: pBackground,
       body: SafeArea(
         child: Stack(
           children: [
             BackGroundImageFilter(),
-            Container(
-              padding: EdgeInsets.only(
-                top: AppConfig.height20,
-                left: AppConfig.width10,
-              ),
-              child: Row(
-                children: [
-                  IconButton(
-                    onPressed: () {
-                      Get.defaultDialog(title: "Hi", middleText: "");
-                      // Get.back();
-                      Get.to(RedirectingPage());
-                    },
-                    icon: Icon(
-                      Icons.arrow_back,
-                      color: pLightPink,
-                    ),
-                  ),
-                ],
-              ),
-            ),
             Column(
               children: [
+                Container(
+                  padding: EdgeInsets.only(
+                    top: AppConfig.height20,
+                    left: AppConfig.width10,
+                  ),
+                  child: Row(
+                    children: [
+                      IconButton(
+                        onPressed: () {
+                          // Get.defaultDialog(title: "Hi", middleText: "");
+                          Get.back();
+                          // Get.to(RedirectingPage());
+                        },
+                        icon: Icon(
+                          Icons.arrow_back,
+                          color: pLightPink,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
                 Container(
                   height: AppConfig.screenHeight * 0.5,
                   child: Align(
@@ -51,7 +52,7 @@ class PlayerPage extends StatelessWidget {
                       decoration: BoxDecoration(
                         image: DecorationImage(
                           fit: BoxFit.cover,
-                          image: AssetImage(homeCarouselSlider[0]["img"]),
+                          image: AssetImage(data["img"]),
                         ),
                       ),
                     ),
