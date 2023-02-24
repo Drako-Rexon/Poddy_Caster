@@ -36,20 +36,29 @@ class HoriCarousel extends StatelessWidget {
 }
 
 class DotCarousel extends StatelessWidget {
-  DotCarousel({Key? key, this.active = false}) : super(key: key);
+  DotCarousel({
+    Key? key,
+    this.active = false,
+    this.borderClr = pWhite,
+    this.fillClr = pWhite,
+    this.dia = 8,
+  }) : super(key: key);
   final bool active;
+  final Color borderClr;
+  final Color fillClr;
+  final double dia;
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 8,
-      width: 8,
+      height: dia,
+      width: dia,
       margin: const EdgeInsets.all(5),
       decoration: BoxDecoration(
-        color: active ? pWhite : Colors.transparent,
+        color: fillClr,
         shape: BoxShape.circle,
         border: Border.all(
-          width: 2,
-          color: pWhite,
+          width: 1,
+          color: borderClr,
         ),
       ),
     );
@@ -184,9 +193,7 @@ class _ListCardBottomHomeState extends State<ListCardBottomHome> {
               children: [
                 IconButton(
                   onPressed: () {
-                    Get.to(() => PlayerPage(
-                          data: widget.list,
-                        ));
+                    Get.to(() => PlayerPage(data: widget.list));
                   },
                   icon: Icon(
                     Icons.more_horiz,
@@ -194,18 +201,20 @@ class _ListCardBottomHomeState extends State<ListCardBottomHome> {
                   ),
                 ),
                 widget.radio
-                    ? IconButton(
-                        onPressed: () {
+                    ? InkWell(
+                        overlayColor: MaterialStateProperty.all(trans),
+                        onTap: () {
                           setState(() {
                             widget.fav ? widget.fav = false : widget.fav = true;
                           });
                         },
-                        icon: Icon(
+                        child: Icon(
                           widget.fav ? Icons.favorite : Icons.favorite_border,
                           color: pWhite,
                         ),
                       )
                     : Container(),
+                SizedBox(width: 10),
               ],
             ),
           ],
@@ -515,8 +524,8 @@ class _ProfileCardsState extends State<ProfileCards> {
         Stack(
           children: [
             Container(
-              height: 180,
-              width: 180,
+              height: 200,
+              width: 200,
               decoration: BoxDecoration(
                 image: DecorationImage(
                   image: AssetImage('assets/images/Image-2.png'),
@@ -538,6 +547,7 @@ class _ProfileCardsState extends State<ProfileCards> {
               ),
               child: Center(
                 child: InkWell(
+                  overlayColor: MaterialStateProperty.all(trans),
                   onTap: () {
                     setState(() {
                       widget.fav =

@@ -112,8 +112,6 @@ class _RadioStationPageState extends State<RadioStationPage>
                         top: AppConfig.height20,
                       ),
                       child: Column(
-                        // mainAxisSize: MainAxisSize.max,
-                        // mainAxisAlignment: MainAxisAlignment.center,
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           NormalText(

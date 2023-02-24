@@ -22,7 +22,7 @@ class _RedirectingPageState extends State<RedirectingPage> {
     'assets/images/station.png',
     'assets/images/podcast.png',
     'assets/images/event.png',
-    'assets/images/profile.png',
+    'assets/images/profile.png'
   ];
 
   @override

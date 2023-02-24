@@ -97,9 +97,7 @@ class _ProfilePageState extends State<ProfilePage> {
                 children: [
                   Text(
                     "Favourite Podcasts",
-                    style: TextStyle(
-                      color: pWhite,
-                    ),
+                    style: TextStyle(color: pWhite),
                   ),
                   SizedBox(height: 10),
                   Container(
