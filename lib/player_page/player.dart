@@ -6,7 +6,7 @@ import 'package:podcast_app/_components/util_function.dart';
 import 'package:podcast_app/_components/util_widgets.dart';
 
 class PlayerPage extends StatelessWidget {
-  PlayerPage({Key? key, this.data}) : super(key: key);
+  PlayerPage({Key? key, required this.data}) : super(key: key);
   final dynamic data;
 
   @override

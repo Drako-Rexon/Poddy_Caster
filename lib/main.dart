@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:podcast_app/authorization/sign_in.dart';
 import 'package:podcast_app/intro/intro.dart';
+import 'package:podcast_app/player_page/player.dart';
 import 'package:podcast_app/redirecting_page/redirecting_page.dart';
 
 Future<void> main() async {

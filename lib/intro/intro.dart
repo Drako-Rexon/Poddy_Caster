@@ -23,7 +23,9 @@ class _IntroState extends State<Intro> {
         height: AppConfig.screenHeight,
         width: AppConfig.screenWidth,
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
+            Row(),
             Image.asset(
               'assets/images/radio.png',
               fit: BoxFit.cover,
@@ -62,8 +64,8 @@ class _IntroState extends State<Intro> {
                     }
                   },
                   child: Container(
-                    height: 20,
-                    width: 80,
+                    height: 40,
+                    width: 140,
                     child: Text(
                       "Previous",
                       textAlign: TextAlign.center,
@@ -71,8 +73,8 @@ class _IntroState extends State<Intro> {
                     ),
                   ),
                 ),
-                SizedBox(
-                  width: 100,
+                Container(
+                  width: 80,
                   height: 40,
                   child: ListView.builder(
                     scrollDirection: Axis.horizontal,
@@ -96,12 +98,12 @@ class _IntroState extends State<Intro> {
                         actPage++;
                       });
                     } else if (actPage == 3) {
-                      Get.to(RedirectingPage());
+                      Get.offAll(RedirectingPage());
                     }
                   },
                   child: Container(
-                    height: 20,
-                    width: 60,
+                    height: 40,
+                    width: 140,
                     child: Text(
                       actPage < 3 ? "Next" : "Finish",
                       textAlign: TextAlign.center,
