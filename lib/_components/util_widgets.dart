@@ -539,8 +539,8 @@ class _ProfileCardsState extends State<ProfileCards> {
                 horizontal: 10,
                 vertical: 10,
               ),
-              height: 25,
-              width: 25,
+              height: 30,
+              width: 30,
               decoration: BoxDecoration(
                 shape: BoxShape.circle,
                 color: pWhite,
@@ -558,9 +558,11 @@ class _ProfileCardsState extends State<ProfileCards> {
                       ? Icon(
                           Icons.favorite,
                           color: pLightPink,
+                          size: 22,
                         )
                       : Icon(
                           Icons.favorite_outline,
+                          size: 20,
                           color: pLightPink,
                         ),
                 ),
@@ -635,6 +637,47 @@ class BackGroundImageFilter extends StatelessWidget {
           height: AppConfig.screenHeight,
           decoration: BoxDecoration(
             color: ColorsForApp.backGradientColor1.withOpacity(0.2),
+          ),
+        ),
+      ],
+    );
+  }
+}
+
+class IntroPagePart extends StatelessWidget {
+  const IntroPagePart({
+    Key? key,
+    this.img = 'assets/images/imageNot.png',
+  }) : super(key: key);
+  final String img;
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        Container(
+          width: AppConfig.screenWidth,
+          height: AppConfig.height20 * 25,
+          decoration: BoxDecoration(
+            image: DecorationImage(image: AssetImage(img)),
+          ),
+        ),
+        Text(
+          "Tune your Radio",
+          style: TextStyle(
+            color: pWhite,
+            fontSize: AppConfig.textSize24 * 1.5,
+          ),
+        ),
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 50),
+          child: Text(
+            "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna",
+            textAlign: TextAlign.center,
+            style: TextStyle(
+              color: pPrimaryTextColor,
+              fontSize: AppConfig.textSize18 - 2,
+            ),
           ),
         ),
       ],

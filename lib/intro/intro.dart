@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:podcast_app/_components/colors.dart';
-import 'package:podcast_app/_components/data_for_dynamic.dart';
 import 'package:podcast_app/_components/util_widgets.dart';
 import 'package:podcast_app/redirecting_page/redirecting_page.dart';
 
@@ -13,109 +12,120 @@ class Intro extends StatefulWidget {
 }
 
 class _IntroState extends State<Intro> {
+  PageController _pageController = PageController();
   int actPage = 0;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: pBackground,
-      body: Container(
-        height: AppConfig.screenHeight,
-        width: AppConfig.screenWidth,
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      body: SafeArea(
+        child: Stack(
           children: [
-            Row(),
-            Image.asset(
-              'assets/images/radio.png',
-              fit: BoxFit.cover,
-            ),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 35),
-              child: Column(
-                children: [
-                  Text(
-                    "Tune your Radio",
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                      color: pWhite,
-                      fontSize: 26,
-                    ),
-                  ),
-                  SizedBox(height: 10),
-                  Text(
-                    "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna",
-                    textAlign: TextAlign.center,
-                    style: TextStyle(color: pCustomGrey, fontSize: 16),
-                  ),
-                ],
-              ),
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            PageView(
+              onPageChanged: (ind) {
+                setState(() {
+                  actPage = _pageController.page!.round();
+                });
+              },
+              controller: _pageController,
               children: [
-                InkWell(
-                  overlayColor: MaterialStateProperty.all(trans),
-                  onTap: () {
-                    if (actPage > 0) {
-                      setState(() {
-                        actPage--;
-                      });
-                    }
-                  },
-                  child: Container(
-                    height: 40,
-                    width: 140,
-                    child: Text(
-                      "Previous",
-                      textAlign: TextAlign.center,
-                      style: TextStyle(color: pLightPink),
-                    ),
-                  ),
-                ),
-                Container(
-                  width: 80,
-                  height: 40,
-                  child: ListView.builder(
-                    scrollDirection: Axis.horizontal,
-                    physics: NeverScrollableScrollPhysics(),
-                    itemCount: 4,
-                    itemBuilder: (BuildContext context, int index) {
-                      return DotCarousel(
-                        dia: 10,
-                        borderClr: index == actPage ? pLightPink : pCustomGrey,
-                        fillClr: index == actPage ? pLightPink : pCustomGrey,
-                        active: index == actPage ? true : false,
-                      );
-                    },
-                  ),
-                ),
-                InkWell(
-                  overlayColor: MaterialStateProperty.all(trans),
-                  onTap: () {
-                    if (actPage < 3) {
-                      setState(() {
-                        actPage++;
-                      });
-                    } else if (actPage == 3) {
-                      Get.offAll(RedirectingPage());
-                    }
-                  },
-                  child: Container(
-                    height: 40,
-                    width: 140,
-                    child: Text(
-                      actPage < 3 ? "Next" : "Finish",
-                      textAlign: TextAlign.center,
-                      style: TextStyle(color: pLightPink),
-                    ),
-                  ),
-                ),
+                IntroPagePart(img: 'assets/images/radio.png'),
+                IntroPagePart(img: 'assets/images/radio.png'),
+                IntroPagePart(img: 'assets/images/radio.png'),
+                IntroPagePart(img: 'assets/images/radio.png'),
               ],
             ),
+            Align(
+              alignment: Alignment(0.8, -0.9),
+              child: InkWell(
+                overlayColor: MaterialStateProperty.all(trans),
+                onTap: () {
+                  Get.to(() => RedirectingPage());
+                },
+                child: Container(
+                  height: 30,
+                  width: 50,
+                  child: Center(
+                    child: Text(
+                      "skip",
+                      style: TextStyle(color: pLightPink),
+                    ),
+                  ),
+                ),
+              ),
+            ),
+            Align(alignment: Alignment(0, 0.75), child: controller()),
           ],
         ),
       ),
+    );
+  }
+
+  Row controller() {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      children: [
+        InkWell(
+          overlayColor: MaterialStateProperty.all(trans),
+          onTap: () {
+            setState(() {
+              _pageController.previousPage(
+                duration: Duration(milliseconds: 100),
+                curve: Curves.linear,
+              );
+            });
+          },
+          child: Container(
+            height: 50,
+            width: 100,
+            child: Center(
+              child: Text(
+                "Previous",
+                style: TextStyle(color: pLightPink),
+              ),
+            ),
+          ),
+        ),
+        Container(
+          height: 50,
+          width: 120,
+          child: ListView.builder(
+            scrollDirection: Axis.horizontal,
+            itemCount: 4,
+            itemBuilder: (BuildContext context, int index) {
+              return DotCarousel(
+                dia: 10,
+                fillClr: actPage == index ? pLightPink : pPrimaryTextColor,
+                borderClr: actPage == index ? pLightPink : pPrimaryTextColor,
+              );
+            },
+          ),
+        ),
+        InkWell(
+          overlayColor: MaterialStateProperty.all(trans),
+          onTap: () {
+            actPage == 3
+                ? Get.to(() => RedirectingPage())
+                : setState(() {
+                    _pageController.nextPage(
+                      duration: Duration(milliseconds: 100),
+                      curve: Curves.linear,
+                    );
+                  });
+          },
+          child: Container(
+            height: 50,
+            width: 70,
+            child: Center(
+              child: Text(
+                actPage == 3 ? "Done" : "Next",
+                style: TextStyle(color: pLightPink),
+              ),
+            ),
+          ),
+        ),
+      ],
     );
   }
 }
