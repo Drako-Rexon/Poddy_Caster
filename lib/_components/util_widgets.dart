@@ -3,7 +3,6 @@ import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_navigation/get_navigation.dart';
 import 'package:podcast_app/_components/colors.dart';
 import 'package:podcast_app/_components/data_for_dynamic.dart';
-import 'package:podcast_app/_components/ellipses_text.dart';
 import 'package:podcast_app/player_page/player.dart';
 
 class HoriCarousel extends StatelessWidget {
@@ -68,44 +67,47 @@ class DotCarousel extends StatelessWidget {
 class CarouselCardHome extends StatelessWidget {
   const CarouselCardHome({
     Key? key,
-    required this.list,
-    this.ind = 0,
+    required this.objData,
   }) : super(key: key);
-  final List<dynamic> list;
-  final int ind;
+  final dynamic objData;
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      width: 150,
+    return Container(
+      padding:
+          EdgeInsets.only(left: AppConfig.width10, right: AppConfig.width10),
+      width: 120,
       child: Column(
-        mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisAlignment: MainAxisAlignment.start,
         children: [
           Container(
-            width: 150,
-            height: 150,
+            width: 120,
+            height: 120,
             decoration: BoxDecoration(
               image: DecorationImage(
-                image: AssetImage(list[ind]["img"]),
+                image: AssetImage(objData["img"]),
               ),
             ),
           ),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 10),
-            child: EllipsisText(
-              text: list[ind]["mainTitle"],
-              toUpper: true,
-              textColor: pWhite,
-              textSize: AppConfig.textSize12,
-              isBold: true,
+          SizedBox(height: 5),
+          Text(
+            objData["mainTitle"].toUpperCase(),
+            overflow: TextOverflow.ellipsis,
+            style: TextStyle(
+              fontWeight: FontWeight.bold,
+              color: pWhite,
+              fontSize: AppConfig.textSize12,
+              fontFamily: 'CircularStd-Book',
             ),
           ),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 10),
-            child: EllipsisText(
-              text: list[ind]["subTitle"],
-              textSize: AppConfig.textSize8,
+          SizedBox(height: 5),
+          Text(
+            objData["subTitle"],
+            overflow: TextOverflow.ellipsis,
+            style: TextStyle(
+              color: pPrimaryTextColor,
+              fontSize: AppConfig.textSize10,
             ),
           ),
         ],
@@ -167,22 +169,29 @@ class _ListCardBottomHomeState extends State<ListCardBottomHome> {
                   ),
                 ),
                 SizedBox(
-                  width: AppConfig.screenWidth - 240,
+                  width: AppConfig.screenWidth - (AppConfig.width30 * 7),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.start,
-                    /* for the text data */ children: [
-                      EllipsisText(
-                        text: widget.list['mainTitle'],
-                        textColor: pWhite,
-                        isBold: true,
-                        textSize: AppConfig.textSize12,
+                    children: [
+                      Text(
+                        widget.list['mainTitle'].toUpperCase(),
+                        overflow: TextOverflow.ellipsis,
+                        style: TextStyle(
+                          color: pWhite,
+                          fontSize: AppConfig.textSize14,
+                          fontFamily: 'CircularStd-Book',
+                        ),
                       ),
-                      SizedBox(height: 5),
-                      EllipsisText(
-                        text: widget.list['subTitle'],
-                        textColor: pCustomGrey,
-                        textSize: AppConfig.textSize10,
+                      SizedBox(height: AppConfig.height5),
+                      Text(
+                        widget.list['subTitle'],
+                        overflow: TextOverflow.ellipsis,
+                        style: TextStyle(
+                          fontSize: AppConfig.textSize12,
+                          color: pCustomGrey,
+                          fontFamily: 'CircularStd-Book',
+                        ),
                       ),
                     ],
                   ),
@@ -193,7 +202,7 @@ class _ListCardBottomHomeState extends State<ListCardBottomHome> {
               children: [
                 IconButton(
                   onPressed: () {
-                    Get.to(() => PlayerPage(data: widget.list));
+                    Get.to(() => PlayerPage(data: widget.list,));
                   },
                   icon: Icon(
                     Icons.more_horiz,
@@ -248,7 +257,11 @@ class GradientButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        func();
+        isDisable
+            ? () {
+                return;
+              }
+            : func();
       },
       child: Container(
         width: wid != 0.0 ? wid : AppConfig.screenWidth - AppConfig.width50,

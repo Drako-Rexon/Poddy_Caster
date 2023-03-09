@@ -15,7 +15,7 @@ class RedirectingPage extends StatefulWidget {
 }
 
 class _RedirectingPageState extends State<RedirectingPage> {
-  int currentTab = 4, index = 0;
+  int currentTab = 0, index = 0;
   List navName = ["Home", "Stations", "Podcasts", "Events", "Profile"];
   List<String> navIcon = [
     'assets/images/home.png',

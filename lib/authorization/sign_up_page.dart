@@ -16,7 +16,7 @@ class SignUpPage extends StatefulWidget {
 class _SignUpPageState extends State<SignUpPage> {
   bool value = false;
   bool isVisible = false;
-  late TextEditingController _usernameController; 
+  late TextEditingController _usernameController;
   late TextEditingController _mailController;
   late TextEditingController _passwordController;
 
@@ -264,22 +264,23 @@ class _SignUpPageState extends State<SignUpPage> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    NormalText(
-                      text: "Already have account?",
-                      textSize: AppConfig.textSize12,
-                    ),
-                    TextButton(
-                      style: ButtonStyle(
-                        padding:
-                            MaterialStateProperty.all(const EdgeInsets.all(0)),
+                    Text(
+                      "Already have account? ",
+                      style: TextStyle(
+                        fontSize: AppConfig.textSize12,
+                        color: pPrimaryTextColor,
                       ),
-                      onPressed: () {
+                    ),
+                    InkWell(
+                      onTap: () {
                         Get.to(SignInPage());
                       },
-                      child: NormalText(
-                        text: "Log In",
-                        textColor: pLightPink,
-                        isBold: true,
+                      child: Text(
+                        "Log In",
+                        style: TextStyle(
+                          color: pLightPink,
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
                     ),
                   ],

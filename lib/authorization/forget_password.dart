@@ -6,13 +6,21 @@ import 'package:podcast_app/authorization/sign_in.dart';
 import 'package:podcast_app/_components/data_for_dynamic.dart';
 
 class ForgetPassPage extends StatefulWidget {
-  const ForgetPassPage({Key? key}) : super(key: key);
+  ForgetPassPage({Key? key}) : super(key: key);
 
   @override
   State<ForgetPassPage> createState() => _ForgetPassPageState();
 }
 
 class _ForgetPassPageState extends State<ForgetPassPage> {
+  late TextEditingController _forgetEmail;
+
+  @override
+  void initState() {
+    _forgetEmail = TextEditingController();
+    _forgetEmail.addListener(() => setState(() {}));
+  }
+
   @override
   Widget build(BuildContext context) {
     final textController = TextEditingController();
@@ -57,6 +65,7 @@ class _ForgetPassPageState extends State<ForgetPassPage> {
                     ),
                     width: AppConfig.screenWidth - AppConfig.width50,
                     child: TextFormField(
+                      controller: _forgetEmail,
                       cursorColor: pPrimaryTextColor,
                       style: TextStyle(color: pLightPrimary),
                       keyboardType: TextInputType.emailAddress,
@@ -91,7 +100,11 @@ class _ForgetPassPageState extends State<ForgetPassPage> {
                   GradientButton(
                     "Send Password Reset",
                     () {},
-                    isDisable: false,
+                    isDisable: _forgetEmail.text.isEmail
+                        //RegExp(r'^([a-z0-9]+)\@([a-z]+)\.([a-z]+)$')
+                        //      .firstMatch()
+                        ? true
+                        : false,
                   ),
                 ],
               ),
@@ -99,21 +112,23 @@ class _ForgetPassPageState extends State<ForgetPassPage> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  NormalText(
-                    text: "Already have account?",
-                    textSize: 12,
-                  ),
-                  TextButton(
-                    style: ButtonStyle(
-                      padding: MaterialStateProperty.all(EdgeInsets.all(0)),
+                  Text(
+                    "Already have account? ",
+                    style: TextStyle(
+                      fontSize: AppConfig.textSize12,
+                      color: pPrimaryTextColor,
                     ),
-                    onPressed: () {
+                  ),
+                  InkWell(
+                    onTap: () {
                       Get.to(SignInPage());
                     },
-                    child: NormalText(
-                      text: "Log In (WORK)",
-                      textColor: pLightPink,
-                      isBold: true,
+                    child: Text(
+                      "Log In",
+                      style: TextStyle(
+                        color: pLightPink,
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
                   ),
                 ],

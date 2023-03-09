@@ -92,9 +92,10 @@ class _SignInPageState extends State<SignInPage> {
                         borderRadius: BorderRadius.circular(6),
                       ),
                       width: AppConfig.screenWidth - AppConfig.width50,
-                      child: TextFormField(
-                        // controller: _emailController,
-                        // style: TextStyle(color: pLightPrimary),
+                      child: TextField(
+                        controller: _passController,
+                        obscureText: !isVisible,
+                        style: TextStyle(color: pLightPrimary),
                         keyboardType: TextInputType.emailAddress,
                         cursorColor: pPrimaryTextColor,
                         decoration: InputDecoration(
@@ -102,29 +103,16 @@ class _SignInPageState extends State<SignInPage> {
                           prefixIcon: Icon(
                             Icons.mail_outline,
                             color: pPrimaryTextColor,
-                            size: 18,
+                            size: AppConfig.textSize18,
                           ),
-                          suffixIcon: _emailController.text.isEmpty
-                              ? Container()
-                              : IconButton(
-                                  icon: Icon(
-                                    Icons.close,
-                                    color: pPrimaryTextColor,
-                                  ),
-                                  onPressed: () {
-                                    setState(() {
-                                      _emailController.clear();
-                                    });
-                                  },
-                                ),
-                          hintText: "Email Address",
+                          hintText: "Email",
                           hintStyle: TextStyle(
                             fontFamily: 'CircularStd-Book',
                             color: pPrimaryTextColor,
                             fontSize: AppConfig.textSize12,
                           ),
                         ),
-                        // textInputAction: TextInputAction.next,
+                        textInputAction: TextInputAction.next,
                       ),
                     ),
                     SizedBox(height: AppConfig.height20),
@@ -180,8 +168,7 @@ class _SignInPageState extends State<SignInPage> {
                           Row(
                             children: [
                               Checkbox(
-                                overlayColor: MaterialStateProperty.all(
-                                    Colors.transparent),
+                                overlayColor: MaterialStateProperty.all(trans),
                                 value: value,
                                 activeColor: pLightPink,
                                 checkColor: pWhite,
@@ -244,7 +231,7 @@ class _SignInPageState extends State<SignInPage> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         NormalText(
-                          text: "Don't have account?",
+                          text: "Don't have account? ",
                           textSize: AppConfig.textSize12,
                         ),
                         InkWell(
@@ -282,7 +269,7 @@ class _SignInPageState extends State<SignInPage> {
                             Get.to(TermsOfService());
                           },
                           child: NormalText(
-                            text: "Terms of Service",
+                            text: " Terms of Service",
                             textSize: 10,
                             textColor: pLightPink,
                           ),

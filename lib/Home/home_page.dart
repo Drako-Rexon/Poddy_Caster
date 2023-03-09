@@ -28,7 +28,7 @@ class _HomePageState extends State<HomePage> {
         actions: [
           Padding(
             padding: const EdgeInsets.only(right: 10),
-            child: Icon(Icons.search, size: 32),
+            child: Icon(Icons.search, size: 26),
           ),
         ],
         backgroundColor: Colors.transparent,
@@ -108,23 +108,25 @@ class _HomePageState extends State<HomePage> {
                               "Popular Broadcast",
                               style: TextStyle(
                                 color: pWhite,
-                                fontSize: AppConfig.textSize12,
+                                fontSize: AppConfig.textSize18,
                                 fontWeight: FontWeight.bold,
                               ),
                             ),
                           ),
                         ),
+                        SizedBox(height: 10),
                         SingleChildScrollView(
                           scrollDirection: Axis.horizontal,
                           physics: BouncingScrollPhysics(),
-                          child: Row(
-                            children: List.generate(homeCarouselSlider.length,
-                                (index) {
-                              return CarouselCardHome(
-                                list: homeCarouselSlider,
-                                ind: index,
-                              );
-                            }),
+                          child: Padding(
+                            padding: EdgeInsets.only(left: AppConfig.width10),
+                            child: Row(
+                              children: List.generate(homeCarouselSlider.length,
+                                  (index) {
+                                return CarouselCardHome(
+                                    objData: homeCarouselSlider[index]);
+                              }),
+                            ),
                           ),
                         ),
                       ],
@@ -137,7 +139,7 @@ class _HomePageState extends State<HomePage> {
                           NormalText(
                             text: "Similar Broadcast",
                             isBold: true,
-                            textSize: AppConfig.textSize12,
+                            textSize: AppConfig.textSize18,
                             textColor: pWhite,
                           ),
                         ],
@@ -148,9 +150,7 @@ class _HomePageState extends State<HomePage> {
                       children: List.generate(homeCardBottom.length, (index) {
                         return Column(
                           children: [
-                            ListCardBottomHome(
-                              homeCardBottom[index],
-                            ),
+                            ListCardBottomHome(homeCardBottom[index]),
                             SizedBox(height: 10),
                           ],
                         );

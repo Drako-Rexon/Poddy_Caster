@@ -40,6 +40,7 @@ List homeCarouselSlider = [
     "subTitle": "Cold Case Files: Modus Operandi"
   },
 ];
+
 List radioPopularBroadCard = [
   {
     "img": "assets/images/Image.png",
@@ -195,6 +196,7 @@ List homeCardBottom = [
     "img": "assets/images/Image-6.png"
   },
 ];
+
 List radioGenre = [
   {"category": "All"},
   {"category": "Adult Contermporary"},
@@ -211,6 +213,7 @@ List radioGenre = [
   {"category": "Comedy"},
   {"category": "Comedy"},
 ];
+
 List homeTopSliderOne = [
   {"text1": "Tabitha Nauser", "text2": "Bulletproof"},
   {"text1": "Tabitha Nauser2", "text2": "Bulletproof2"},
@@ -221,4 +224,66 @@ List homeTopSliderOne = [
   {"text1": "Tabitha Nauser3", "text2": "Bulletproof3"},
   {"text1": "Tabitha Nauser3", "text2": "Bulletproof3"},
   {"text1": "Tabitha Nauser3", "text2": "Bulletproof3"}
+];
+
+List events1 = [
+  {
+    "img": "assets/images/1-1.png",
+    "mainTitle": "The Jordan Harbing",
+    "subTitle": "Celeste Headlee",
+    "tag": ["Art", "Concerts", "Events", "Festival"]
+  },
+  {
+    "img": "assets/images/1-1.png",
+    "mainTitle": "FROM NEGATIVE TO positive",
+    "subTitle": "The King of Miami",
+    "tag": ["Art", "Concerts", "Events", "Festival"]
+  },
+  {
+    "img": "assets/images/1-2.png",
+    "mainTitle": "I SURVIVED",
+    "subTitle": "Cold Case Files: Modus Operandi",
+    "tag": ["Art", "Concerts", "Events", "Festival"]
+  },
+  {
+    "img": "assets/images/1-3.png",
+    "mainTitle": "I SURVIVED",
+    "subTitle": "Cold Case Files: Modus Operandi",
+    "tag": ["Art", "Concerts", "Events", "Festival"]
+  },
+  {
+    "img": "assets/images/2-1.png",
+    "mainTitle": "I SURVIVED",
+    "subTitle": "Cold Case Files: Modus Operandi",
+    "tag": ["Art", "Concerts", "Events", "Festival"]
+  },
+  {
+    "img": "assets/images/2-2.png",
+    "mainTitle": "I SURVIVED",
+    "subTitle": "Cold Case Files: Modus Operandi",
+    "tag": ["Art", "Concerts", "Events", "Festival"]
+  },
+  {
+    "img": "assets/images/2-3.png",
+    "mainTitle": "I SURVIVED",
+    "subTitle": "Cold Case Files: Modus Operandi",
+    "tag": ["Art", "Concerts", "Events", "Festival"]
+  },
+  {
+    "img": "assets/images/1-2.png",
+    "mainTitle": "I SURVIVED",
+    "subTitle": "Cold Case Files: Modus Operandi",
+    "tag": ["Art", "Concerts", "Events", "Festival"]
+  },
+];
+
+List eventGenres = [
+  "All",
+  "Art",
+  "Concerts",
+  "Events",
+  "Festivels",
+  "Kids",
+  "Family",
+  "Family"
 ];
