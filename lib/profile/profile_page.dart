@@ -18,8 +18,8 @@ class ProfilePage extends StatefulWidget {
 
 class _ProfilePageState extends State<ProfilePage> {
   bool _loading = true;
-
   bool fav = false;
+
   @override
   Widget build(BuildContext context) {
     return Visibility(
@@ -80,15 +80,22 @@ class _ProfilePageState extends State<ProfilePage> {
                           boxShadow: [
                             BoxShadow(
                               color: pLightPink,
-                              blurRadius: 10,
-                              spreadRadius: 8,
+                              blurRadius: 5,
+                              spreadRadius: 5,
                             ),
                           ],
                         ),
-                        child: CircleAvatar(
-                          radius: AppConfig.width50 + AppConfig.width10,
-                          backgroundImage:
-                              AssetImage('assets/images/avatar.jpg'),
+                        child: Visibility(
+                          replacement: Center(
+                            child: CircularProgressIndicator(
+                                color: pPrimaryTextColor),
+                          ),
+                          visible: _loading,
+                          child: CircleAvatar(
+                            radius: AppConfig.width50 + AppConfig.width10,
+                            backgroundImage:
+                                AssetImage('assets/images/avatar.jpg'),
+                          ),
                         ),
                       ),
                       SizedBox(height: 20),
@@ -154,8 +161,8 @@ class _ProfilePageState extends State<ProfilePage> {
                       children: [
                         ListCardBottomHome(
                           radioPopularBroadCard[index],
-                          func: () {
-                            Get.to(
+                          () {
+                            Get.to(() =>
                                 PlayerPage(data: radioPopularBroadCard[index]));
                           },
                           radio: true,

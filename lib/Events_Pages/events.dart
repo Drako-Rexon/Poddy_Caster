@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:podcast_app/Events_Pages/event_details.dart';
+import 'package:podcast_app/Events_Pages/event_map.dart';
 import 'package:podcast_app/_components/colors.dart';
 import 'package:podcast_app/_components/data_for_dynamic.dart';
 import 'package:podcast_app/_components/sample_json.dart';
@@ -29,21 +30,28 @@ class _EventsState extends State<Events> {
           textSize: AppConfig.textSize24,
         ),
         actions: [
-          IconButton(
-            icon: Icon(
+          InkWell(
+            overlayColor: MaterialStateProperty.all(trans),
+            child: Icon(
               Icons.map_outlined,
               size: 26,
               color: pPrimaryTextColor,
             ),
-            onPressed: () {},
+            onTap: () {
+              Get.to(() => EventMap());
+            },
           ),
-          IconButton(
-            icon: Icon(
-              Icons.search,
-              size: 26,
-              color: pPrimaryTextColor,
+          Padding(
+            padding: EdgeInsets.symmetric(horizontal: 20),
+            child: InkWell(
+              overlayColor: MaterialStateProperty.all(trans),
+              child: Icon(
+                Icons.search,
+                size: 26,
+                color: pPrimaryTextColor,
+              ),
+              onTap: () {},
             ),
-            onPressed: () {},
           ),
         ],
         backgroundColor: pBackground,
@@ -131,6 +139,28 @@ class _EventsState extends State<Events> {
                           Get.to(() => EventDetails());
                         },
                         child: CarouselCardHome(objData: events1[index]))),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(left: 20),
+              child: Text(
+                "Favourite Events",
+                style: TextStyle(
+                  color: pWhite,
+                  fontWeight: FontWeight.bold,
+                  fontSize: AppConfig.textSize18,
+                ),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(left: 10),
+              child: SizedBox(
+                height: 160,
+                child: ListView.builder(
+                    scrollDirection: Axis.horizontal,
+                    itemCount: events1.length,
+                    itemBuilder: (BuildContext context, int index) =>
+                        CarouselCardHome(objData: events1[index])),
               ),
             ),
           ],

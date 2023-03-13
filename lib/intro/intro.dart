@@ -3,7 +3,6 @@ import 'package:get/get.dart';
 import 'package:podcast_app/_components/colors.dart';
 import 'package:podcast_app/_components/util_widgets.dart';
 import 'package:podcast_app/authorization/sign_in.dart';
-import 'package:podcast_app/redirecting_page/redirecting_page.dart';
 
 class Intro extends StatefulWidget {
   Intro({Key? key}) : super(key: key);
@@ -42,7 +41,7 @@ class _IntroState extends State<Intro> {
               child: InkWell(
                 overlayColor: MaterialStateProperty.all(trans),
                 onTap: () {
-                  Get.to(() => RedirectingPage());
+                  Get.to(() => SignInPage());
                 },
                 child: Container(
                   height: 30,

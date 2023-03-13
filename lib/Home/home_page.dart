@@ -1,9 +1,11 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:podcast_app/_components/colors.dart';
 import 'package:podcast_app/_components/data_for_dynamic.dart';
 import 'package:podcast_app/_components/sample_json.dart';
 import 'package:podcast_app/_components/util_widgets.dart';
+import 'package:podcast_app/player_page/player.dart';
 
 class HomePage extends StatefulWidget {
   HomePage({Key? key}) : super(key: key);
@@ -150,8 +152,14 @@ class _HomePageState extends State<HomePage> {
                       children: List.generate(homeCardBottom.length, (index) {
                         return Column(
                           children: [
-                            ListCardBottomHome(homeCardBottom[index]),
-                            SizedBox(height: 10),
+                            ListCardBottomHome(
+                              homeCardBottom[index],
+                              () {
+                                Get.to(() => PlayerPage(
+                                    data: radioPopularBroadCard[index]));
+                              },
+                            ),
+                            SizedBox(height: AppConfig.height10),
                           ],
                         );
                       }),

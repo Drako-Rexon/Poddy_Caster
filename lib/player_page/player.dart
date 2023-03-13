@@ -20,8 +20,8 @@ class _PlayerPageState extends State<PlayerPage> {
   @override
   Widget build(BuildContext context) {
     pPrintLog("data here 1", widget.data);
-
     double _value = 0;
+
     return Scaffold(
       backgroundColor: pBackground,
       appBar: AppBar(
@@ -70,44 +70,51 @@ class _PlayerPageState extends State<PlayerPage> {
           Column(
             children: [
               Text(widget.data.toString()),
-              Container(
-                width: AppConfig.screenWidth / 2,
-                height: AppConfig.screenWidth / 2,
-                decoration: BoxDecoration(
-                  image: DecorationImage(
-                    image: AssetImage(widget.data['img']),
-                    fit: BoxFit.cover,
+              Column(
+                children: [
+                  Container(
+                    width: AppConfig.screenWidth / 2,
+                    height: AppConfig.screenWidth / 2,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.all(Radius.circular(16)),
+                      image: DecorationImage(
+                        image: AssetImage(widget.data['img']),
+                        fit: BoxFit.cover,
+                      ),
+                    ),
                   ),
-                ),
+                  Text(
+                    widget.data['mainTitle'],
+                    overflow: TextOverflow.ellipsis,
+                    style: TextStyle(
+                      color: pWhite,
+                      fontSize: AppConfig.textSize24,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  Text(
+                    widget.data['subTitle'],
+                    overflow: TextOverflow.ellipsis,
+                    style: TextStyle(
+                      color: pPrimaryTextColor,
+                      fontSize: AppConfig.textSize12,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ],
               ),
-              Text(
-                widget.data['mainTitle'],
-                overflow: TextOverflow.ellipsis,
-                style: TextStyle(
-                  color: pWhite,
-                  fontSize: AppConfig.textSize24,
-                  fontWeight: FontWeight.bold,
+              Expanded(
+                child: Slider(
+                  activeColor: pDarkPink,
+                  min: 0.0,
+                  max: 10.0,
+                  value: _currVal,
+                  onChanged: (double val) {
+                    setState(() {
+                      _currVal = val;
+                    });
+                  },
                 ),
-              ),
-              Text(
-                widget.data['subTitle'],
-                overflow: TextOverflow.ellipsis,
-                style: TextStyle(
-                  color: pPrimaryTextColor,
-                  fontSize: AppConfig.textSize12,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-              Slider(
-                activeColor: pDarkPink,
-                min: 0.0,
-                max: 10.0,
-                value: _currVal,
-                onChanged: (double val) {
-                  setState(() {
-                    _currVal = val;
-                  });
-                },
               ),
               Expanded(
                 child: Row(

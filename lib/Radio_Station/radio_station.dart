@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:podcast_app/_components/colors.dart';
 import 'package:podcast_app/_components/data_for_dynamic.dart';
 import 'package:podcast_app/_components/sample_json.dart';
 import 'package:podcast_app/_components/util_function.dart';
 import 'package:podcast_app/_components/util_widgets.dart';
+import 'package:podcast_app/player_page/player.dart';
 
 class RadioStationPage extends StatefulWidget {
   const RadioStationPage({Key? key}) : super(key: key);
@@ -158,6 +160,10 @@ class _RadioStationPageState extends State<RadioStationPage>
                           ),
                           child: ListCardBottomHome(
                             radioPopularBroadCard[index],
+                            () {
+                              Get.to(() => PlayerPage(
+                                  data: radioPopularBroadCard[index]));
+                            },
                             radio: true,
                           ),
                         );

@@ -3,7 +3,6 @@ import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_navigation/get_navigation.dart';
 import 'package:podcast_app/_components/colors.dart';
 import 'package:podcast_app/_components/data_for_dynamic.dart';
-import 'package:podcast_app/player_page/player.dart';
 
 class HoriCarousel extends StatelessWidget {
   HoriCarousel({Key? key, this.ind = 0, required this.list}) : super(key: key);
@@ -85,6 +84,7 @@ class CarouselCardHome extends StatelessWidget {
             width: 120,
             height: 120,
             decoration: BoxDecoration(
+              borderRadius: BorderRadius.all(Radius.circular(16)),
               image: DecorationImage(
                 image: AssetImage(objData["img"]),
               ),
@@ -118,16 +118,16 @@ class CarouselCardHome extends StatelessWidget {
 
 class ListCardBottomHome extends StatefulWidget {
   ListCardBottomHome(
-    this.list, {
+    this.list,
+    this.func, {
     Key? key,
     this.fav = false,
     this.radio = false,
-    this.func,
   }) : super(key: key);
   final dynamic list;
   bool fav;
   final bool radio;
-  final Function? func;
+  final Function func;
 
   @override
   State<ListCardBottomHome> createState() => _ListCardBottomHomeState();
@@ -137,6 +137,7 @@ class _ListCardBottomHomeState extends State<ListCardBottomHome> {
   @override
   Widget build(BuildContext context) {
     return InkWell(
+      overlayColor: MaterialStateProperty.all(trans),
       onTap: () {
         widget.func;
       },
@@ -200,27 +201,36 @@ class _ListCardBottomHomeState extends State<ListCardBottomHome> {
             ),
             Row(
               children: [
-                IconButton(
-                  onPressed: () {
-                    Get.to(() => PlayerPage(data: widget.list,));
-                  },
-                  icon: Icon(
+                InkWell(
+                  onTap: () {},
+                  child: Icon(
                     Icons.more_horiz,
-                    color: pWhite,
+                    color: pPrimaryTextColor,
+                    size: 18,
                   ),
                 ),
                 widget.radio
-                    ? InkWell(
-                        overlayColor: MaterialStateProperty.all(trans),
-                        onTap: () {
-                          setState(() {
-                            widget.fav ? widget.fav = false : widget.fav = true;
-                          });
-                        },
-                        child: Icon(
-                          widget.fav ? Icons.favorite : Icons.favorite_border,
-                          color: pWhite,
-                        ),
+                    ? Row(
+                        children: [
+                          SizedBox(width: 10),
+                          InkWell(
+                            overlayColor: MaterialStateProperty.all(trans),
+                            onTap: () {
+                              setState(() {
+                                widget.fav
+                                    ? widget.fav = false
+                                    : widget.fav = true;
+                              });
+                            },
+                            child: Icon(
+                              widget.fav
+                                  ? Icons.favorite
+                                  : Icons.favorite_border,
+                              color: pPrimaryTextColor,
+                              size: 18,
+                            ),
+                          ),
+                        ],
                       )
                     : Container(),
                 SizedBox(width: 10),
