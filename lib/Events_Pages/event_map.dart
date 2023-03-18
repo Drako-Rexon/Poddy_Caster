@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:podcast_app/_components/colors.dart';
-import 'package:podcast_app/_components/data_for_dynamic.dart';
+import 'package:poddy_caster/_components/colors.dart';
+import 'package:poddy_caster/_components/data_for_dynamic.dart';
 
 class EventMap extends StatelessWidget {
   const EventMap({Key? key}) : super(key: key);

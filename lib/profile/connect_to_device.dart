@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:podcast_app/_components/colors.dart';
-import 'package:podcast_app/_components/data_for_dynamic.dart';
-import 'package:podcast_app/_components/util_widgets.dart';
+import 'package:poddy_caster/_components/colors.dart';
+import 'package:poddy_caster/_components/data_for_dynamic.dart';
+import 'package:poddy_caster/_components/util_widgets.dart';
 
 class ConnToDevice extends StatelessWidget {
   const ConnToDevice({Key? key}) : super(key: key);
@@ -32,103 +32,107 @@ class ConnToDevice extends StatelessWidget {
         width: AppConfig.screenWidth,
         child: Column(
           children: [
-            SizedBox(height: 10),
+            SizedBox(height: AppConfig.height10),
             RegularCard(
               "Computer",
               () {},
               listLead: [
                 Container(
-                  height: 30,
-                  width: 30,
-                  padding: const EdgeInsets.all(4),
+                  height: AppConfig.height30,
+                  width: AppConfig.width30,
+                  padding: EdgeInsets.all(AppConfig.height5 + 2),
                   decoration: BoxDecoration(
                     shape: BoxShape.circle,
                     color: Color(0xFFEA4335),
                   ),
-                  child: Image.asset('assets/images/computer.png'),
+                  child: Image.asset(
+                    'assets/images/computer.png',
+                    height: AppConfig.height20,
+                    width: AppConfig.width20,
+                  ),
                 ),
               ],
             ),
-            SizedBox(height: 10),
+            SizedBox(height: AppConfig.height10),
             RegularCard(
               "Computer",
               () {},
               listLead: [
                 Container(
-                  height: 30,
-                  width: 30,
-                  padding: const EdgeInsets.all(4),
+                  height: AppConfig.height30,
+                  width: AppConfig.width30,
+                  padding: EdgeInsets.all(AppConfig.height5 + 2),
                   decoration: BoxDecoration(
                     shape: BoxShape.circle,
                     color: Color(0xFFFBBC04),
                   ),
                   child: Image.asset(
                     'assets/images/tv.png',
-                    height: 18,
-                    width: 18,
+                    height: AppConfig.height20,
+                    width: AppConfig.width20,
                   ),
                 ),
               ],
             ),
-            SizedBox(height: 10),
+            SizedBox(height: AppConfig.height10),
             RegularCard(
               "Computer",
               () {},
               listLead: [
                 Container(
-                  height: 30,
-                  width: 30,
-                  padding: const EdgeInsets.all(4),
+                  height: AppConfig.height30,
+                  width: AppConfig.width30,
+                  padding: EdgeInsets.all(AppConfig.height5 + 2),
                   decoration: BoxDecoration(
                     shape: BoxShape.circle,
                     color: Color(0xFF9D00FF),
                   ),
                   child: Image.asset(
                     'assets/images/wifi.png',
-                    height: 20,
-                    width: 20,
+                    height: AppConfig.height20,
+                    width: AppConfig.width20,
                   ),
                 ),
               ],
             ),
-            SizedBox(height: 10),
+            SizedBox(height: AppConfig.height10),
             RegularCard(
               "Computer",
               () {},
               listLead: [
                 Container(
-                  height: 30,
-                  width: 30,
-                  padding: const EdgeInsets.all(4),
+                  height: AppConfig.height30,
+                  width: AppConfig.width30,
+                  padding: EdgeInsets.all(AppConfig.height5 + 2),
                   decoration: BoxDecoration(
                     shape: BoxShape.circle,
                     color: Color(0xFF34A853),
                   ),
                   child: Image.asset(
                     'assets/images/chromecast.png',
-                    height: 20,
-                    width: 20,
+                    height: AppConfig.height20,
+                    width: AppConfig.width20,
                   ),
                 ),
               ],
             ),
-            SizedBox(height: 10),
+            SizedBox(height: AppConfig.height10),
             RegularCard(
               "Computer",
               () {},
               listLead: [
                 Container(
-                  height: 30,
-                  width: 30,
-                  padding: const EdgeInsets.all(4),
+                  height: AppConfig.height30,
+                  width: AppConfig.width30,
+                  padding: EdgeInsets.all(AppConfig.height5 + 2),
                   decoration: BoxDecoration(
                     shape: BoxShape.circle,
                     color: Color(0xFF0083FD),
                   ),
                   child: Image.asset(
                     'assets/images/bluetooth.png',
-                    height: 20,
-                    width: 20,
+                    height: AppConfig.height20,
+                    width: AppConfig.width20,
                   ),
                 ),
               ],

@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:podcast_app/Events_Pages/event_details.dart';
-import 'package:podcast_app/Events_Pages/event_map.dart';
-import 'package:podcast_app/_components/colors.dart';
-import 'package:podcast_app/_components/data_for_dynamic.dart';
-import 'package:podcast_app/_components/sample_json.dart';
-import 'package:podcast_app/_components/util_widgets.dart';
+import 'package:poddy_caster/Events_Pages/event_details.dart';
+import 'package:poddy_caster/Events_Pages/event_map.dart';
+import 'package:poddy_caster/_components/colors.dart';
+import 'package:poddy_caster/_components/data_for_dynamic.dart';
+import 'package:poddy_caster/_components/sample_json.dart';
+import 'package:poddy_caster/_components/util_widgets.dart';
 
 class Events extends StatefulWidget {
   const Events({Key? key}) : super(key: key);
@@ -75,7 +75,7 @@ class _EventsState extends State<Events> {
             Padding(
               padding: const EdgeInsets.only(left: 10),
               child: SizedBox(
-                height: 160,
+                height: AppConfig.height60 * 3,
                 child: ListView.builder(
                     scrollDirection: Axis.horizontal,
                     itemCount: events1.length,
@@ -86,7 +86,7 @@ class _EventsState extends State<Events> {
             Padding(
               padding: EdgeInsets.all(20),
               child: Container(
-                height: 120,
+                height: AppConfig.height60 * 2,
                 width: AppConfig.screenWidth - 40,
                 decoration: BoxDecoration(
                   image: DecorationImage(
@@ -98,7 +98,7 @@ class _EventsState extends State<Events> {
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20),
               child: SizedBox(
-                height: 30,
+                height: AppConfig.height30,
                 child: ListView.builder(
                   scrollDirection: Axis.horizontal,
                   itemCount: 8,
@@ -112,7 +112,8 @@ class _EventsState extends State<Events> {
                         });
                       },
                       child: Container(
-                        margin: EdgeInsets.symmetric(horizontal: 20),
+                        margin:
+                            EdgeInsets.symmetric(horizontal: AppConfig.width20),
                         child: Center(
                           child: Text(
                             eventGenres[index],
@@ -128,9 +129,9 @@ class _EventsState extends State<Events> {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.only(left: 10),
+              padding: EdgeInsets.only(left: AppConfig.width10),
               child: SizedBox(
-                height: 160,
+                height: AppConfig.height60 * 3,
                 child: ListView.builder(
                     scrollDirection: Axis.horizontal,
                     itemCount: events1.length,
@@ -142,7 +143,7 @@ class _EventsState extends State<Events> {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.only(left: 20),
+              padding: EdgeInsets.only(left: AppConfig.width20),
               child: Text(
                 "Favourite Events",
                 style: TextStyle(
@@ -153,9 +154,9 @@ class _EventsState extends State<Events> {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.only(left: 10),
+              padding: EdgeInsets.only(left: AppConfig.width10),
               child: SizedBox(
-                height: 160,
+                height: AppConfig.height60 * 3,
                 child: ListView.builder(
                     scrollDirection: Axis.horizontal,
                     itemCount: events1.length,
@@ -163,6 +164,7 @@ class _EventsState extends State<Events> {
                         CarouselCardHome(objData: events1[index])),
               ),
             ),
+            SizedBox(height: AppConfig.height20),
           ],
         ),
       ),

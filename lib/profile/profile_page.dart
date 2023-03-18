@@ -2,12 +2,12 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_navigation/get_navigation.dart';
-import 'package:podcast_app/_components/colors.dart';
-import 'package:podcast_app/_components/data_for_dynamic.dart';
-import 'package:podcast_app/_components/sample_json.dart';
-import 'package:podcast_app/_components/util_widgets.dart';
-import 'package:podcast_app/player_page/player.dart';
-import 'package:podcast_app/profile/more.dart';
+import 'package:poddy_caster/_components/colors.dart';
+import 'package:poddy_caster/_components/data_for_dynamic.dart';
+import 'package:poddy_caster/_components/sample_json.dart';
+import 'package:poddy_caster/_components/util_widgets.dart';
+import 'package:poddy_caster/player_page/player.dart';
+import 'package:poddy_caster/profile/more.dart';
 
 class ProfilePage extends StatefulWidget {
   const ProfilePage({Key? key}) : super(key: key);
@@ -68,7 +68,7 @@ class _ProfilePageState extends State<ProfilePage> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                SizedBox(height: 20),
+                SizedBox(height: AppConfig.height20),
                 Center(
                   child: Column(
                     children: [
@@ -98,7 +98,7 @@ class _ProfilePageState extends State<ProfilePage> {
                           ),
                         ),
                       ),
-                      SizedBox(height: 20),
+                      SizedBox(height: AppConfig.height20),
                       Text(
                         "Drako Rexon",
                         style: TextStyle(
@@ -127,7 +127,7 @@ class _ProfilePageState extends State<ProfilePage> {
                         "Favourite Podcasts",
                         style: TextStyle(color: pWhite),
                       ),
-                      SizedBox(height: 10),
+                      SizedBox(height: AppConfig.height10),
                       Container(
                         height: 200,
                         child: ListView.builder(
@@ -140,7 +140,7 @@ class _ProfilePageState extends State<ProfilePage> {
                     ],
                   ),
                 ),
-                SizedBox(height: 20),
+                SizedBox(height: AppConfig.height20),
                 Padding(
                   padding: const EdgeInsets.only(left: 15),
                   child: Text(
@@ -150,7 +150,7 @@ class _ProfilePageState extends State<ProfilePage> {
                     ),
                   ),
                 ),
-                SizedBox(height: 10),
+                SizedBox(height: AppConfig.height10),
                 Container(
                   height: radioPopularBroadCard.length *
                       (AppConfig.height80 + AppConfig.height10),

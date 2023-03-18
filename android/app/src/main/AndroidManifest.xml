@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.podcast_app">
+    package="com.example.poddy_caster">
    <application
-        android:label="Poddy Caster"
+        android:label="poddy_caster"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity

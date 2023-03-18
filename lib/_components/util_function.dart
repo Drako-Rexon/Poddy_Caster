@@ -1,6 +1,7 @@
 import 'dart:developer';
 import 'package:flutter/material.dart';
-import 'package:podcast_app/_components/colors.dart';
+import 'package:poddy_caster/_components/colors.dart';
+import 'package:poddy_caster/_components/data_for_dynamic.dart';
 
 void pPrintLog(String scrnName, dynamic data) {
   log('$data', name: scrnName);
@@ -8,7 +9,7 @@ void pPrintLog(String scrnName, dynamic data) {
 
 Container enterArrow() {
   return Container(
-    height: 20,
+    height: AppConfig.height20,
     width: 20,
     decoration: BoxDecoration(
       color: pBackground,

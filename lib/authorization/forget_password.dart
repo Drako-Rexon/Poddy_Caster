@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:podcast_app/_components/colors.dart';
-import 'package:podcast_app/_components/util_widgets.dart';
-import 'package:podcast_app/authorization/sign_in.dart';
-import 'package:podcast_app/_components/data_for_dynamic.dart';
+import 'package:poddy_caster/_components/colors.dart';
+import 'package:poddy_caster/_components/util_widgets.dart';
+import 'package:poddy_caster/authorization/sign_in.dart';
+import 'package:poddy_caster/_components/data_for_dynamic.dart';
 
 class ForgetPassPage extends StatefulWidget {
   ForgetPassPage({Key? key}) : super(key: key);
@@ -17,8 +17,16 @@ class _ForgetPassPageState extends State<ForgetPassPage> {
 
   @override
   void initState() {
+    super.initState();
     _forgetEmail = TextEditingController();
     _forgetEmail.addListener(() => setState(() {}));
+  }
+
+  @override
+  void dispose() {
+    // TODO: implement dispose
+    super.dispose();
+    _forgetEmail.dispose();
   }
 
   @override

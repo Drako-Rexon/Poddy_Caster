@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:podcast_app/_components/colors.dart';
-import 'package:podcast_app/_components/util_widgets.dart';
-import 'package:podcast_app/authorization/sign_in.dart';
+import 'package:poddy_caster/_components/colors.dart';
+import 'package:poddy_caster/_components/util_widgets.dart';
+import 'package:poddy_caster/authorization/sign_in.dart';
 
 class Intro extends StatefulWidget {
   Intro({Key? key}) : super(key: key);

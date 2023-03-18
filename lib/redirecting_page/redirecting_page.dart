@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:podcast_app/Events_Pages/events.dart';
-import 'package:podcast_app/Podcasts/podcasts.dart';
-import 'package:podcast_app/Radio_Station/radio_station.dart';
-import 'package:podcast_app/_components/colors.dart';
-import 'package:podcast_app/_components/data_for_dynamic.dart';
-import 'package:podcast_app/Home/home_page.dart';
-import 'package:podcast_app/profile/profile_page.dart';
+import 'package:poddy_caster/Events_Pages/events.dart';
+import 'package:poddy_caster/Podcasts/podcasts.dart';
+import 'package:poddy_caster/Radio_Station/radio_station.dart';
+import 'package:poddy_caster/_components/colors.dart';
+import 'package:poddy_caster/_components/data_for_dynamic.dart';
+import 'package:poddy_caster/Home/home_page.dart';
+import 'package:poddy_caster/profile/profile_page.dart';
 
 class RedirectingPage extends StatefulWidget {
   const RedirectingPage({Key? key}) : super(key: key);
@@ -57,8 +57,8 @@ class _RedirectingPageState extends State<RedirectingPage> {
               mainAxisSize: MainAxisSize.min,
               children: [
                 Container(
-                  height: 5,
-                  width: 22,
+                  height: AppConfig.height5,
+                  width: AppConfig.width20 + 2,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.only(
                       bottomRight: Radius.circular(8),
@@ -67,7 +67,7 @@ class _RedirectingPageState extends State<RedirectingPage> {
                     color: index == currentTab ? pLightPink : pSecondaryDeep,
                   ),
                 ),
-                SizedBox(height: 6),
+                SizedBox(height: AppConfig.height5 + 1),
                 TextButton(
                   style: ButtonStyle(
                       overlayColor:
@@ -81,8 +81,8 @@ class _RedirectingPageState extends State<RedirectingPage> {
                     children: [
                       Image.asset(
                         navIcon[index],
-                        height: 24,
-                        width: 24,
+                        height: AppConfig.height20,
+                        width: AppConfig.width20,
                         color: index == currentTab ? pLightPink : pCustomGrey,
                       ),
                       SizedBox(height: 6),

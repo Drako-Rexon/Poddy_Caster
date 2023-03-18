@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:podcast_app/intro/intro.dart';
+import 'package:poddy_caster/intro/intro.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();

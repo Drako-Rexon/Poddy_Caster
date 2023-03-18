@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:podcast_app/_components/colors.dart';
-import 'package:podcast_app/_components/data_for_dynamic.dart';
-import 'package:podcast_app/_components/util_function.dart';
-import 'package:podcast_app/_components/util_widgets.dart';
-import 'package:podcast_app/profile/about_us.dart';
-import 'package:podcast_app/profile/connect_to_device.dart';
-import 'package:podcast_app/profile/music_quality.dart';
-import 'package:podcast_app/profile/playback.dart';
-import 'package:podcast_app/profile/social.dart';
+import 'package:poddy_caster/_components/colors.dart';
+import 'package:poddy_caster/_components/data_for_dynamic.dart';
+import 'package:poddy_caster/_components/util_function.dart';
+import 'package:poddy_caster/_components/util_widgets.dart';
+import 'package:poddy_caster/profile/about_us.dart';
+import 'package:poddy_caster/profile/connect_to_device.dart';
+import 'package:poddy_caster/profile/music_quality.dart';
+import 'package:poddy_caster/profile/playback.dart';
+import 'package:poddy_caster/profile/social.dart';
 
 class More extends StatelessWidget {
   const More({Key? key}) : super(key: key);
@@ -42,7 +42,7 @@ class More extends StatelessWidget {
                 },
                 listAction: [enterArrow()],
               ),
-              SizedBox(height: 10),
+              SizedBox(height: AppConfig.height10),
               RegularCard(
                 "Connect to device",
                 () {
@@ -50,7 +50,7 @@ class More extends StatelessWidget {
                 },
                 listAction: [enterArrow()],
               ),
-              SizedBox(height: 10),
+              SizedBox(height: AppConfig.height10),
               RegularCard(
                 "Social",
                 () {
@@ -58,7 +58,7 @@ class More extends StatelessWidget {
                 },
                 listAction: [enterArrow()],
               ),
-              SizedBox(height: 10),
+              SizedBox(height: AppConfig.height10),
               RegularCard(
                 "Music Quality",
                 () {
@@ -66,7 +66,7 @@ class More extends StatelessWidget {
                 },
                 listAction: [enterArrow()],
               ),
-              SizedBox(height: 10),
+              SizedBox(height: AppConfig.height10),
               RegularCard(
                 "About Us",
                 () {

@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_navigation/get_navigation.dart';
-import 'package:podcast_app/_components/colors.dart';
-import 'package:podcast_app/_components/data_for_dynamic.dart';
-import 'package:podcast_app/_components/util_widgets.dart';
+import 'package:poddy_caster/_components/colors.dart';
+import 'package:poddy_caster/_components/data_for_dynamic.dart';
+import 'package:poddy_caster/_components/util_widgets.dart';
 
 class Social extends StatefulWidget {
   Social({Key? key}) : super(key: key);
@@ -72,7 +72,7 @@ class _SocialState extends State<Social> {
                 )
               ],
             ),
-            SizedBox(height: 10),
+            SizedBox(height: AppConfig.height10),
             RegularCard(
               "Listening Activity",
               () {},
@@ -102,7 +102,7 @@ class _SocialState extends State<Social> {
                 )
               ],
             ),
-            SizedBox(height: 10),
+            SizedBox(height: AppConfig.height10),
             RegularCard(
               "Connect to Facebook",
               () {},
@@ -111,7 +111,7 @@ class _SocialState extends State<Social> {
                   children: [
                     Image.asset(
                       'assets/images/facebook.png',
-                      height: 20,
+                      height: AppConfig.height20,
                       width: 20,
                     ),
                     SizedBox(width: 10),
@@ -119,7 +119,7 @@ class _SocialState extends State<Social> {
                 ),
               ],
             ),
-            SizedBox(height: 10),
+            SizedBox(height: AppConfig.height10),
             RegularCard(
               "Connect to Google",
               () {},
@@ -128,7 +128,7 @@ class _SocialState extends State<Social> {
                   children: [
                     Image.asset(
                       'assets/images/google-png.png',
-                      height: 20,
+                      height: AppConfig.height20,
                       width: 20,
                     ),
                     SizedBox(width: 10),

@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_navigation/src/extension_navigation.dart';
-import 'package:podcast_app/_components/colors.dart';
-import 'package:podcast_app/_components/data_for_dynamic.dart';
-import 'package:podcast_app/_components/terms_of_service.dart';
-import 'package:podcast_app/_components/util_widgets.dart';
+import 'package:poddy_caster/_components/colors.dart';
+import 'package:poddy_caster/_components/data_for_dynamic.dart';
+import 'package:poddy_caster/_components/terms_of_service.dart';
+import 'package:poddy_caster/_components/util_widgets.dart';
 
 class AboutUs extends StatelessWidget {
   const AboutUs({Key? key}) : super(key: key);
@@ -48,24 +48,24 @@ class AboutUs extends StatelessWidget {
                   ),
                 ],
               ),
-              SizedBox(height: 10),
+              SizedBox(height: AppConfig.height10),
               RegularCard(
                 "Terms & Services",
                 () {
                   Get.to(() => TermsOfService());
                 },
               ),
-              SizedBox(height: 10),
+              SizedBox(height: AppConfig.height10),
               RegularCard(
                 "Privacy Policy",
                 () {},
               ),
-              SizedBox(height: 10),
+              SizedBox(height: AppConfig.height10),
               RegularCard(
                 "Support",
                 () {},
               ),
-              SizedBox(height: 10),
+              SizedBox(height: AppConfig.height10),
               RegularCard(
                 "Logout",
                 () {},

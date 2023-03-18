@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_navigation/get_navigation.dart';
-import 'package:podcast_app/_components/colors.dart';
-import 'package:podcast_app/_components/data_for_dynamic.dart';
+import 'package:poddy_caster/_components/colors.dart';
+import 'package:poddy_caster/_components/data_for_dynamic.dart';
 
 class HoriCarousel extends StatelessWidget {
-  HoriCarousel({Key? key, this.ind = 0, required this.list}) : super(key: key);
+  const HoriCarousel({Key? key, this.ind = 0, required this.list})
+      : super(key: key);
   final int ind;
   final List<dynamic> list;
 
@@ -34,7 +35,7 @@ class HoriCarousel extends StatelessWidget {
 }
 
 class DotCarousel extends StatelessWidget {
-  DotCarousel({
+  const DotCarousel({
     Key? key,
     this.active = false,
     this.borderClr = pWhite,
@@ -90,7 +91,7 @@ class CarouselCardHome extends StatelessWidget {
               ),
             ),
           ),
-          SizedBox(height: 5),
+          SizedBox(height: AppConfig.height5),
           Text(
             objData["mainTitle"].toUpperCase(),
             overflow: TextOverflow.ellipsis,
@@ -101,7 +102,7 @@ class CarouselCardHome extends StatelessWidget {
               fontFamily: 'CircularStd-Book',
             ),
           ),
-          SizedBox(height: 5),
+          SizedBox(height: AppConfig.height5),
           Text(
             objData["subTitle"],
             overflow: TextOverflow.ellipsis,
@@ -147,9 +148,7 @@ class _ListCardBottomHomeState extends State<ListCardBottomHome> {
         padding: const EdgeInsets.all(10),
         decoration: BoxDecoration(
           color: ColorsForApp.darkPurple,
-          borderRadius: BorderRadius.all(
-            Radius.circular(12),
-          ),
+          borderRadius: const BorderRadius.all(Radius.circular(12)),
         ),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -161,9 +160,7 @@ class _ListCardBottomHomeState extends State<ListCardBottomHome> {
                   width: 50,
                   height: 50,
                   decoration: BoxDecoration(
-                    borderRadius: BorderRadius.all(
-                      Radius.circular(10),
-                    ),
+                    borderRadius: const BorderRadius.all(Radius.circular(10)),
                     image: DecorationImage(
                       image: AssetImage(widget.list['img']),
                     ),
@@ -206,13 +203,13 @@ class _ListCardBottomHomeState extends State<ListCardBottomHome> {
                   child: Icon(
                     Icons.more_horiz,
                     color: pPrimaryTextColor,
-                    size: 18,
+                    size: AppConfig.textSize18,
                   ),
                 ),
                 widget.radio
                     ? Row(
                         children: [
-                          SizedBox(width: 10),
+                          SizedBox(width: AppConfig.width10),
                           InkWell(
                             overlayColor: MaterialStateProperty.all(trans),
                             onTap: () {
@@ -388,7 +385,7 @@ class RadioGenreCard extends StatelessWidget {
             InkWell(
               onTap: func(),
               child: Container(
-                height: 20,
+                height: AppConfig.height20,
                 width: 20,
                 decoration: BoxDecoration(
                   shape: BoxShape.circle,
