@@ -2,19 +2,24 @@ name: poddy_caster
 description: A new Flutter project.
 # The following line prevents the package from being accidentally published to
 # pub.dev using `flutter pub publish`. This is preferred for private packages.
-publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+publish_to: "none" # Remove this line if you wish to publish to pub.dev
 
 version: 1.0.0+1
 
 environment:
-  sdk: '>=2.19.2 <3.0.0'
+  sdk: ">=2.19.2 <3.0.0"
 
 dependencies:
   flutter:
     sdk: flutter
   get: ^4.6.5
-  google_maps_flutter: ^2.2.5
   cupertino_icons: ^1.0.2
+  provider: ^6.0.5
+  hive: ^2.2.3
+  # google_maps_flutter: ^2.2.5
+  # flutter_polyline_points: ^1.0.0
+  # location: ^4.4.0
+  # flutter_svg: ^2.0.4
 
 dev_dependencies:
   flutter_test:
@@ -31,8 +36,8 @@ flutter:
     - family: CircularStd
       fonts:
         - asset: assets/fonts/CircularStd-Black.ttf
-  #       - asset: fonts/Schyler-Italic.ttf
-  #         style: italic
+    #       - asset: fonts/Schyler-Italic.ttf
+    #         style: italic
     - family: CircularStd-Book
       fonts:
         - asset: assets/fonts/CircularStd-Book.ttf

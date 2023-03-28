@@ -6,6 +6,7 @@ import 'package:poddy_caster/_components/sample_json.dart';
 import 'package:poddy_caster/_components/util_function.dart';
 import 'package:poddy_caster/_components/util_widgets.dart';
 import 'package:poddy_caster/player_page/player.dart';
+import 'package:poddy_caster/search/search.dart';
 
 class RadioStationPage extends StatefulWidget {
   const RadioStationPage({Key? key}) : super(key: key);
@@ -16,7 +17,7 @@ class RadioStationPage extends StatefulWidget {
 
 class _RadioStationPageState extends State<RadioStationPage>
     with SingleTickerProviderStateMixin {
-  static List<Tab> myTabs = [
+  static List<Tab> myTabs = const [
     Tab(text: "Popular Broadcast"),
     Tab(text: "Radio Genre")
   ];
@@ -50,8 +51,10 @@ class _RadioStationPageState extends State<RadioStationPage>
         ),
         actions: [
           IconButton(
-            icon: Icon(Icons.search, size: 32),
-            onPressed: () {},
+            icon: const Icon(Icons.search, size: 26),
+            onPressed: () {
+              Get.to(() => const SearchPage());
+            },
           ),
         ],
         backgroundColor: pBackground,

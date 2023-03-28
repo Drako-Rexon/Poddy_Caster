@@ -15,7 +15,7 @@ class RedirectingPage extends StatefulWidget {
 }
 
 class _RedirectingPageState extends State<RedirectingPage> {
-  int currentTab = 0, index = 0;
+  int currentTab = 3, index = 0;
   List navName = ["Home", "Stations", "Podcasts", "Events", "Profile"];
   List<String> navIcon = [
     'assets/images/home.png',
@@ -31,7 +31,7 @@ class _RedirectingPageState extends State<RedirectingPage> {
       backgroundColor: pBackground,
       body: IndexedStack(
         index: currentTab,
-        children: [
+        children: const [
           HomePage(),
           RadioStationPage(),
           Podcasts(),
@@ -41,7 +41,7 @@ class _RedirectingPageState extends State<RedirectingPage> {
       ),
       bottomNavigationBar: Container(
         width: AppConfig.screenWidth,
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
           borderRadius: BorderRadius.only(
             topLeft: Radius.circular(8),
             topRight: Radius.circular(8),
@@ -60,7 +60,7 @@ class _RedirectingPageState extends State<RedirectingPage> {
                   height: AppConfig.height5,
                   width: AppConfig.width20 + 2,
                   decoration: BoxDecoration(
-                    borderRadius: BorderRadius.only(
+                    borderRadius: const BorderRadius.only(
                       bottomRight: Radius.circular(8),
                       bottomLeft: Radius.circular(8),
                     ),
@@ -85,7 +85,7 @@ class _RedirectingPageState extends State<RedirectingPage> {
                         width: AppConfig.width20,
                         color: index == currentTab ? pLightPink : pCustomGrey,
                       ),
-                      SizedBox(height: 6),
+                      const SizedBox(height: 6),
                       Text(
                         navName[index],
                         style: TextStyle(

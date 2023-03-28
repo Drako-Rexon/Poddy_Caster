@@ -45,7 +45,7 @@ class AppConfig {
   static double textSize36 = screenHeight / 21.7;
 }
 
-//! Thi is for colors
+//! This is for colors
 
 class ColorsForApp {
   static const Color customWhite = Colors.white;

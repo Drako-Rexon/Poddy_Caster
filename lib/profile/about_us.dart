@@ -33,15 +33,15 @@ class AboutUs extends StatelessWidget {
         ),
       ),
       body: SafeArea(
-        child: Container(
+        child: SizedBox(
           width: AppConfig.screenWidth,
           child: Column(
             children: [
-              SizedBox(height: 30),
+              const SizedBox(height: 30),
               RegularCard(
                 "Version",
                 () {},
-                listAction: [
+                listAction: const [
                   Text(
                     "v1.0.0",
                     style: TextStyle(color: pPrimaryTextColor),
@@ -52,7 +52,7 @@ class AboutUs extends StatelessWidget {
               RegularCard(
                 "Terms & Services",
                 () {
-                  Get.to(() => TermsOfService());
+                  Get.to(() => const TermsOfService());
                 },
               ),
               SizedBox(height: AppConfig.height10),

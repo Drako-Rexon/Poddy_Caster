@@ -8,6 +8,7 @@ import 'package:poddy_caster/_components/sample_json.dart';
 import 'package:poddy_caster/_components/util_widgets.dart';
 import 'package:poddy_caster/player_page/player.dart';
 import 'package:poddy_caster/profile/more.dart';
+import 'package:poddy_caster/search/search.dart';
 
 class ProfilePage extends StatefulWidget {
   const ProfilePage({Key? key}) : super(key: key);
@@ -23,8 +24,8 @@ class _ProfilePageState extends State<ProfilePage> {
   @override
   Widget build(BuildContext context) {
     return Visibility(
-      replacement:
-          Center(child: CircularProgressIndicator(color: pPrimaryTextColor)),
+      replacement: const Center(
+          child: CircularProgressIndicator(color: pPrimaryTextColor)),
       visible: _loading,
       child: Scaffold(
         backgroundColor: pBackground,
@@ -32,22 +33,26 @@ class _ProfilePageState extends State<ProfilePage> {
           automaticallyImplyLeading: false,
           elevation: 0,
           backgroundColor: pBackground,
-          title: Text("Profile"),
+          title: const Text("Profile"),
           centerTitle: true,
           actions: [
             InkWell(
               overlayColor: MaterialStateProperty.all(trans),
               onTap: () {
-                Get.to(() => More());
+                Get.to(() => const More());
               },
-              child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 10),
-                child: Icon(Icons.more_vert, size: 32),
+              child: const Padding(
+                padding: EdgeInsets.symmetric(horizontal: 10),
+                child: Icon(Icons.more_vert, size: 26),
               ),
             ),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 10),
-              child: Icon(Icons.search, size: 32),
+              child: InkWell(
+                  onTap: () {
+                    Get.to(() => SearchPage());
+                  },
+                  child: const Icon(Icons.search, size: 26)),
             ),
           ],
         ),
@@ -58,7 +63,7 @@ class _ProfilePageState extends State<ProfilePage> {
             setState(() {
               _loading = false;
             });
-            Timer(Duration(milliseconds: 1500), () {
+            Timer(const Duration(milliseconds: 1500), () {
               setState(() {
                 _loading = true;
               });
@@ -75,7 +80,7 @@ class _ProfilePageState extends State<ProfilePage> {
                       Container(
                         height: 120,
                         width: 120,
-                        decoration: BoxDecoration(
+                        decoration: const BoxDecoration(
                           shape: BoxShape.circle,
                           boxShadow: [
                             BoxShadow(
@@ -86,7 +91,7 @@ class _ProfilePageState extends State<ProfilePage> {
                           ],
                         ),
                         child: Visibility(
-                          replacement: Center(
+                          replacement: const Center(
                             child: CircularProgressIndicator(
                                 color: pPrimaryTextColor),
                           ),
@@ -94,12 +99,12 @@ class _ProfilePageState extends State<ProfilePage> {
                           child: CircleAvatar(
                             radius: AppConfig.width50 + AppConfig.width10,
                             backgroundImage:
-                                AssetImage('assets/images/avatar.jpg'),
+                                const AssetImage('assets/images/avatar.jpg'),
                           ),
                         ),
                       ),
                       SizedBox(height: AppConfig.height20),
-                      Text(
+                      const Text(
                         "Drako Rexon",
                         style: TextStyle(
                           color: pWhite,
@@ -107,7 +112,7 @@ class _ProfilePageState extends State<ProfilePage> {
                           fontWeight: FontWeight.bold,
                         ),
                       ),
-                      Text(
+                      const Text(
                         "drakocodeforever@gmail.com",
                         style: TextStyle(
                           color: pPrimaryTextColor,
@@ -117,18 +122,18 @@ class _ProfilePageState extends State<ProfilePage> {
                     ],
                   ),
                 ),
-                SizedBox(height: 30),
+                const SizedBox(height: 30),
                 Padding(
                   padding: const EdgeInsets.only(left: 15),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text(
+                      const Text(
                         "Favourite Podcasts",
                         style: TextStyle(color: pWhite),
                       ),
                       SizedBox(height: AppConfig.height10),
-                      Container(
+                      SizedBox(
                         height: 200,
                         child: ListView.builder(
                             scrollDirection: Axis.horizontal,
@@ -141,8 +146,8 @@ class _ProfilePageState extends State<ProfilePage> {
                   ),
                 ),
                 SizedBox(height: AppConfig.height20),
-                Padding(
-                  padding: const EdgeInsets.only(left: 15),
+                const Padding(
+                  padding: EdgeInsets.only(left: 15),
                   child: Text(
                     "Favourite Radio Stations",
                     style: TextStyle(
@@ -151,11 +156,11 @@ class _ProfilePageState extends State<ProfilePage> {
                   ),
                 ),
                 SizedBox(height: AppConfig.height10),
-                Container(
+                SizedBox(
                   height: radioPopularBroadCard.length *
                       (AppConfig.height80 + AppConfig.height10),
                   child: ListView.builder(
-                    physics: NeverScrollableScrollPhysics(),
+                    physics: const NeverScrollableScrollPhysics(),
                     itemCount: radioPopularBroadCard.length,
                     itemBuilder: (BuildContext context, int index) => Column(
                       children: [

@@ -6,6 +6,7 @@ import 'package:poddy_caster/_components/colors.dart';
 import 'package:poddy_caster/_components/data_for_dynamic.dart';
 import 'package:poddy_caster/_components/sample_json.dart';
 import 'package:poddy_caster/_components/util_widgets.dart';
+import 'package:poddy_caster/search/search.dart';
 
 class Events extends StatefulWidget {
   const Events({Key? key}) : super(key: key);
@@ -32,7 +33,7 @@ class _EventsState extends State<Events> {
         actions: [
           InkWell(
             overlayColor: MaterialStateProperty.all(trans),
-            child: Icon(
+            child: const Icon(
               Icons.map_outlined,
               size: 26,
               color: pPrimaryTextColor,
@@ -42,15 +43,17 @@ class _EventsState extends State<Events> {
             },
           ),
           Padding(
-            padding: EdgeInsets.symmetric(horizontal: 20),
+            padding: const EdgeInsets.symmetric(horizontal: 20),
             child: InkWell(
+              onTap: () {
+                Get.to(() => const SearchPage());
+              },
               overlayColor: MaterialStateProperty.all(trans),
-              child: Icon(
+              child: const Icon(
                 Icons.search,
                 size: 26,
                 color: pPrimaryTextColor,
               ),
-              onTap: () {},
             ),
           ),
         ],
@@ -84,11 +87,11 @@ class _EventsState extends State<Events> {
               ),
             ),
             Padding(
-              padding: EdgeInsets.all(20),
+              padding: EdgeInsets.all(AppConfig.height20),
               child: Container(
                 height: AppConfig.height60 * 2,
                 width: AppConfig.screenWidth - 40,
-                decoration: BoxDecoration(
+                decoration: const BoxDecoration(
                   image: DecorationImage(
                       image: AssetImage('assets/images/banner-1.png'),
                       fit: BoxFit.cover),
@@ -106,9 +109,11 @@ class _EventsState extends State<Events> {
                     return InkWell(
                       onTap: () {
                         setState(() {
-                          // ! not working
-                          // Todo
-                          act = index;
+                          if (act != index) {
+                            act = index;
+                          } else {
+                            act = -1;
+                          }
                         });
                       },
                       child: Container(
@@ -137,7 +142,7 @@ class _EventsState extends State<Events> {
                     itemCount: events1.length,
                     itemBuilder: (BuildContext context, int index) => InkWell(
                         onTap: () {
-                          Get.to(() => EventDetails());
+                          Get.to(() => EventDetails(list: events1[index]));
                         },
                         child: CarouselCardHome(objData: events1[index]))),
               ),

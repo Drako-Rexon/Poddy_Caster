@@ -2,8 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:poddy_caster/intro/intro.dart';
 
-Future<void> main() async {
-  WidgetsFlutterBinding.ensureInitialized();
+void main() {
   runApp(const MyApp());
 }
 
@@ -21,7 +20,7 @@ class _MyAppState extends State<MyApp> {
       debugShowCheckedModeBanner: false,
       title: 'Poddy Caster',
       theme: ThemeData(primarySwatch: Colors.purple),
-      home: Intro(), // RedirectingPage(),
+      home: Intro(),
     );
   }
 }

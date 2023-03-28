@@ -1,3 +1,5 @@
+// ignore_for_file: must_be_immutable
+
 import 'package:flutter/material.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_navigation/get_navigation.dart';
@@ -85,7 +87,7 @@ class CarouselCardHome extends StatelessWidget {
             width: 120,
             height: 120,
             decoration: BoxDecoration(
-              borderRadius: BorderRadius.all(Radius.circular(16)),
+              borderRadius: const BorderRadius.all(Radius.circular(16)),
               image: DecorationImage(
                 image: AssetImage(objData["img"]),
               ),
@@ -128,7 +130,7 @@ class ListCardBottomHome extends StatefulWidget {
   final dynamic list;
   bool fav;
   final bool radio;
-  final Function func;
+  final Function? func;
 
   @override
   State<ListCardBottomHome> createState() => _ListCardBottomHomeState();
@@ -140,12 +142,12 @@ class _ListCardBottomHomeState extends State<ListCardBottomHome> {
     return InkWell(
       overlayColor: MaterialStateProperty.all(trans),
       onTap: () {
-        widget.func;
+        widget.func!();
       },
       child: Container(
         width: AppConfig.screenWidth - 40,
         height: AppConfig.height80,
-        padding: const EdgeInsets.all(10),
+        padding: EdgeInsets.all(AppConfig.height10),
         decoration: BoxDecoration(
           color: ColorsForApp.darkPurple,
           borderRadius: const BorderRadius.all(Radius.circular(12)),
@@ -157,8 +159,8 @@ class _ListCardBottomHomeState extends State<ListCardBottomHome> {
               children: [
                 Container(
                   margin: EdgeInsets.only(right: AppConfig.width15),
-                  width: 50,
-                  height: 50,
+                  width: AppConfig.height50,
+                  height: AppConfig.height50,
                   decoration: BoxDecoration(
                     borderRadius: const BorderRadius.all(Radius.circular(10)),
                     image: DecorationImage(
@@ -199,7 +201,9 @@ class _ListCardBottomHomeState extends State<ListCardBottomHome> {
             Row(
               children: [
                 InkWell(
-                  onTap: () {},
+                  onTap: () {
+                    widget.func!();
+                  },
                   child: Icon(
                     Icons.more_horiz,
                     color: pPrimaryTextColor,
@@ -230,7 +234,7 @@ class _ListCardBottomHomeState extends State<ListCardBottomHome> {
                         ],
                       )
                     : Container(),
-                SizedBox(width: 10),
+                SizedBox(width: AppConfig.width10),
               ],
             ),
           ],
@@ -274,7 +278,7 @@ class GradientButton extends StatelessWidget {
         width: wid != 0.0 ? wid : AppConfig.screenWidth - AppConfig.width50,
         height: hei != 0.0 ? hei : AppConfig.height40 + AppConfig.height5,
         decoration: BoxDecoration(
-          borderRadius: BorderRadius.all(Radius.circular(6)),
+          borderRadius: const BorderRadius.all(Radius.circular(6)),
           gradient: LinearGradient(
             begin: Alignment.topLeft,
             end: Alignment.bottomRight,
@@ -282,7 +286,7 @@ class GradientButton extends StatelessWidget {
           ),
         ),
         child: isLoading
-            ? CircularProgressIndicator(color: pWhite)
+            ? const CircularProgressIndicator(color: pWhite)
             : Center(
                 child: NormalText(
                   text: text,
@@ -326,11 +330,11 @@ class SignInSocial extends StatelessWidget {
         width: AppConfig.screenWidth - AppConfig.width50,
         height: AppConfig.height40 + AppConfig.height5,
         decoration: BoxDecoration(
-          borderRadius: BorderRadius.all(Radius.circular(6)),
+          borderRadius: const BorderRadius.all(Radius.circular(6)),
           color: backColor,
         ),
         child: isLoading
-            ? CircularProgressIndicator(color: pWhite)
+            ? const CircularProgressIndicator(color: pWhite)
             : Center(
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -369,7 +373,7 @@ class RadioGenreCard extends StatelessWidget {
     return Container(
       height: AppConfig.height60,
       width: AppConfig.screenWidth - 40,
-      decoration: BoxDecoration(
+      decoration: const BoxDecoration(
         color: pSecondaryDeep,
         borderRadius: BorderRadius.all(Radius.circular(6)),
       ),
@@ -380,18 +384,18 @@ class RadioGenreCard extends StatelessWidget {
           children: [
             Text(
               list[ind]['category'],
-              style: TextStyle(color: pWhite),
+              style: const TextStyle(color: pWhite),
             ),
             InkWell(
               onTap: func(),
               child: Container(
                 height: AppConfig.height20,
                 width: 20,
-                decoration: BoxDecoration(
+                decoration: const BoxDecoration(
                   shape: BoxShape.circle,
                   color: pBackground,
                 ),
-                child: Icon(
+                child: const Icon(
                   Icons.arrow_forward_ios,
                   color: pWhite,
                   size: 8,
@@ -415,10 +419,8 @@ class TestingPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Center(
-        child: NormalText(text: text),
-      ),
+    return Center(
+      child: NormalText(text: text),
     );
   }
 }
@@ -474,7 +476,7 @@ class RegularCard extends StatelessWidget {
         func();
       },
       child: Container(
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
           color: pSecondaryDeep,
           borderRadius: BorderRadius.all(Radius.circular(6)),
         ),
@@ -491,7 +493,7 @@ class RegularCard extends StatelessWidget {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text(name, style: TextStyle(color: pWhite)),
+                    Text(name, style: const TextStyle(color: pWhite)),
                     Row(children: listAction)
                   ],
                 ),
@@ -516,7 +518,7 @@ class BackArrow extends StatelessWidget {
       onTap: () {
         Get.back();
       },
-      child: Icon(
+      child: const Icon(
         Icons.arrow_back,
         color: pLightPink,
       ),
@@ -524,12 +526,17 @@ class BackArrow extends StatelessWidget {
   }
 }
 
+// ignore: must_be_immutable
 class ProfileCards extends StatefulWidget {
   ProfileCards({
     Key? key,
     this.fav = false,
+    this.hei = 200.0,
+    this.wid = 200.0,
   }) : super(key: key);
   bool fav;
+  final double hei;
+  final double wid;
 
   @override
   State<ProfileCards> createState() => _ProfileCardsState();
@@ -540,13 +547,13 @@ class _ProfileCardsState extends State<ProfileCards> {
   Widget build(BuildContext context) {
     return Row(
       children: [
-        SizedBox(width: 10),
+        const SizedBox(width: 10),
         Stack(
           children: [
             Container(
-              height: 200,
-              width: 200,
-              decoration: BoxDecoration(
+              height: widget.hei,
+              width: widget.wid,
+              decoration: const BoxDecoration(
                 image: DecorationImage(
                   image: AssetImage('assets/images/Image-2.png'),
                   fit: BoxFit.cover,
@@ -561,7 +568,7 @@ class _ProfileCardsState extends State<ProfileCards> {
               ),
               height: 30,
               width: 30,
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
                 shape: BoxShape.circle,
                 color: pWhite,
               ),
@@ -575,12 +582,12 @@ class _ProfileCardsState extends State<ProfileCards> {
                     });
                   },
                   child: widget.fav
-                      ? Icon(
+                      ? const Icon(
                           Icons.favorite,
                           color: pLightPink,
                           size: 22,
                         )
-                      : Icon(
+                      : const Icon(
                           Icons.favorite_outline,
                           size: 20,
                           color: pLightPink,
@@ -590,7 +597,7 @@ class _ProfileCardsState extends State<ProfileCards> {
             ),
           ],
         ),
-        SizedBox(width: 10),
+        const SizedBox(width: 10),
       ],
     );
   }
@@ -607,7 +614,7 @@ class BackGroundImageFilter extends StatelessWidget {
       children: [
         Container(
           height: AppConfig.screenHeight * 0.4,
-          decoration: BoxDecoration(
+          decoration: const BoxDecoration(
             image: DecorationImage(
               fit: BoxFit.fitHeight,
               image: AssetImage('assets/images/Image-7.png'),
@@ -615,22 +622,13 @@ class BackGroundImageFilter extends StatelessWidget {
           ),
         ),
         Column(
-          // mainAxisSize: MainAxisSize.min,
-          // mainAxisAlignment: MainAxisAlignment.start,
           children: [
             Container(
               height: AppConfig.screenHeight * 0.3,
               decoration: BoxDecoration(
                 gradient: RadialGradient(
-                  // begin: Alignment.bottomCenter,
-                  // end: Alignment.topCenter,
                   radius: 0.75,
                   colors: [
-                    // ColorsForApp.backGradientColor1.withOpacity(0.1),
-                    // ColorsForApp.backGradientColor1.withOpacity(0.8),
-                    // ColorsForApp.backGradientColor1.withOpacity(0.9),
-                    // ColorsForApp.backGradientColor1.withOpacity(1),
-                    // ColorsForApp.backGradientColor1,
                     ColorsForApp.backImagRadial1.withOpacity(0.5),
                     ColorsForApp.backImagRadial2.withOpacity(0.7),
                     ColorsForApp.backImagRadial3.withOpacity(0.9),

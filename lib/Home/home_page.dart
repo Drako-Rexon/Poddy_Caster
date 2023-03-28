@@ -6,9 +6,10 @@ import 'package:poddy_caster/_components/data_for_dynamic.dart';
 import 'package:poddy_caster/_components/sample_json.dart';
 import 'package:poddy_caster/_components/util_widgets.dart';
 import 'package:poddy_caster/player_page/player.dart';
+import 'package:poddy_caster/search/search.dart';
 
 class HomePage extends StatefulWidget {
-  HomePage({Key? key}) : super(key: key);
+  const HomePage({Key? key}) : super(key: key);
 
   @override
   State<HomePage> createState() => _HomePageState();
@@ -16,7 +17,7 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   final double scrollValue = 1;
-  int _carouselIndex = 2;
+  final int _carouselIndex = 2;
   bool _loading = true;
 
   @override
@@ -28,10 +29,15 @@ class _HomePageState extends State<HomePage> {
         automaticallyImplyLeading: false,
         elevation: 0,
         actions: [
-          Padding(
-            padding: const EdgeInsets.only(right: 10),
-            child: Icon(Icons.search, size: 26),
-          ),
+          IconButton(
+              onPressed: () {
+                Get.to(
+                  () => const SearchPage(),
+                  transition: Transition.circularReveal,
+                  duration: const Duration(seconds: 1),
+                );
+              },
+              icon: Icon(Icons.search, size: 26)),
         ],
         backgroundColor: Colors.transparent,
       ),
@@ -42,7 +48,7 @@ class _HomePageState extends State<HomePage> {
           setState(() {
             _loading = false;
           });
-          Timer(Duration(milliseconds: 1500), () {
+          Timer(const Duration(milliseconds: 1500), () {
             setState(() {
               _loading = true;
             });
@@ -50,7 +56,7 @@ class _HomePageState extends State<HomePage> {
         },
         child: Visibility(
           visible: _loading,
-          replacement: Center(
+          replacement: const Center(
               child: CircularProgressIndicator(color: pPrimaryTextColor)),
           child: Stack(
             children: [
@@ -60,7 +66,7 @@ class _HomePageState extends State<HomePage> {
                   image: DecorationImage(
                     opacity: scrollValue,
                     fit: BoxFit.fitHeight,
-                    image: AssetImage('assets/images/slider1.jpg'),
+                    image: const AssetImage('assets/images/slider1.jpg'),
                   ),
                 ),
               ),
@@ -101,7 +107,7 @@ class _HomePageState extends State<HomePage> {
                     // ! this is for the carousel slider
                     Column(
                       children: [
-                        SizedBox(height: 50),
+                        SizedBox(height: AppConfig.height50),
                         Container(
                           padding: const EdgeInsets.only(left: 20),
                           child: Align(
@@ -119,7 +125,7 @@ class _HomePageState extends State<HomePage> {
                         SizedBox(height: AppConfig.height10),
                         SingleChildScrollView(
                           scrollDirection: Axis.horizontal,
-                          physics: BouncingScrollPhysics(),
+                          physics: const BouncingScrollPhysics(),
                           child: Padding(
                             padding: EdgeInsets.only(left: AppConfig.width10),
                             child: Row(
@@ -149,20 +155,23 @@ class _HomePageState extends State<HomePage> {
                     ),
                     SizedBox(height: AppConfig.height20),
                     Column(
-                      children: List.generate(homeCardBottom.length, (index) {
-                        return Column(
-                          children: [
-                            ListCardBottomHome(
-                              homeCardBottom[index],
-                              () {
-                                Get.to(() => PlayerPage(
-                                    data: radioPopularBroadCard[index]));
-                              },
-                            ),
-                            SizedBox(height: AppConfig.height10),
-                          ],
-                        );
-                      }),
+                      children: List.generate(
+                        homeCardBottom.length,
+                        (index) {
+                          return Column(
+                            children: [
+                              ListCardBottomHome(
+                                homeCardBottom[index],
+                                () {
+                                  Get.to(() => PlayerPage(
+                                      data: radioPopularBroadCard[index]));
+                                },
+                              ),
+                              SizedBox(height: AppConfig.height10),
+                            ],
+                          );
+                        },
+                      ),
                     ),
                   ],
                 ),
