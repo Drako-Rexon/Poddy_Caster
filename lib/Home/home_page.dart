@@ -91,7 +91,7 @@ class _HomePageState extends State<HomePage> {
                           ),
                         ),
                         SizedBox(
-                          height: 120,
+                          height: AppConfig.height60 * 2,
                           width: AppConfig.screenWidth - 60,
                           child: ListView.builder(
                               itemCount: homeTopSliderOne.length,

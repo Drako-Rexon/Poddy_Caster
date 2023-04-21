@@ -80,7 +80,7 @@ class _EventDetailsState extends State<EventDetails> {
                               color: pWhite,
                               fontFamily: 'CircularStd-Book',
                               fontSize: AppConfig.textSize18 - 2,
-                              fontWeight: FontWeight.w300,
+                              fontWeight: FontWeight.w200,
                             ),
                           ),
                           SizedBox(

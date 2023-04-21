@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:poddy_caster/intro/intro.dart';
+import 'package:poddy_caster/redirecting_page/redirecting_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -20,7 +21,7 @@ class _MyAppState extends State<MyApp> {
       debugShowCheckedModeBanner: false,
       title: 'Poddy Caster',
       theme: ThemeData(primarySwatch: Colors.purple),
-      home: Intro(),
+      home: const RedirectingPage(), // const Intro(),
     );
   }
 }

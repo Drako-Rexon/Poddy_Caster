@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:poddy_caster/_components/colors.dart';
+import 'package:poddy_caster/_components/data_for_dynamic.dart';
 import 'package:poddy_caster/_components/util_widgets.dart';
 import 'package:poddy_caster/authorization/sign_in.dart';
 
 class Intro extends StatefulWidget {
-  Intro({Key? key}) : super(key: key);
+  const Intro({Key? key}) : super(key: key);
 
   @override
   State<Intro> createState() => _IntroState();
@@ -29,24 +30,40 @@ class _IntroState extends State<Intro> {
                 });
               },
               controller: _pageController,
-              children: [
-                IntroPagePart(img: 'assets/images/radio.png'),
-                IntroPagePart(img: 'assets/images/radio.png'),
-                IntroPagePart(img: 'assets/images/radio.png'),
-                IntroPagePart(img: 'assets/images/radio.png'),
+              children: const [
+                IntroPagePart(
+                  img: 'assets/images/radio.png',
+                  content:
+                      'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna',
+                ),
+                IntroPagePart(
+                  img: 'assets/images/radio.png',
+                  content:
+                      'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna',
+                ),
+                IntroPagePart(
+                  img: 'assets/images/radio.png',
+                  content:
+                      'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna',
+                ),
+                IntroPagePart(
+                  img: 'assets/images/radio.png',
+                  content:
+                      'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna',
+                ),
               ],
             ),
             Align(
-              alignment: Alignment(0.8, -0.9),
+              alignment: const Alignment(0.8, -0.9),
               child: InkWell(
                 overlayColor: MaterialStateProperty.all(trans),
                 onTap: () {
-                  Get.to(() => SignInPage());
+                  Get.to(() => const SignInPage());
                 },
-                child: Container(
-                  height: 30,
-                  width: 50,
-                  child: Center(
+                child: SizedBox(
+                  height: AppConfig.height30,
+                  width: AppConfig.width50,
+                  child: const Center(
                     child: Text(
                       "skip",
                       style: TextStyle(color: pLightPink),
@@ -55,7 +72,7 @@ class _IntroState extends State<Intro> {
                 ),
               ),
             ),
-            Align(alignment: Alignment(0, 0.75), child: controller()),
+            Align(alignment: const Alignment(0, 0.9), child: controller()),
           ],
         ),
       ),
@@ -71,15 +88,15 @@ class _IntroState extends State<Intro> {
           onTap: () {
             setState(() {
               _pageController.previousPage(
-                duration: Duration(milliseconds: 100),
+                duration: const Duration(milliseconds: 100),
                 curve: Curves.linear,
               );
             });
           },
-          child: Container(
-            height: 50,
-            width: 100,
-            child: Center(
+          child: SizedBox(
+            height: AppConfig.height50,
+            width: AppConfig.width70 + AppConfig.width30,
+            child: const Center(
               child: Text(
                 "Previous",
                 style: TextStyle(color: pLightPink),
@@ -87,9 +104,9 @@ class _IntroState extends State<Intro> {
             ),
           ),
         ),
-        Container(
-          height: 50,
-          width: 120,
+        SizedBox(
+          height: AppConfig.height50,
+          width: AppConfig.width60 * 2 + AppConfig.width20,
           child: ListView.builder(
             scrollDirection: Axis.horizontal,
             itemCount: 4,
@@ -106,21 +123,21 @@ class _IntroState extends State<Intro> {
           overlayColor: MaterialStateProperty.all(trans),
           onTap: () {
             actPage == 3
-                ? Get.to(() => SignInPage())
+                ? Get.to(() => const SignInPage())
                 : setState(() {
                     _pageController.nextPage(
-                      duration: Duration(milliseconds: 100),
+                      duration: const Duration(milliseconds: 100),
                       curve: Curves.linear,
                     );
                   });
           },
-          child: Container(
-            height: 50,
+          child: SizedBox(
+            height: AppConfig.height50,
             width: 70,
             child: Center(
               child: Text(
                 actPage == 3 ? "Done" : "Next",
-                style: TextStyle(color: pLightPink),
+                style: const TextStyle(color: pLightPink),
               ),
             ),
           ),

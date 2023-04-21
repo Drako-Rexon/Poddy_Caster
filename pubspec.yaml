@@ -41,3 +41,6 @@ flutter:
     - family: CircularStd-Book
       fonts:
         - asset: assets/fonts/CircularStd-Book.ttf
+    # - family: CircularStd-Book
+    #   fonts:
+    #     - asset: assets/fonts/CircularStd-Book.ttf

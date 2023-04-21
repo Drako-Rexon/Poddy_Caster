@@ -32,6 +32,7 @@ class AppConfig {
   static double width35 = screenWidth / 11.22;
   static double width40 = screenWidth / 9.82;
   static double width50 = screenWidth / 7.85;
+  static double width60 = screenWidth / 6.53;
   static double width70 = screenWidth / 5.61;
 
   // ! Text Size

@@ -78,7 +78,7 @@ class _ProfilePageState extends State<ProfilePage> {
                   child: Column(
                     children: [
                       Container(
-                        height: 120,
+                        height: AppConfig.height60 * 2,
                         width: 120,
                         decoration: const BoxDecoration(
                           shape: BoxShape.circle,

@@ -82,8 +82,11 @@ class _EventsState extends State<Events> {
                 child: ListView.builder(
                     scrollDirection: Axis.horizontal,
                     itemCount: events1.length,
-                    itemBuilder: (BuildContext context, int index) =>
-                        CarouselCardHome(objData: events1[index])),
+                    itemBuilder: (BuildContext context, int index) => InkWell(
+                        onTap: () {
+                          Get.to(() => EventDetails(list: events1[index]));
+                        },
+                        child: CarouselCardHome(objData: events1[index]))),
               ),
             ),
             Padding(
@@ -165,8 +168,11 @@ class _EventsState extends State<Events> {
                 child: ListView.builder(
                     scrollDirection: Axis.horizontal,
                     itemCount: events1.length,
-                    itemBuilder: (BuildContext context, int index) =>
-                        CarouselCardHome(objData: events1[index])),
+                    itemBuilder: (BuildContext context, int index) => InkWell(
+                        onTap: () {
+                          Get.to(() => EventDetails(list: events1[index]));
+                        },
+                        child: CarouselCardHome(objData: events1[index]))),
               ),
             ),
             SizedBox(height: AppConfig.height20),

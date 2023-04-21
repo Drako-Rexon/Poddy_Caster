@@ -17,6 +17,7 @@ class SearchPage extends StatelessWidget {
         automaticallyImplyLeading: false,
         centerTitle: true,
         leading: IconButton(
+          style: ButtonStyle(overlayColor: MaterialStateProperty.all(trans)),
           icon: const Icon(
             Icons.arrow_back,
             color: pLightPink,
@@ -65,7 +66,7 @@ class SearchPage extends StatelessWidget {
               child: Column(
                 children: [
                   SizedBox(
-                    height: 120,
+                    height: AppConfig.height60 * 2,
                     child: ListView.builder(
                         scrollDirection: Axis.horizontal,
                         itemCount: radioPopularBroadCard.length,

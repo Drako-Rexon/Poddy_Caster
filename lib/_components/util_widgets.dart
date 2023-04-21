@@ -85,7 +85,7 @@ class CarouselCardHome extends StatelessWidget {
         children: [
           Container(
             width: 120,
-            height: 120,
+            height: AppConfig.height60 * 2,
             decoration: BoxDecoration(
               borderRadius: const BorderRadius.all(Radius.circular(16)),
               image: DecorationImage(
@@ -666,8 +666,10 @@ class IntroPagePart extends StatelessWidget {
   const IntroPagePart({
     Key? key,
     this.img = 'assets/images/imageNot.png',
+    required this.content,
   }) : super(key: key);
   final String img;
+  final String content;
 
   @override
   Widget build(BuildContext context) {
@@ -690,7 +692,7 @@ class IntroPagePart extends StatelessWidget {
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 50),
           child: Text(
-            "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna",
+            content,
             textAlign: TextAlign.center,
             style: TextStyle(
               color: pPrimaryTextColor,
