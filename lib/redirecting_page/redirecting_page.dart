@@ -104,3 +104,4 @@ class _RedirectingPageState extends State<RedirectingPage> {
     );
   }
 }
+

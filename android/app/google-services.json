@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "129790523460",
+    "project_id": "poddy-caster-0001",
+    "storage_bucket": "poddy-caster-0001.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:129790523460:android:34ecce37b3fb3955f7a411",
+        "android_client_info": {
+          "package_name": "com.example.poddy_caster"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "129790523460-da2kfdbaoqt6jfornc1f37vol2gleh82.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDz9ZR_84r2dFvm33I4WJH15On5KtnHML4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "129790523460-da2kfdbaoqt6jfornc1f37vol2gleh82.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

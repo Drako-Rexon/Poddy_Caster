@@ -286,7 +286,9 @@ class GradientButton extends StatelessWidget {
           ),
         ),
         child: isLoading
-            ? const CircularProgressIndicator(color: pWhite)
+            ? SizedBox(
+                width: wid / 20,
+                child: const CircularProgressIndicator(color: pWhite))
             : Center(
                 child: NormalText(
                   text: text,

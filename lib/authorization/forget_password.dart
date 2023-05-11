@@ -6,7 +6,7 @@ import 'package:poddy_caster/authorization/sign_in.dart';
 import 'package:poddy_caster/_components/data_for_dynamic.dart';
 
 class ForgetPassPage extends StatefulWidget {
-  ForgetPassPage({Key? key}) : super(key: key);
+  const ForgetPassPage({Key? key}) : super(key: key);
 
   @override
   State<ForgetPassPage> createState() => _ForgetPassPageState();
@@ -24,7 +24,6 @@ class _ForgetPassPageState extends State<ForgetPassPage> {
 
   @override
   void dispose() {
-    // TODO: implement dispose
     super.dispose();
     _forgetEmail.dispose();
   }
@@ -33,18 +32,19 @@ class _ForgetPassPageState extends State<ForgetPassPage> {
   Widget build(BuildContext context) {
     final textController = TextEditingController();
     return Scaffold(
+      appBar: AppBar(
+        elevation: 0,
+        backgroundColor: pBackgroundAppColor,
+      ),
       resizeToAvoidBottomInset: false,
       body: SafeArea(
         child: Container(
           width: AppConfig.screenWidth,
           height: AppConfig.screenHeight,
-          decoration: BoxDecoration(
+          decoration: const BoxDecoration(
             gradient: RadialGradient(
               radius: 5,
-              colors: [
-                ColorsForApp.backGradientColor1,
-                ColorsForApp.backGradientColor2
-              ],
+              colors: [pBackgroundAppColor, backGradientColor2],
             ),
           ),
           child: Column(
@@ -60,7 +60,7 @@ class _ForgetPassPageState extends State<ForgetPassPage> {
                     isBold: true,
                   ),
                   SizedBox(height: AppConfig.height10),
-                  NormalText(
+                  const NormalText(
                     text:
                         "Enter your email address below.\nWe'll look for your account and send you a\npassword reset email.",
                     align: TextAlign.center,
@@ -75,7 +75,7 @@ class _ForgetPassPageState extends State<ForgetPassPage> {
                     child: TextFormField(
                       controller: _forgetEmail,
                       cursorColor: pPrimaryTextColor,
-                      style: TextStyle(color: pLightPrimary),
+                      style: const TextStyle(color: pLightPrimary),
                       keyboardType: TextInputType.emailAddress,
                       decoration: InputDecoration(
                         border: InputBorder.none,
@@ -87,7 +87,8 @@ class _ForgetPassPageState extends State<ForgetPassPage> {
                         suffixIcon: textController.text.isEmpty
                             ? Container(width: 0)
                             : IconButton(
-                                icon: Icon(Icons.close, color: pLightPrimary),
+                                icon: const Icon(Icons.close,
+                                    color: pLightPrimary),
                                 onPressed: () {
                                   setState(() {
                                     textController.clear();
@@ -131,7 +132,7 @@ class _ForgetPassPageState extends State<ForgetPassPage> {
                     onTap: () {
                       Get.to(SignInPage());
                     },
-                    child: Text(
+                    child: const Text(
                       "Log In",
                       style: TextStyle(
                         color: pLightPink,

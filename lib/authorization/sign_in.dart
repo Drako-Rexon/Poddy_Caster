@@ -84,7 +84,7 @@ class _SignInPageState extends State<SignInPage> {
                         fontWeight: FontWeight.bold,
                       ),
                     ),
-                    NormalText(text: "Login to continue Radio App"),
+                    const NormalText(text: "Login to continue Radio App"),
                     SizedBox(height: AppConfig.height20),
                     Container(
                       decoration: BoxDecoration(
@@ -93,9 +93,8 @@ class _SignInPageState extends State<SignInPage> {
                       ),
                       width: AppConfig.screenWidth - AppConfig.width50,
                       child: TextField(
-                        controller: _passController,
-                        obscureText: !isVisible,
-                        style: TextStyle(color: pLightPrimary),
+                        controller: _emailController,
+                        style: const TextStyle(color: pLightPrimary),
                         keyboardType: TextInputType.emailAddress,
                         cursorColor: pPrimaryTextColor,
                         decoration: InputDecoration(
@@ -125,12 +124,12 @@ class _SignInPageState extends State<SignInPage> {
                       child: TextField(
                         controller: _passController,
                         obscureText: !isVisible,
-                        style: TextStyle(color: pLightPrimary),
+                        style: const TextStyle(color: pLightPrimary),
                         keyboardType: TextInputType.emailAddress,
                         cursorColor: pPrimaryTextColor,
                         decoration: InputDecoration(
                           border: InputBorder.none,
-                          prefixIcon: Icon(
+                          prefixIcon: const Icon(
                             Icons.lock_outline,
                             color: pPrimaryTextColor,
                             size: 18,
@@ -149,7 +148,7 @@ class _SignInPageState extends State<SignInPage> {
                             },
                           ),
                           hintText: "Password",
-                          hintStyle: TextStyle(
+                          hintStyle: const TextStyle(
                             fontFamily: 'CircularStd-Book',
                             color: pPrimaryTextColor,
                             fontSize: 12,
@@ -172,7 +171,7 @@ class _SignInPageState extends State<SignInPage> {
                                 value: value,
                                 activeColor: pLightPink,
                                 checkColor: pWhite,
-                                shape: CircleBorder(),
+                                shape: const CircleBorder(),
                                 onChanged: (value) {
                                   setState(() {
                                     this.value = value!;
@@ -184,9 +183,9 @@ class _SignInPageState extends State<SignInPage> {
                           ),
                           InkWell(
                             onTap: () {
-                              Get.to(() => ForgetPassPage());
+                              Get.to(() => const ForgetPassPage());
                             },
-                            child: NormalText(
+                            child: const NormalText(
                               text: "Forget Password?",
                               isBold: true,
                             ),
@@ -199,17 +198,19 @@ class _SignInPageState extends State<SignInPage> {
                       () async {
                         _loading = true;
                         setState(() {
-                          Timer(Duration(seconds: 2), () {
-                            _loading = false;
+                          Timer(const Duration(seconds: 2), () {
+                            setState(() {
+                              _loading = false;
+                            });
                           });
                         });
-                        Get.offAll(() => RedirectingPage());
+                        Get.to(() => const RedirectingPage());
                       },
                       isDisable: false,
                       isLoading: _loading,
                     ),
                     SizedBox(height: AppConfig.height20),
-                    NormalText(text: "OR"),
+                    const NormalText(text: "OR"),
                     SizedBox(height: AppConfig.height20),
                     SignInSocial(
                       "Continue with Google",
@@ -236,9 +237,9 @@ class _SignInPageState extends State<SignInPage> {
                         ),
                         InkWell(
                           onTap: () {
-                            Get.to(SignUpPage());
+                            Get.to(() => const SignUpPage());
                           },
-                          child: Text(
+                          child: const Text(
                             "Sign Up",
                             style: TextStyle(
                               color: pLightPink,
@@ -253,14 +254,14 @@ class _SignInPageState extends State<SignInPage> {
                 ),
                 Column(
                   children: [
-                    NormalText(
+                    const NormalText(
                       text: "By signing up you indicate that you have read and",
                       textSize: 10,
                     ),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        NormalText(
+                        const NormalText(
                           text: "agreed to the Patch",
                           textSize: 10,
                         ),
@@ -268,7 +269,7 @@ class _SignInPageState extends State<SignInPage> {
                           onTap: () {
                             Get.to(TermsOfService());
                           },
-                          child: NormalText(
+                          child: const NormalText(
                             text: " Terms of Service",
                             textSize: 10,
                             textColor: pLightPink,
