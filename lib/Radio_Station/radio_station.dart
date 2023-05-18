@@ -83,7 +83,7 @@ class _RadioStationPageState extends State<RadioStationPage>
             fontWeight: FontWeight.bold,
             fontSize: AppConfig.textSize12,
           ),
-          indicator: BoxDecoration(
+          indicator: const BoxDecoration(
             border: Border(
               bottom: BorderSide(width: 1, color: pLightPink),
             ),
@@ -100,7 +100,7 @@ class _RadioStationPageState extends State<RadioStationPage>
                 padding: EdgeInsets.only(right: AppConfig.width20),
                 width: AppConfig.screenWidth - 20,
                 height: AppConfig.height80,
-                decoration: BoxDecoration(
+                decoration: const BoxDecoration(
                   borderRadius: BorderRadius.all(Radius.circular(8)),
                   image: DecorationImage(
                     fit: BoxFit.cover,
@@ -153,7 +153,7 @@ class _RadioStationPageState extends State<RadioStationPage>
                   controller: _tabController,
                   children: [
                     ListView.builder(
-                      physics: NeverScrollableScrollPhysics(),
+                      physics: const NeverScrollableScrollPhysics(),
                       itemCount: radioPopularBroadCard.length,
                       itemBuilder: ((BuildContext context, int index) {
                         return Container(
@@ -174,7 +174,7 @@ class _RadioStationPageState extends State<RadioStationPage>
                     ),
                     // ! Popular Broadcast Ends here
                     ListView.builder(
-                      physics: NeverScrollableScrollPhysics(),
+                      physics: const NeverScrollableScrollPhysics(),
                       itemCount: radioGenre.length,
                       itemBuilder: (BuildContext context, int index) {
                         return Column(

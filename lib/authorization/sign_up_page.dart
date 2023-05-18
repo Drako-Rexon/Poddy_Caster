@@ -53,7 +53,7 @@ class _SignUpPageState extends State<SignUpPage> {
         child: Container(
           width: AppConfig.screenWidth,
           height: AppConfig.screenHeight,
-          decoration: BoxDecoration(
+          decoration: const BoxDecoration(
             gradient: RadialGradient(
               radius: 5,
               colors: [
@@ -77,7 +77,7 @@ class _SignUpPageState extends State<SignUpPage> {
                       isBold: true,
                     ),
                     SizedBox(height: AppConfig.height5),
-                    NormalText(text: "Sign Up and Start Learning"),
+                    const NormalText(text: "Sign Up and Start Learning"),
                     SizedBox(height: AppConfig.height20),
                     Container(
                       decoration: BoxDecoration(
@@ -88,7 +88,7 @@ class _SignUpPageState extends State<SignUpPage> {
                       child: TextField(
                         cursorColor: pPrimaryTextColor,
                         controller: _usernameController,
-                        style: TextStyle(color: pPrimaryTextColor),
+                        style: const TextStyle(color: pPrimaryTextColor),
                         keyboardType: TextInputType.emailAddress,
                         decoration: InputDecoration(
                           border: InputBorder.none,
@@ -100,7 +100,7 @@ class _SignUpPageState extends State<SignUpPage> {
                           suffixIcon: _usernameController.text.isEmpty
                               ? Container(width: 0)
                               : InkWell(
-                                  child: Icon(
+                                  child: const Icon(
                                     Icons.close,
                                     color: pPrimaryTextColor,
                                   ),
@@ -130,7 +130,7 @@ class _SignUpPageState extends State<SignUpPage> {
                       child: TextField(
                         cursorColor: pPrimaryTextColor,
                         controller: _mailController,
-                        style: TextStyle(color: pPrimaryTextColor),
+                        style: const TextStyle(color: pPrimaryTextColor),
                         keyboardType: TextInputType.emailAddress,
                         decoration: InputDecoration(
                           border: InputBorder.none,
@@ -142,7 +142,7 @@ class _SignUpPageState extends State<SignUpPage> {
                           suffixIcon: _mailController.text.isEmpty
                               ? Container(width: 0)
                               : IconButton(
-                                  icon: Icon(
+                                  icon: const Icon(
                                     Icons.close,
                                     color: pPrimaryTextColor,
                                   ),
@@ -173,7 +173,7 @@ class _SignUpPageState extends State<SignUpPage> {
                         cursorColor: pPrimaryTextColor,
                         controller: _passwordController,
                         obscureText: isVisible,
-                        style: TextStyle(color: pPrimaryTextColor),
+                        style: const TextStyle(color: pPrimaryTextColor),
                         keyboardType: TextInputType.emailAddress,
                         decoration: InputDecoration(
                           border: InputBorder.none,
@@ -212,14 +212,14 @@ class _SignUpPageState extends State<SignUpPage> {
                           value: value,
                           activeColor: pLightPink,
                           checkColor: pWhite,
-                          shape: CircleBorder(),
+                          shape: const CircleBorder(),
                           onChanged: (value) {
                             setState(() {
                               this.value = value!;
                             });
                           },
                         ),
-                        Container(
+                        SizedBox(
                           width: AppConfig.screenWidth - AppConfig.width70,
                           child: NormalText(
                               textSize: AppConfig.textSize12,
@@ -232,7 +232,7 @@ class _SignUpPageState extends State<SignUpPage> {
                     GradientButton(
                       "Sign Up",
                       () {
-                        Get.offAll(() => SignInPage());
+                        Get.offAll(() => const SignInPage());
                       },
                       isDisable: (_usernameController.text.isNotEmpty &&
                               _mailController.text.isNotEmpty &&
@@ -241,7 +241,7 @@ class _SignUpPageState extends State<SignUpPage> {
                           : true,
                     ),
                     SizedBox(height: AppConfig.height20),
-                    NormalText(text: "OR"),
+                    const NormalText(text: "OR"),
                     SizedBox(height: AppConfig.height20),
                     SignInSocial(
                       "Continue with Google",
@@ -273,9 +273,9 @@ class _SignUpPageState extends State<SignUpPage> {
                     ),
                     InkWell(
                       onTap: () {
-                        Get.to(SignInPage());
+                        Get.to(() => const SignInPage());
                       },
-                      child: Text(
+                      child: const Text(
                         "Log In",
                         style: TextStyle(
                           color: pLightPink,

@@ -52,20 +52,20 @@ class ColorsForApp {
   static const Color customWhite = Colors.white;
   static const Color customBlack = Colors.black;
 
-  static final Color cutomTextColor = Color(0xFF7477A0);
-  static final Color buttonGradientColor1 = Color(0xFFFB6580);
-  static final Color buttonGradientColor2 = Color(0xFFF11775);
-  static final Color backGradientColor1 = Color(0xFF2D2C3C);
-  static final Color backGradientColor2 = Color(0xFF191925);
-  static final Color backgroundAppColor = Color(0xFF2D2C3C);
-  static final Color forgroundAppColor = Color(0xFF181A26);
-  static final Color fbColor = Color(0xFF3d599f);
-  static final Color customGrey = Color(0xFF5C5E6F);
-  static final Color darkPurple = Color(0xFF0B0B15);
-  static final Color commonBackGround = Color(0xFF13131A);
-  static final Color backImagRadial1 = Color(0xFF14174E);
-  static final Color backImagRadial2 = Color(0xFF141535);
-  static final Color backImagRadial3 = Color(0xFF14121C);
+  static const Color cutomTextColor = Color(0xFF7477A0);
+  static const Color buttonGradientColor1 = Color(0xFFFB6580);
+  static const Color buttonGradientColor2 = Color(0xFFF11775);
+  static const Color backGradientColor1 = Color(0xFF2D2C3C);
+  static const Color backGradientColor2 = Color(0xFF191925);
+  static const Color backgroundAppColor = Color(0xFF2D2C3C);
+  static const Color forgroundAppColor = Color(0xFF181A26);
+  static const Color fbColor = Color(0xFF3d599f);
+  static const Color customGrey = Color(0xFF5C5E6F);
+  static const Color darkPurple = Color(0xFF0B0B15);
+  static const Color commonBackGround = Color(0xFF13131A);
+  static const Color backImagRadial1 = Color(0xFF14174E);
+  static const Color backImagRadial2 = Color(0xFF141535);
+  static const Color backImagRadial3 = Color(0xFF14121C);
 
   // static final Color appPinkColor = Color(0xFFFB6580);
 }

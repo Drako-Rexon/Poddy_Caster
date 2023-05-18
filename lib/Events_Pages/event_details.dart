@@ -9,7 +9,7 @@ import 'package:poddy_caster/_components/util_widgets.dart';
 
 class EventDetails extends StatefulWidget {
   const EventDetails({Key? key, required this.list}) : super(key: key);
-  final list;
+  final dynamic list;
 
   @override
   State<EventDetails> createState() => _EventDetailsState();
@@ -35,108 +35,111 @@ class _EventDetailsState extends State<EventDetails> {
             });
           });
         },
-        child: SingleChildScrollView(
-          child: SafeArea(
-            child: Stack(
-              children: [
-                Image.asset(
-                  widget.list['img'],
-                  height: AppConfig.screenHeight / 2,
-                  width: AppConfig.screenWidth,
-                  fit: BoxFit.cover,
-                ),
-                Column(
-                  children: [
-                    Container(
-                      height: AppConfig.screenHeight / 2,
-                      width: AppConfig.screenWidth,
-                      decoration: const BoxDecoration(
-                        gradient: LinearGradient(
-                          colors: [trans, pBackgroundAppColor],
-                          begin: Alignment.topCenter,
-                          end: Alignment.bottomCenter,
-                        ),
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 30),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            widget.list['mainTitle'],
-                            style: TextStyle(
-                              color: pWhite,
-                              fontFamily: 'CircularStd',
-                              fontSize: AppConfig.textSize24,
-                              fontWeight: FontWeight.w700,
-                            ),
-                          ),
-                          const SizedBox(height: 20),
-                          Text(
-                            widget.list['des'],
-                            textAlign: TextAlign.justify,
-                            style: TextStyle(
-                              color: pWhite,
-                              fontFamily: 'CircularStd-Book',
-                              fontSize: AppConfig.textSize18 - 2,
-                              fontWeight: FontWeight.w200,
-                            ),
-                          ),
-                          SizedBox(
-                            height: AppConfig.height60 * 3,
-                            child: ListView.builder(
-                                scrollDirection: Axis.horizontal,
-                                itemCount: events1.length,
-                                itemBuilder:
-                                    (BuildContext context, int index) =>
-                                        InkWell(
-                                            onTap: () {
-                                              Get.to(() => EventDetails(
-                                                  list: events1[index]));
-                                            },
-                                            child: CarouselCardHome(
-                                                objData: events1[index]))),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ],
-                ),
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 10),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        child: Visibility(
+          visible: _loading,
+          child: SingleChildScrollView(
+            child: SafeArea(
+              child: Stack(
+                children: [
+                  Image.asset(
+                    widget.list['img'],
+                    height: AppConfig.screenHeight / 2,
+                    width: AppConfig.screenWidth,
+                    fit: BoxFit.cover,
+                  ),
+                  Column(
                     children: [
-                      InkWell(
-                        onTap: () {
-                          Get.back();
-                        },
-                        child: const Icon(
-                          Icons.arrow_back,
-                          color: pLightPink,
+                      Container(
+                        height: AppConfig.screenHeight / 2,
+                        width: AppConfig.screenWidth,
+                        decoration: const BoxDecoration(
+                          gradient: LinearGradient(
+                            colors: [trans, pBackgroundAppColor],
+                            begin: Alignment.topCenter,
+                            end: Alignment.bottomCenter,
+                          ),
                         ),
                       ),
-                      Text(
-                        "Events",
-                        style: TextStyle(
-                          color: pWhite,
-                          fontSize: AppConfig.textSize24,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                      IconButton(
-                        onPressed: () {},
-                        icon: const Icon(
-                          Icons.search,
-                          size: 26,
-                          color: pPrimaryTextColor,
+                      Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 30),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              widget.list['mainTitle'],
+                              style: TextStyle(
+                                color: pWhite,
+                                fontFamily: 'CircularStd',
+                                fontSize: AppConfig.textSize24,
+                                fontWeight: FontWeight.w700,
+                              ),
+                            ),
+                            const SizedBox(height: 20),
+                            Text(
+                              widget.list['des'],
+                              textAlign: TextAlign.justify,
+                              style: TextStyle(
+                                color: pWhite,
+                                fontFamily: 'CircularStd-Book',
+                                fontSize: AppConfig.textSize18 - 2,
+                                fontWeight: FontWeight.w200,
+                              ),
+                            ),
+                            SizedBox(
+                              height: AppConfig.height60 * 3,
+                              child: ListView.builder(
+                                  scrollDirection: Axis.horizontal,
+                                  itemCount: events1.length,
+                                  itemBuilder:
+                                      (BuildContext context, int index) =>
+                                          InkWell(
+                                              onTap: () {
+                                                Get.to(() => EventDetails(
+                                                    list: events1[index]));
+                                              },
+                                              child: CarouselCardHome(
+                                                  objData: events1[index]))),
+                            ),
+                          ],
                         ),
                       ),
                     ],
                   ),
-                ),
-              ],
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 10),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        InkWell(
+                          onTap: () {
+                            Get.back();
+                          },
+                          child: const Icon(
+                            Icons.arrow_back,
+                            color: pLightPink,
+                          ),
+                        ),
+                        Text(
+                          "Events",
+                          style: TextStyle(
+                            color: pWhite,
+                            fontSize: AppConfig.textSize24,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        IconButton(
+                          onPressed: () {},
+                          icon: const Icon(
+                            Icons.search,
+                            size: 26,
+                            color: pPrimaryTextColor,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
             ),
           ),
         ),

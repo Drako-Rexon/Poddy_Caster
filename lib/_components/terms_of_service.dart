@@ -48,7 +48,7 @@ class TermsOfService extends StatelessWidget {
     return AppBar(
       elevation: 0,
       leading: IconButton(
-        icon: Icon(Icons.arrow_back),
+        icon: const Icon(Icons.arrow_back),
         onPressed: () {
           Get.back();
         },

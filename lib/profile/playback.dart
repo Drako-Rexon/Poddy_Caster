@@ -4,7 +4,7 @@ import 'package:poddy_caster/_components/data_for_dynamic.dart';
 import 'package:poddy_caster/_components/util_widgets.dart';
 
 class Playback extends StatefulWidget {
-  Playback({Key? key}) : super(key: key);
+  const Playback({Key? key}) : super(key: key);
 
   @override
   State<Playback> createState() => _PlaybackState();
@@ -24,7 +24,7 @@ class _PlaybackState extends State<Playback> {
       backgroundColor: pBackground,
       appBar: AppBar(
         elevation: 0,
-        leading: BackArrow(),
+        leading: const BackArrow(),
         backgroundColor: pBackground,
         title: Text(
           "Playback",
@@ -34,11 +34,11 @@ class _PlaybackState extends State<Playback> {
           ),
         ),
       ),
-      body: Container(
+      body: SizedBox(
         width: AppConfig.screenWidth,
         child: Column(
           children: [
-            SizedBox(height: 30),
+            const SizedBox(height: 30),
             RegularCard(
               "Gapless",
               () {},
@@ -46,7 +46,7 @@ class _PlaybackState extends State<Playback> {
                 Container(
                   height: 30,
                   width: 100,
-                  decoration: BoxDecoration(
+                  decoration: const BoxDecoration(
                     borderRadius: BorderRadius.all(Radius.circular(30)),
                   ),
                   child: ToggleButtons(
@@ -55,7 +55,6 @@ class _PlaybackState extends State<Playback> {
                     borderRadius: BorderRadius.circular(10),
                     fillColor: pDarkPink,
                     selectedColor: pWhite,
-                    children: [Text("ON"), Text("OFF")],
                     isSelected: gapLess,
                     onPressed: (int newInd) {
                       setState(() {
@@ -64,6 +63,7 @@ class _PlaybackState extends State<Playback> {
                         }
                       });
                     },
+                    children: const [Text("ON"), Text("OFF")],
                   ),
                 ),
               ],
@@ -73,7 +73,7 @@ class _PlaybackState extends State<Playback> {
               "Automix",
               () {},
               listAction: [
-                Container(
+                SizedBox(
                   height: 30,
                   child: ToggleButtons(
                     borderRadius: BorderRadius.circular(10),
@@ -82,7 +82,6 @@ class _PlaybackState extends State<Playback> {
                     fillColor: pDarkPink,
                     selectedColor: pWhite,
                     splashColor: pLightPink,
-                    children: [Text("ON"), Text("OFF")],
                     isSelected: autoMix,
                     onPressed: (int newInd) {
                       setState(() {
@@ -91,6 +90,7 @@ class _PlaybackState extends State<Playback> {
                         }
                       });
                     },
+                    children: const [Text("ON"), Text("OFF")],
                   ),
                 ),
               ],
@@ -100,7 +100,7 @@ class _PlaybackState extends State<Playback> {
               "Show Unplayable Songs",
               () {},
               listAction: [
-                Container(
+                SizedBox(
                   height: 30,
                   child: ToggleButtons(
                     borderRadius: BorderRadius.circular(10),
@@ -109,7 +109,6 @@ class _PlaybackState extends State<Playback> {
                     fillColor: pDarkPink,
                     selectedColor: pWhite,
                     splashColor: pLightPink,
-                    children: [Text("ON"), Text("OFF")],
                     isSelected: showUnplaySongs,
                     onPressed: (int newInd) {
                       setState(() {
@@ -120,6 +119,7 @@ class _PlaybackState extends State<Playback> {
                         }
                       });
                     },
+                    children: const [Text("ON"), Text("OFF")],
                   ),
                 ),
               ],
@@ -129,7 +129,7 @@ class _PlaybackState extends State<Playback> {
               "Normalize Volume",
               () {},
               listAction: [
-                Container(
+                SizedBox(
                   height: 30,
                   child: ToggleButtons(
                     borderRadius: BorderRadius.circular(10),
@@ -138,7 +138,6 @@ class _PlaybackState extends State<Playback> {
                     fillColor: pDarkPink,
                     selectedColor: pWhite,
                     splashColor: pLightPink,
-                    children: [Text("ON"), Text("OFF")],
                     isSelected: normalVol,
                     onPressed: (int newInd) {
                       setState(() {
@@ -149,6 +148,7 @@ class _PlaybackState extends State<Playback> {
                         }
                       });
                     },
+                    children: const [Text("ON"), Text("OFF")],
                   ),
                 ),
               ],
@@ -158,7 +158,7 @@ class _PlaybackState extends State<Playback> {
               "Autoplay",
               () {},
               listAction: [
-                Container(
+                SizedBox(
                   height: 30,
                   child: ToggleButtons(
                     borderRadius: BorderRadius.circular(10),
@@ -167,7 +167,6 @@ class _PlaybackState extends State<Playback> {
                     fillColor: pDarkPink,
                     selectedColor: pWhite,
                     splashColor: pLightPink,
-                    children: [Text("ON"), Text("OFF")],
                     isSelected: autoPlay,
                     onPressed: (int newInd) {
                       setState(() {
@@ -178,6 +177,7 @@ class _PlaybackState extends State<Playback> {
                         }
                       });
                     },
+                    children: const [Text("ON"), Text("OFF")],
                   ),
                 ),
               ],
@@ -187,7 +187,7 @@ class _PlaybackState extends State<Playback> {
               "Canvas",
               () {},
               listAction: [
-                Container(
+                SizedBox(
                   height: 30,
                   child: ToggleButtons(
                     borderRadius: BorderRadius.circular(10),
@@ -196,7 +196,6 @@ class _PlaybackState extends State<Playback> {
                     fillColor: pDarkPink,
                     selectedColor: pWhite,
                     splashColor: pLightPink,
-                    children: [Text("ON"), Text("OFF")],
                     isSelected: canvas,
                     onPressed: (int newInd) {
                       setState(() {
@@ -205,6 +204,7 @@ class _PlaybackState extends State<Playback> {
                         }
                       });
                     },
+                    children: const [Text("ON"), Text("OFF")],
                   ),
                 ),
               ],

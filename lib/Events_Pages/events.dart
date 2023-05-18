@@ -39,7 +39,7 @@ class _EventsState extends State<Events> {
               color: pPrimaryTextColor,
             ),
             onTap: () {
-              Get.to(() => EventMap());
+              Get.to(() => const EventMap());
             },
           ),
           Padding(

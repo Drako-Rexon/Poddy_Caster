@@ -27,7 +27,7 @@ class EventMap extends StatelessWidget {
                           Get.back();
                         },
                         child:
-                            Icon(Icons.arrow_back_outlined, color: pDarkPink),
+                            const Icon(Icons.arrow_back_outlined, color: pDarkPink),
                       ),
                       Text(
                         "Events",
@@ -41,7 +41,7 @@ class EventMap extends StatelessWidget {
                       InkWell(
                         overlayColor: MaterialStateProperty.all(trans),
                         onTap: () {},
-                        child: Icon(Icons.search, color: pPrimaryTextColor),
+                        child: const Icon(Icons.search, color: pPrimaryTextColor),
                       ),
                     ],
                   ),

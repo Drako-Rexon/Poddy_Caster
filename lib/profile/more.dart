@@ -19,7 +19,7 @@ class More extends StatelessWidget {
       appBar: AppBar(
         automaticallyImplyLeading: false,
         elevation: 0,
-        leading: BackArrow(),
+        leading: const BackArrow(),
         backgroundColor: pBackground,
         title: Text(
           "More",
@@ -30,15 +30,15 @@ class More extends StatelessWidget {
         ),
       ),
       body: SafeArea(
-        child: Container(
+        child: SizedBox(
           width: AppConfig.screenWidth,
           child: Column(
             children: [
-              SizedBox(height: 30),
+              const SizedBox(height: 30),
               RegularCard(
                 "Playback",
                 () {
-                  Get.to(() => Playback());
+                  Get.to(() => const Playback());
                 },
                 listAction: [enterArrow()],
               ),
@@ -46,7 +46,7 @@ class More extends StatelessWidget {
               RegularCard(
                 "Connect to device",
                 () {
-                  Get.to(() => ConnToDevice());
+                  Get.to(() => const ConnToDevice());
                 },
                 listAction: [enterArrow()],
               ),
@@ -54,7 +54,7 @@ class More extends StatelessWidget {
               RegularCard(
                 "Social",
                 () {
-                  Get.to(() => Social());
+                  Get.to(() => const Social());
                 },
                 listAction: [enterArrow()],
               ),
@@ -62,7 +62,7 @@ class More extends StatelessWidget {
               RegularCard(
                 "Music Quality",
                 () {
-                  Get.to(() => MusicQuality());
+                  Get.to(() => const MusicQuality());
                 },
                 listAction: [enterArrow()],
               ),
@@ -70,7 +70,7 @@ class More extends StatelessWidget {
               RegularCard(
                 "About Us",
                 () {
-                  Get.to(() => AboutUs());
+                  Get.to(() => const AboutUs());
                 },
                 listAction: [enterArrow()],
               ),

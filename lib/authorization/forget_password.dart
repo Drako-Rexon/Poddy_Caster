@@ -130,7 +130,7 @@ class _ForgetPassPageState extends State<ForgetPassPage> {
                   ),
                   InkWell(
                     onTap: () {
-                      Get.to(SignInPage());
+                      Get.to(() => const SignInPage());
                     },
                     child: const Text(
                       "Log In",

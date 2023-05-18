@@ -11,11 +11,11 @@ Container enterArrow() {
   return Container(
     height: AppConfig.height20,
     width: 20,
-    decoration: BoxDecoration(
+    decoration: const BoxDecoration(
       color: pBackground,
       shape: BoxShape.circle,
     ),
-    child: Center(
+    child: const Center(
       child: Icon(
         Icons.arrow_forward_ios_sharp,
         color: pWhite,

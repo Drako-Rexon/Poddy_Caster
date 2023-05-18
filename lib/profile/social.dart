@@ -6,7 +6,7 @@ import 'package:poddy_caster/_components/data_for_dynamic.dart';
 import 'package:poddy_caster/_components/util_widgets.dart';
 
 class Social extends StatefulWidget {
-  Social({Key? key}) : super(key: key);
+  const Social({Key? key}) : super(key: key);
 
   @override
   State<Social> createState() => _SocialState();
@@ -23,7 +23,7 @@ class _SocialState extends State<Social> {
       appBar: AppBar(
         elevation: 0,
         leading: IconButton(
-          icon: Icon(Icons.arrow_back),
+          icon: const Icon(Icons.arrow_back),
           onPressed: () {
             Get.back();
           },
@@ -42,7 +42,7 @@ class _SocialState extends State<Social> {
         width: AppConfig.screenWidth,
         child: Column(
           children: [
-            SizedBox(height: 30),
+            const SizedBox(height: 30),
             RegularCard(
               "Private Session",
               () {},
@@ -50,7 +50,7 @@ class _SocialState extends State<Social> {
                 Container(
                   height: 30,
                   width: 100,
-                  decoration: BoxDecoration(
+                  decoration: const BoxDecoration(
                     borderRadius: BorderRadius.all(Radius.circular(30)),
                   ),
                   child: ToggleButtons(
@@ -59,7 +59,6 @@ class _SocialState extends State<Social> {
                     borderRadius: BorderRadius.circular(10),
                     fillColor: pDarkPink,
                     selectedColor: pWhite,
-                    children: [Text("ON"), Text("OFF")],
                     isSelected: gapLess,
                     onPressed: (int newInd) {
                       setState(() {
@@ -68,6 +67,7 @@ class _SocialState extends State<Social> {
                         }
                       });
                     },
+                    children: const [Text("ON"), Text("OFF")],
                   ),
                 )
               ],
@@ -80,7 +80,7 @@ class _SocialState extends State<Social> {
                 Container(
                   height: 30,
                   width: 100,
-                  decoration: BoxDecoration(
+                  decoration: const BoxDecoration(
                     borderRadius: BorderRadius.all(Radius.circular(30)),
                   ),
                   child: ToggleButtons(
@@ -89,7 +89,6 @@ class _SocialState extends State<Social> {
                     borderRadius: BorderRadius.circular(10),
                     fillColor: pDarkPink,
                     selectedColor: pWhite,
-                    children: [Text("ON"), Text("OFF")],
                     isSelected: listAct,
                     onPressed: (int newInd) {
                       setState(() {
@@ -98,6 +97,7 @@ class _SocialState extends State<Social> {
                         }
                       });
                     },
+                    children: const [Text("ON"), Text("OFF")],
                   ),
                 )
               ],
@@ -114,7 +114,7 @@ class _SocialState extends State<Social> {
                       height: AppConfig.height20,
                       width: 20,
                     ),
-                    SizedBox(width: 10),
+                    const SizedBox(width: 10),
                   ],
                 ),
               ],
@@ -131,7 +131,7 @@ class _SocialState extends State<Social> {
                       height: AppConfig.height20,
                       width: 20,
                     ),
-                    SizedBox(width: 10),
+                    const SizedBox(width: 10),
                   ],
                 ),
               ],

@@ -148,9 +148,9 @@ class _ListCardBottomHomeState extends State<ListCardBottomHome> {
         width: AppConfig.screenWidth - 40,
         height: AppConfig.height80,
         padding: EdgeInsets.all(AppConfig.height10),
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
           color: ColorsForApp.darkPurple,
-          borderRadius: const BorderRadius.all(Radius.circular(12)),
+          borderRadius: BorderRadius.all(Radius.circular(12)),
         ),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -528,7 +528,6 @@ class BackArrow extends StatelessWidget {
   }
 }
 
-// ignore: must_be_immutable
 class ProfileCards extends StatefulWidget {
   ProfileCards({
     Key? key,

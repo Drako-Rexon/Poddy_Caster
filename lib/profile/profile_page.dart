@@ -50,7 +50,7 @@ class _ProfilePageState extends State<ProfilePage> {
               padding: const EdgeInsets.symmetric(horizontal: 10),
               child: InkWell(
                   onTap: () {
-                    Get.to(() => SearchPage());
+                    Get.to(() => const SearchPage());
                   },
                   child: const Icon(Icons.search, size: 26)),
             ),

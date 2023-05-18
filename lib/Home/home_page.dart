@@ -37,7 +37,7 @@ class _HomePageState extends State<HomePage> {
                   duration: const Duration(seconds: 1),
                 );
               },
-              icon: Icon(Icons.search, size: 26)),
+              icon: const Icon(Icons.search, size: 26)),
         ],
         backgroundColor: Colors.transparent,
       ),

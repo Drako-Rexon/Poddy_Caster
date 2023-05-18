@@ -163,14 +163,14 @@ class _PlayerPageState extends State<PlayerPage> {
                           child: Container(
                             height: 90,
                             width: 90,
+                            decoration: const BoxDecoration(
+                              color: pDeepPrimary,
+                              shape: BoxShape.circle,
+                            ),
                             child: Icon(
                               currentButton,
                               size: AppConfig.height60,
                               color: pWhite,
-                            ),
-                            decoration: BoxDecoration(
-                              color: pDeepPrimary,
-                              shape: BoxShape.circle,
                             ),
                           ),
                         ),

@@ -13,7 +13,7 @@ class ConnToDevice extends StatelessWidget {
       appBar: AppBar(
         elevation: 0,
         leading: IconButton(
-          icon: Icon(Icons.arrow_back),
+          icon: const Icon(Icons.arrow_back),
           onPressed: () {
             Get.back();
           },
@@ -28,7 +28,7 @@ class ConnToDevice extends StatelessWidget {
           ),
         ),
       ),
-      body: Container(
+      body: SizedBox(
         width: AppConfig.screenWidth,
         child: Column(
           children: [
@@ -41,7 +41,7 @@ class ConnToDevice extends StatelessWidget {
                   height: AppConfig.height30,
                   width: AppConfig.width30,
                   padding: EdgeInsets.all(AppConfig.height5 + 2),
-                  decoration: BoxDecoration(
+                  decoration: const BoxDecoration(
                     shape: BoxShape.circle,
                     color: Color(0xFFEA4335),
                   ),
@@ -62,7 +62,7 @@ class ConnToDevice extends StatelessWidget {
                   height: AppConfig.height30,
                   width: AppConfig.width30,
                   padding: EdgeInsets.all(AppConfig.height5 + 2),
-                  decoration: BoxDecoration(
+                  decoration: const BoxDecoration(
                     shape: BoxShape.circle,
                     color: Color(0xFFFBBC04),
                   ),
@@ -83,7 +83,7 @@ class ConnToDevice extends StatelessWidget {
                   height: AppConfig.height30,
                   width: AppConfig.width30,
                   padding: EdgeInsets.all(AppConfig.height5 + 2),
-                  decoration: BoxDecoration(
+                  decoration: const BoxDecoration(
                     shape: BoxShape.circle,
                     color: Color(0xFF9D00FF),
                   ),
@@ -104,7 +104,7 @@ class ConnToDevice extends StatelessWidget {
                   height: AppConfig.height30,
                   width: AppConfig.width30,
                   padding: EdgeInsets.all(AppConfig.height5 + 2),
-                  decoration: BoxDecoration(
+                  decoration: const BoxDecoration(
                     shape: BoxShape.circle,
                     color: Color(0xFF34A853),
                   ),
@@ -125,7 +125,7 @@ class ConnToDevice extends StatelessWidget {
                   height: AppConfig.height30,
                   width: AppConfig.width30,
                   padding: EdgeInsets.all(AppConfig.height5 + 2),
-                  decoration: BoxDecoration(
+                  decoration: const BoxDecoration(
                     shape: BoxShape.circle,
                     color: Color(0xFF0083FD),
                   ),

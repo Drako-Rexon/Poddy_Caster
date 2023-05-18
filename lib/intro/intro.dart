@@ -13,8 +13,14 @@ class Intro extends StatefulWidget {
 }
 
 class _IntroState extends State<Intro> {
-  PageController _pageController = PageController();
   int actPage = 0;
+  late PageController _pageController;
+
+  @override
+  void initState() {
+    super.initState();
+    _pageController = PageController();
+  }
 
   @override
   Widget build(BuildContext context) {

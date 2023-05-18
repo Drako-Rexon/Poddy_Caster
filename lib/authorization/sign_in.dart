@@ -48,7 +48,7 @@ class _SignInPageState extends State<SignInPage> {
         child: SafeArea(
           child: Container(
             height: AppConfig.screenHeight,
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
               gradient: RadialGradient(
                 radius: 5,
                 colors: [
@@ -178,7 +178,7 @@ class _SignInPageState extends State<SignInPage> {
                                   });
                                 },
                               ),
-                              NormalText(text: "Remeber me"),
+                              const NormalText(text: "Remeber me"),
                             ],
                           ),
                           InkWell(
@@ -267,7 +267,7 @@ class _SignInPageState extends State<SignInPage> {
                         ),
                         InkWell(
                           onTap: () {
-                            Get.to(TermsOfService());
+                            Get.to(() => const TermsOfService());
                           },
                           child: const NormalText(
                             text: " Terms of Service",
