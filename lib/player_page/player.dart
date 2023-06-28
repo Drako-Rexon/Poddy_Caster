@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:poddy_caster/_components/colors.dart';
 import 'package:poddy_caster/_components/data_for_dynamic.dart';
-import 'package:poddy_caster/_components/util_function.dart';
 
 class PlayerPage extends StatefulWidget {
   const PlayerPage({
@@ -22,7 +21,6 @@ class _PlayerPageState extends State<PlayerPage> {
   IconData currentButton = Icons.play_arrow_rounded;
   @override
   Widget build(BuildContext context) {
-    pPrintLog("data here 1", widget.data);
     return Scaffold(
       backgroundColor: pBackground,
       body: SafeArea(

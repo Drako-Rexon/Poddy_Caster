@@ -60,7 +60,7 @@ class _IntroState extends State<Intro> {
               ],
             ),
             Align(
-              alignment: const Alignment(0.8, -0.9),
+              alignment: const Alignment(0.9, -0.9),
               child: InkWell(
                 overlayColor: MaterialStateProperty.all(trans),
                 onTap: () {
@@ -87,7 +87,7 @@ class _IntroState extends State<Intro> {
 
   Row controller() {
     return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         InkWell(
           overlayColor: MaterialStateProperty.all(trans),
@@ -112,7 +112,7 @@ class _IntroState extends State<Intro> {
         ),
         SizedBox(
           height: AppConfig.height50,
-          width: AppConfig.width60 * 2 + AppConfig.width20,
+          width: AppConfig.width60 * 2,
           child: ListView.builder(
             scrollDirection: Axis.horizontal,
             itemCount: 4,

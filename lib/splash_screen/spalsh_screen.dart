@@ -12,8 +12,8 @@ class SplashScreen extends StatefulWidget {
 class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
-    super.initState();
     navigate();
+    super.initState();
   }
 
   void navigate() {
@@ -28,7 +28,8 @@ class _SplashScreenState extends State<SplashScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(backgroundColor: pBackgroundAppColor,
+    return Scaffold(
+      backgroundColor: pBackgroundAppColor,
       body: Center(
         child: Image.asset('assets/images/radio.png'),
       ),

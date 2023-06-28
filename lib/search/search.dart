@@ -37,73 +37,76 @@ class SearchPage extends StatelessWidget {
         backgroundColor: pBackgroundAppColor,
         elevation: 0,
       ),
-      body: Column(
-        children: [
-          Container(
-            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
-            child: TextFormField(
-              style: const TextStyle(color: pBackgroundAppColor),
-              cursorColor: pLightPrimary,
-              decoration: const InputDecoration(
-                fillColor: pBackground,
-                filled: true,
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.all(Radius.circular(30)),
-                  borderSide: BorderSide.none,
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            Container(
+              padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+              child: TextFormField(
+                style: const TextStyle(color: pBackgroundAppColor),
+                cursorColor: pLightPrimary,
+                decoration: const InputDecoration(
+                  fillColor: pBackground,
+                  filled: true,
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.all(Radius.circular(30)),
+                    borderSide: BorderSide.none,
+                  ),
+                  focusedBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.all(Radius.circular(30)),
+                  ),
+                  prefixIcon: Icon(Icons.search, color: pLightPrimary),
+                  hintText: "Search",
+                  hintStyle: TextStyle(color: pLightPrimary),
                 ),
-                focusedBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.all(Radius.circular(30)),
-                ),
-                prefixIcon: Icon(Icons.search, color: pLightPrimary),
-                hintText: "Search",
-                hintStyle: TextStyle(color: pLightPrimary),
               ),
             ),
-          ),
-          SizedBox(
-            height: AppConfig.screenHeight * 2 / 3,
-            child: SingleChildScrollView(
-              child: Column(
-                children: [
-                  SizedBox(
-                    height: AppConfig.height60 * 2,
-                    child: ListView.builder(
-                        scrollDirection: Axis.horizontal,
+            SizedBox(
+              height: AppConfig.screenHeight * 2 / 3,
+              child: SingleChildScrollView(
+                child: Column(
+                  children: [
+                    SizedBox(
+                      height: AppConfig.height60 * 2,
+                      child: ListView.builder(
+                          scrollDirection: Axis.horizontal,
+                          itemCount: radioPopularBroadCard.length,
+                          itemBuilder: (BuildContext context, int index) {
+                            return ProfileCards(
+                              hei: 120,
+                              wid: 120,
+                            );
+                          }),
+                    ),
+                    const SizedBox(height: 30),
+                    SizedBox(
+                      height: radioPopularBroadCard.length *
+                          (AppConfig.height80 + AppConfig.height10),
+                      child: ListView.builder(
+                        physics: const NeverScrollableScrollPhysics(),
                         itemCount: radioPopularBroadCard.length,
-                        itemBuilder: (BuildContext context, int index) {
-                          return ProfileCards(
-                            hei: 120,
-                            wid: 120,
-                          );
-                        }),
-                  ),
-                  const SizedBox(height: 30),
-                  SizedBox(
-                    height: radioPopularBroadCard.length *
-                        (AppConfig.height80 + AppConfig.height10),
-                    child: ListView.builder(
-                      physics: const NeverScrollableScrollPhysics(),
-                      itemCount: radioPopularBroadCard.length,
-                      itemBuilder: (BuildContext context, int index) => Column(
-                        children: [
-                          ListCardBottomHome(
-                            radioPopularBroadCard[index],
-                            () {
-                              Get.to(() => PlayerPage(
-                                  data: radioPopularBroadCard[index]));
-                            },
-                            radio: true,
-                          ),
-                          SizedBox(height: AppConfig.height10),
-                        ],
+                        itemBuilder: (BuildContext context, int index) =>
+                            Column(
+                          children: [
+                            ListCardBottomHome(
+                              radioPopularBroadCard[index],
+                              () {
+                                Get.to(() => PlayerPage(
+                                    data: radioPopularBroadCard[index]));
+                              },
+                              radio: true,
+                            ),
+                            SizedBox(height: AppConfig.height10),
+                          ],
+                        ),
                       ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

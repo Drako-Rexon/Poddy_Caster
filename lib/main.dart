@@ -23,7 +23,8 @@ class _MyAppState extends State<MyApp> {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Poddy Caster',
-      theme: ThemeData(primarySwatch: Colors.purple),
+      theme: ThemeData(
+          primarySwatch: Colors.purple, fontFamily: 'CircularStd-Book'),
       home: const SplashScreen(), // const Intro(),
     );
   }

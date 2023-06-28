@@ -118,28 +118,33 @@ class _ForgetPassPageState extends State<ForgetPassPage> {
                 ],
               ),
               SizedBox(height: AppConfig.height80),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
+              Column(
                 children: [
-                  Text(
-                    "Already have account? ",
-                    style: TextStyle(
-                      fontSize: AppConfig.textSize12,
-                      color: pPrimaryTextColor,
-                    ),
-                  ),
-                  InkWell(
-                    onTap: () {
-                      Get.to(() => const SignInPage());
-                    },
-                    child: const Text(
-                      "Log In",
-                      style: TextStyle(
-                        color: pLightPink,
-                        fontWeight: FontWeight.bold,
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        "Already have account? ",
+                        style: TextStyle(
+                          fontSize: AppConfig.textSize12,
+                          color: pPrimaryTextColor,
+                        ),
                       ),
-                    ),
+                      InkWell(
+                        onTap: () {
+                          Get.to(() => const SignInPage());
+                        },
+                        child: const Text(
+                          "Log In",
+                          style: TextStyle(
+                            color: pLightPink,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ),
+                    ],
                   ),
+                  SizedBox(height: AppConfig.height15),
                 ],
               ),
             ],
