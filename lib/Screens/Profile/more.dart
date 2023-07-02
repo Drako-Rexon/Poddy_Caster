@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:poddy_caster/Screens/Profile/about_us.dart';
+import 'package:poddy_caster/Screens/Profile/connect_to_device.dart';
+import 'package:poddy_caster/Screens/Profile/music_quality.dart';
+import 'package:poddy_caster/Screens/Profile/playback.dart';
+import 'package:poddy_caster/Screens/Profile/social.dart';
 import 'package:poddy_caster/_components/colors.dart';
 import 'package:poddy_caster/_components/data_for_dynamic.dart';
 import 'package:poddy_caster/_components/util_function.dart';
 import 'package:poddy_caster/_components/util_widgets.dart';
-import 'package:poddy_caster/profile/about_us.dart';
-import 'package:poddy_caster/profile/connect_to_device.dart';
-import 'package:poddy_caster/profile/music_quality.dart';
-import 'package:poddy_caster/profile/playback.dart';
-import 'package:poddy_caster/profile/social.dart';
 
 class More extends StatelessWidget {
   const More({Key? key}) : super(key: key);

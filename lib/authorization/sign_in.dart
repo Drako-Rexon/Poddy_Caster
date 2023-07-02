@@ -7,7 +7,7 @@ import 'package:poddy_caster/_components/util_widgets.dart';
 import 'package:poddy_caster/authorization/forget_password.dart';
 import 'package:poddy_caster/authorization/sign_up_page.dart';
 import 'package:poddy_caster/_components/data_for_dynamic.dart';
-import 'package:poddy_caster/redirecting_page/redirecting_page.dart';
+import 'package:poddy_caster/Screens/redirecting_page/redirecting_page.dart';
 
 class SignInPage extends StatefulWidget {
   const SignInPage({Key? key}) : super(key: key);

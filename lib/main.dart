@@ -2,7 +2,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:poddy_caster/firebase_options.dart';
-import 'package:poddy_caster/splash_screen/spalsh_screen.dart';
+import 'package:poddy_caster/Screens/splash_screen/spalsh_screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -24,12 +24,14 @@ class _MyAppState extends State<MyApp> {
       debugShowCheckedModeBanner: false,
       title: 'Poddy Caster',
       theme: ThemeData(
-          primarySwatch: Colors.purple, fontFamily: 'CircularStd-Book'),
+        primaryColor: const Color(0xFFffffff),
+        primarySwatch: Colors.purple,
+        fontFamily: 'CircularStd-Book',
+      ),
       home: const SplashScreen(), // const Intro(),
     );
   }
 }
-
 
 /*
 Platform  Firebase App Id

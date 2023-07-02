@@ -1,12 +1,12 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:poddy_caster/Screens/Player_page/player.dart';
 import 'package:poddy_caster/_components/colors.dart';
 import 'package:poddy_caster/_components/data_for_dynamic.dart';
 import 'package:poddy_caster/_components/sample_json.dart';
 import 'package:poddy_caster/_components/util_widgets.dart';
-import 'package:poddy_caster/player_page/player.dart';
-import 'package:poddy_caster/search/search.dart';
+import 'package:poddy_caster/Screens/search/search.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);

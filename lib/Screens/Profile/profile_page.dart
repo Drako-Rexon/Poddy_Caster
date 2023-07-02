@@ -2,13 +2,13 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_navigation/get_navigation.dart';
+import 'package:poddy_caster/Screens/Player_page/player.dart';
+import 'package:poddy_caster/Screens/Profile/more.dart';
 import 'package:poddy_caster/_components/colors.dart';
 import 'package:poddy_caster/_components/data_for_dynamic.dart';
 import 'package:poddy_caster/_components/sample_json.dart';
 import 'package:poddy_caster/_components/util_widgets.dart';
-import 'package:poddy_caster/player_page/player.dart';
-import 'package:poddy_caster/profile/more.dart';
-import 'package:poddy_caster/search/search.dart';
+import 'package:poddy_caster/Screens/search/search.dart';
 
 class ProfilePage extends StatefulWidget {
   const ProfilePage({Key? key}) : super(key: key);

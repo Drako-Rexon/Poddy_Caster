@@ -3,7 +3,7 @@ import 'package:get/get.dart';
 import 'package:poddy_caster/_components/colors.dart';
 import 'package:poddy_caster/_components/data_for_dynamic.dart';
 import 'package:poddy_caster/_components/util_widgets.dart';
-import 'package:poddy_caster/search/search.dart';
+import 'package:poddy_caster/Screens/search/search.dart';
 
 class Podcasts extends StatelessWidget {
   const Podcasts({Key? key}) : super(key: key);

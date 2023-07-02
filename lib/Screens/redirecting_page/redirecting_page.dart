@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:poddy_caster/Events_Pages/events.dart';
-import 'package:poddy_caster/Podcasts/podcasts.dart';
-import 'package:poddy_caster/Radio_Station/radio_station.dart';
+import 'package:poddy_caster/Screens/Events_Pages/events.dart';
+import 'package:poddy_caster/Screens/Podcasts/podcasts.dart';
+import 'package:poddy_caster/Screens/Profile/profile_page.dart';
+import 'package:poddy_caster/Screens/Radio_Station/radio_station.dart';
 import 'package:poddy_caster/_components/colors.dart';
 import 'package:poddy_caster/_components/data_for_dynamic.dart';
-import 'package:poddy_caster/Home/home_page.dart';
-import 'package:poddy_caster/profile/profile_page.dart';
+import 'package:poddy_caster/Screens/Home/home_page.dart';
 
 class RedirectingPage extends StatefulWidget {
   const RedirectingPage({Key? key}) : super(key: key);
@@ -104,4 +104,3 @@ class _RedirectingPageState extends State<RedirectingPage> {
     );
   }
 }
-
