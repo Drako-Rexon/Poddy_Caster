@@ -2,6 +2,8 @@
 
 A Flutter App which is available for both Android and iOS platform. It is a music player app which is able to play music from local storage as well as online. It is build by me and it's UI is completed. A few features are remaining to add further. The first version of the app is here.
 
+[App Folder](https://drive.google.com/drive/folders/1alzMHtB_-6ncdqsueHsF1MiWowCIj5UZ?usp=sharing)
+
 ## Getting Started
 
 This project is a starting point for a Flutter application and this project is open for contributors to contrbute their work in this application.
@@ -18,9 +20,6 @@ samples, guidance on mobile development, and a full API reference.
 
 ## Screenshots
 
-![Screenshot](screenshots/1.png)
-![Screenshot](screenshots/2.png)
-![Screenshot](screenshots/3.png)
-![Screenshot](screenshots/4.png)
-![Screenshot](screenshots/5.png)
-![Screenshot](screenshots/6.png)
+![Screenshot](screenshots/1.png) ![Screenshot](screenshots/2.png)
+![Screenshot](screenshots/3.png) ![Screenshot](screenshots/4.png)
+![Screenshot](screenshots/5.png) ![Screenshot](screenshots/6.png)
