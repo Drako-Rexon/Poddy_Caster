@@ -1,8 +1,7 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:poddy_caster/firebase_options.dart';
-import 'package:poddy_caster/Screens/splash_screen/spalsh_screen.dart';
+import 'package:poddy_caster/src/presentation/ui/single_page_ui/spalsh_screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -20,7 +19,7 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
-    return GetMaterialApp(
+    return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Poddy Caster',
       theme: ThemeData(
@@ -41,4 +40,4 @@ ios       1:129790523460:ios:7a5930e68deddf8df7a411
 macos     1:129790523460:ios:7a5930e68deddf8df7a411
 */
 
-// 1//0gGBD9p0LRJWzCgYIARAAGBASNwF-L9IrJN6rYBaHjDNA7676P5TqHXDJP8apGS552zWN_wXw7eH_qGDI326FdhFAeuRxcROdLe0
+// 1 //0gGBD9p0LRJWzCgYIARAAGBASNwF-L9IrJN6rYBaHjDNA7676P5TqHXDJP8apGS552zWN_wXw7eH_qGDI326FdhFAeuRxcROdLe0
