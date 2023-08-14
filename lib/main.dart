@@ -1,7 +1,7 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:poddy_caster/firebase_options.dart';
-import 'package:poddy_caster/src/presentation/ui/single_page_ui/spalsh_screen.dart';
+import 'package:poddy_caster/src/presentation/views/single_page_ui/spalsh_screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();

@@ -1,7 +1,7 @@
 // ignore_for_file: must_be_immutable
 
 import 'package:flutter/material.dart';
-import 'package:poddy_caster/_components/colors.dart';
+import 'package:poddy_caster/src/utils/colors.dart';
 import 'package:poddy_caster/src/utils/data_for_dynamic.dart';
 import 'package:poddy_caster/src/utils/important_functions.dart';
 
@@ -238,64 +238,6 @@ class _ListCardBottomHomeState extends State<ListCardBottomHome> {
             ),
           ],
         ),
-      ),
-    );
-  }
-}
-
-class GradientButton extends StatelessWidget {
-  const GradientButton(
-    this.text,
-    this.func, {
-    Key? key,
-    this.isLoading = false,
-    this.isDisable = true,
-    this.wid = 0.0,
-    this.hei = 0.0,
-    this.textSize = 18.0,
-  }) : super(key: key);
-
-  final String text;
-  final bool isLoading;
-  final Function func;
-  final bool isDisable;
-  final double wid;
-  final double hei;
-  final double textSize;
-
-  @override
-  Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: () {
-        isDisable
-            ? () {
-                return;
-              }
-            : func();
-      },
-      child: Container(
-        width: wid != 0.0 ? wid : AppConfig.screenWidth - AppConfig.width50,
-        height: hei != 0.0 ? hei : AppConfig.height40 + AppConfig.height5,
-        decoration: BoxDecoration(
-          borderRadius: const BorderRadius.all(Radius.circular(6)),
-          gradient: LinearGradient(
-            begin: Alignment.topLeft,
-            end: Alignment.bottomRight,
-            colors: isDisable ? disableGradient : gradientButton1,
-          ),
-        ),
-        child: isLoading
-            ? SizedBox(
-                width: wid / 20,
-                child: const CircularProgressIndicator(color: pWhite))
-            : Center(
-                child: NormalText(
-                  text: text,
-                  textColor: pWhite,
-                  textSize: textSize == 18.0 ? 18 : textSize,
-                  isBold: true,
-                ),
-              ),
       ),
     );
   }
