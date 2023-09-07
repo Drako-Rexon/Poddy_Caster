@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:poddy_caster/src/presentation/views/auth/bloc/auth_bloc.dart';
@@ -189,6 +191,7 @@ class _SignInPageState extends State<SignInPage> {
                                     onChanged: (value) {
                                       setState(() {
                                         this.value = value!;
+                                        log(value.toString());
                                       });
                                     },
                                   ),
@@ -211,13 +214,13 @@ class _SignInPageState extends State<SignInPage> {
                             "Log In",
                             () {
                               authBloc.add(SignInNavigateIntoAppEvent());
-                              // navigateRoute(context, const RedirectingPage());
                             },
                             textSize: 20,
                             // page: const RedirectingPage(),
                             isDisable:
                                 RegExp(r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+")
-                                        .hasMatch(_emailController.text)
+                                            .hasMatch(_emailController.text) &&
+                                        _passController.text.isNotEmpty
                                     ? false
                                     : true,
                             isLoading: loading,

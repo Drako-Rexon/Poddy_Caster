@@ -75,7 +75,6 @@ class _IntroState extends State<Intro> {
                 Align(
                   alignment: const Alignment(0.9, -0.9),
                   child: InkWell(
-                    // overlayColor: MaterialStateProperty.all(trans),
                     onTap: () {
                       introBloc.add(ProceedToTheAppPage());
                     },

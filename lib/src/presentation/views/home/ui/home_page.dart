@@ -1,10 +1,12 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
+import 'package:poddy_caster/src/models/song_model.dart';
+import 'package:poddy_caster/src/presentation/views/home/ui/widgets/carousel_slider.dart';
+import 'package:poddy_caster/src/presentation/widgets/list_widget.dart';
 import 'package:poddy_caster/src/utils/colors.dart';
 import 'package:poddy_caster/src/data/sample_json.dart';
 import 'package:poddy_caster/src/utils/data_for_dynamic.dart';
 import 'package:poddy_caster/src/utils/util_widgets.dart';
-import 'package:poddy_caster/src/presentation/views/single_page_ui/player.dart';
 import 'package:poddy_caster/src/presentation/views/single_page_ui/search.dart';
 import 'package:poddy_caster/src/utils/important_functions.dart';
 
@@ -130,10 +132,54 @@ class _HomePageState extends State<HomePage> {
                           child: Padding(
                             padding: EdgeInsets.only(left: AppConfig.width10),
                             child: Row(
-                              children: List.generate(homeCarouselSlider.length,
-                                  (index) {
+                              children:
+                                  List.generate(modelData.length, (index) {
                                 return CarouselCardHome(
-                                    objData: homeCarouselSlider[index]);
+                                  song: SongModel(
+                                    id: modelData[index]['id'],
+                                    name: modelData[index]['name'],
+                                    artists: List.generate(
+                                        modelData[index]['artists'].length,
+                                        (ind) => Artist(
+                                            id: modelData[index]['artists'][ind]
+                                                    ['id']
+                                                .toString(),
+                                            name: modelData[index]['artists']
+                                                [ind]['name'])),
+                                    album: Album(
+                                      id: modelData[index]['album']['id'],
+                                      name: modelData[index]['album']['name'],
+                                      releaseDate: modelData[index]['album']
+                                              ['release_date'] ??
+                                          "null arha h",
+                                      totalTracks: modelData[index]['album']
+                                              ['total_tracks'] ??
+                                          -1,
+                                    ),
+                                    durationMs: modelData[index]['duration_ms'],
+                                    popularity: modelData[index]['popularity'],
+                                    explicit: modelData[index]['explicit'],
+                                    previewUrl: modelData[index]
+                                            ['previewUrl'] ??
+                                        "Null arha h fr",
+                                    externalUrls: ExternalUrls(
+                                        spotify: modelData[index]
+                                            ['external_urls']['spotify']),
+                                    images: List.generate(
+                                      modelData[index]['images'].length,
+                                      (ind) => ImageData(
+                                        height: modelData[index]['images'][ind]
+                                            ['height'],
+                                        width: modelData[index]['images'][ind]
+                                            ['width'],
+                                        url: modelData[index]['images'][ind]
+                                            ['url'],
+                                      ),
+                                    ),
+                                    releaseDate: modelData[index]
+                                        ['release_date'],
+                                  ),
+                                );
                               }),
                             ),
                           ),
@@ -157,18 +203,56 @@ class _HomePageState extends State<HomePage> {
                     SizedBox(height: AppConfig.height20),
                     Column(
                       children: List.generate(
-                        homeCardBottom.length,
+                        modelData.length,
                         (index) {
                           return Column(
                             children: [
                               ListCardBottomHome(
-                                homeCardBottom[index],
-                                () {
-                                  navigateRoute(
-                                      context,
-                                      PlayerPage(
-                                          data: radioPopularBroadCard[index]));
-                                },
+                                // () {
+
+                                // },
+                                song: SongModel(
+                                  id: modelData[index]['id'],
+                                  name: modelData[index]['name'],
+                                  artists: List.generate(
+                                      modelData[index]['artists'].length,
+                                      (ind) => Artist(
+                                          id: modelData[index]['artists'][ind]
+                                                  ['id']
+                                              .toString(),
+                                          name: modelData[index]['artists'][ind]
+                                              ['name'])),
+                                  album: Album(
+                                    id: modelData[index]['album']['id'],
+                                    name: modelData[index]['album']['name'],
+                                    releaseDate: modelData[index]['album']
+                                            ['release_date'] ??
+                                        "null arha h",
+                                    totalTracks: modelData[index]['album']
+                                            ['total_tracks'] ??
+                                        -1,
+                                  ),
+                                  durationMs: modelData[index]['duration_ms'],
+                                  popularity: modelData[index]['popularity'],
+                                  explicit: modelData[index]['explicit'],
+                                  previewUrl: modelData[index]['previewUrl'] ??
+                                      "Null arha h fr",
+                                  externalUrls: ExternalUrls(
+                                      spotify: modelData[index]['external_urls']
+                                          ['spotify']),
+                                  images: List.generate(
+                                    modelData[index]['images'].length,
+                                    (ind) => ImageData(
+                                      height: modelData[index]['images'][ind]
+                                          ['height'],
+                                      width: modelData[index]['images'][ind]
+                                          ['width'],
+                                      url: modelData[index]['images'][ind]
+                                          ['url'],
+                                    ),
+                                  ),
+                                  releaseDate: modelData[index]['release_date'],
+                                ),
                               ),
                               SizedBox(height: AppConfig.height10),
                             ],

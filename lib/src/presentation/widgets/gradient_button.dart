@@ -84,7 +84,8 @@ class GradientButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return DecoratedBox(
+    return Container(
+      // height: 40,
       decoration: BoxDecoration(
         borderRadius: const BorderRadius.all(Radius.circular(6)),
         gradient: LinearGradient(

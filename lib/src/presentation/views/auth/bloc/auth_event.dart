@@ -9,4 +9,7 @@ class SignInNavigateToForgetPasswordPageEvent extends AuthEvent {}
 
 class SignInNavigateToTermsOfServicesPageEvent extends AuthEvent {}
 
-class SignInNavigateIntoAppEvent extends AuthEvent {}
+class SignInNavigateIntoAppEvent extends AuthEvent {
+  // SignInNavigateIntoAppEvent({required this.checkRememberMe});
+  // final checkRememberMe;
+}

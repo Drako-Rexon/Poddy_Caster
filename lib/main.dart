@@ -6,6 +6,7 @@ import 'package:poddy_caster/src/presentation/views/single_page_ui/spalsh_screen
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
+
   runApp(const MyApp());
 }
 

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:poddy_caster/src/models/song_model.dart';
 import 'package:poddy_caster/src/utils/colors.dart';
 import 'package:poddy_caster/src/utils/data_for_dynamic.dart';
 import 'package:poddy_caster/src/utils/important_functions.dart';
@@ -6,9 +7,11 @@ import 'package:poddy_caster/src/utils/important_functions.dart';
 class PlayerPage extends StatefulWidget {
   const PlayerPage({
     Key? key,
-    required this.data,
+    // required this.data,
+    required this.song,
   }) : super(key: key);
-  final dynamic data;
+  // final dynamic data;
+  final SongModel song;
 
   @override
   State<PlayerPage> createState() => _PlayerPageState();
@@ -31,7 +34,7 @@ class _PlayerPageState extends State<PlayerPage> {
               width: AppConfig.screenWidth,
               decoration: BoxDecoration(
                 image: DecorationImage(
-                  image: AssetImage(widget.data['img']),
+                  image: NetworkImage(widget.song.images[0].url),
                   fit: BoxFit.cover,
                 ),
               ),
@@ -64,7 +67,7 @@ class _PlayerPageState extends State<PlayerPage> {
                           borderRadius:
                               const BorderRadius.all(Radius.circular(16)),
                           image: DecorationImage(
-                            image: AssetImage(widget.data['img']),
+                            image: NetworkImage(widget.song.images[0].url),
                             fit: BoxFit.cover,
                           ),
                         ),
@@ -77,7 +80,7 @@ class _PlayerPageState extends State<PlayerPage> {
                           AppConfig.height5,
                         ),
                         child: Text(
-                          widget.data['mainTitle'],
+                          widget.song.name.toUpperCase(),
                           overflow: TextOverflow.ellipsis,
                           style: TextStyle(
                             color: pWhite,
@@ -87,7 +90,7 @@ class _PlayerPageState extends State<PlayerPage> {
                         ),
                       ),
                       Text(
-                        widget.data['subTitle'],
+                        widget.song.album.name,
                         overflow: TextOverflow.ellipsis,
                         style: TextStyle(
                           color: pPrimaryTextColor,

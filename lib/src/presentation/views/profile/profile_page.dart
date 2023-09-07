@@ -1,12 +1,12 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
+import 'package:poddy_caster/src/models/song_model.dart';
+import 'package:poddy_caster/src/presentation/widgets/list_widget.dart';
 import 'package:poddy_caster/src/utils/colors.dart';
 import 'package:poddy_caster/src/data/sample_json.dart';
 import 'package:poddy_caster/src/utils/data_for_dynamic.dart';
 import 'package:poddy_caster/src/utils/util_widgets.dart';
 import 'package:poddy_caster/src/presentation/views/profile/more.dart';
-import 'package:poddy_caster/src/presentation/views/single_page_ui/player.dart';
-import 'package:poddy_caster/src/presentation/views/single_page_ui/search.dart';
 import 'package:poddy_caster/src/utils/important_functions.dart';
 
 class ProfilePage extends StatefulWidget {
@@ -44,14 +44,6 @@ class _ProfilePageState extends State<ProfilePage> {
                 padding: EdgeInsets.symmetric(horizontal: 10),
                 child: Icon(Icons.more_vert, size: 26),
               ),
-            ),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 10),
-              child: InkWell(
-                  onTap: () {
-                    navigateRoute(context, const SearchPage());
-                  },
-                  child: const Icon(Icons.search, size: 26)),
             ),
           ],
         ),
@@ -136,7 +128,7 @@ class _ProfilePageState extends State<ProfilePage> {
                         height: 200,
                         child: ListView.builder(
                             scrollDirection: Axis.horizontal,
-                            itemCount: radioPopularBroadCard.length,
+                            itemCount: modelData.length,
                             itemBuilder: (BuildContext context, int index) {
                               return ProfileCards(fav: fav);
                             }),
@@ -156,20 +148,53 @@ class _ProfilePageState extends State<ProfilePage> {
                 ),
                 SizedBox(height: AppConfig.height10),
                 SizedBox(
-                  height: radioPopularBroadCard.length *
+                  height: modelData.length *
                       (AppConfig.height80 + AppConfig.height10),
                   child: ListView.builder(
                     physics: const NeverScrollableScrollPhysics(),
-                    itemCount: radioPopularBroadCard.length,
+                    itemCount: modelData.length,
                     itemBuilder: (BuildContext context, int index) => Column(
                       children: [
                         ListCardBottomHome(
-                          radioPopularBroadCard[index],
-                          () {
-                            navigateRoute(context,
-                                PlayerPage(data: radioPopularBroadCard[index]));
-                          },
-                          radio: true,
+                          song: SongModel(
+                            id: modelData[index]['id'],
+                            name: modelData[index]['name'],
+                            artists: List.generate(
+                                modelData[index]['artists'].length,
+                                (ind) => Artist(
+                                    id: modelData[index]['artists'][ind]['id']
+                                        .toString(),
+                                    name: modelData[index]['artists'][ind]
+                                        ['name'])),
+                            album: Album(
+                              id: modelData[index]['album']['id'],
+                              name: modelData[index]['album']['name'],
+                              releaseDate: modelData[index]['album']
+                                      ['release_date'] ??
+                                  "null arha h",
+                              totalTracks: modelData[index]['album']
+                                      ['total_tracks'] ??
+                                  -1,
+                            ),
+                            durationMs: modelData[index]['duration_ms'],
+                            popularity: modelData[index]['popularity'],
+                            explicit: modelData[index]['explicit'],
+                            previewUrl: modelData[index]['previewUrl'] ??
+                                "Null arha h fr",
+                            externalUrls: ExternalUrls(
+                                spotify: modelData[index]['external_urls']
+                                    ['spotify']),
+                            images: List.generate(
+                              modelData[index]['images'].length,
+                              (ind) => ImageData(
+                                height: modelData[index]['images'][ind]
+                                    ['height'],
+                                width: modelData[index]['images'][ind]['width'],
+                                url: modelData[index]['images'][ind]['url'],
+                              ),
+                            ),
+                            releaseDate: modelData[index]['release_date'],
+                          ),
                         ),
                         SizedBox(height: AppConfig.height10),
                       ],
